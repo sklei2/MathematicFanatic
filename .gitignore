@@ -10,3 +10,5 @@
 gradlew.*
 *.properties
 .idea
+gradlew
+gradle/
