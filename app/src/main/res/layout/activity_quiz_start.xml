@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Quiz on 5&apos;s and 6&apos;s"
-        android:id="@+id/textView"
+        android:id="@+id/quizDescription"
         android:layout_above="@+id/button"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="74dp" />
