@@ -15,6 +15,7 @@ public class QuizStartActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.AppTheme);
         ArrayList<Integer> quizNumbersIn = new ArrayList<Integer>(Arrays.asList(5, 6)); //Hardcoded.
         quizzableNumbers = quizNumbersIn;
         setContentView(R.layout.activity_quiz_start);

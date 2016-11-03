@@ -9,11 +9,19 @@
         <item name="android:textSize">30sp</item>
     </style>
 
-    <!-- Button Themes that we'll use throughot the Application -->
+    <!-- Button Themes that we'll use throughout the Application -->
     <style name="BaseButtonTheme" parent="@android:style/Widget.Button.Inset">
         <item name="android:colorBackground">#FFFFFF</item>
         <item name="android:shadowColor">#CBCBCB</item>
 
+    </style>
+
+    <!-- Default Theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
     <!-- Home Page theme. -->
