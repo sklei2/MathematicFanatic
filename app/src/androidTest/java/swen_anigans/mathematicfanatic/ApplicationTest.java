@@ -1,4 +1,4 @@
-package swen_anigans.mathmaticfanatic;
+package swen_anigans.mathematicfanatic;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

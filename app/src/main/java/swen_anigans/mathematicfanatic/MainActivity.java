@@ -1,4 +1,4 @@
-package swen_anigans.mathmaticfanatic;
+package swen_anigans.mathematicfanatic;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
