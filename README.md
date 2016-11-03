@@ -8,7 +8,7 @@ struggling to learn their multiplication tables or want additional practice. Thi
 is not meant to replace school teachings, merely to suppliment it. 
 
 ## Getting Started:
-1. Since this repository only contains the app folder of the android application the first thing we need to do is create the android project correctly
+1. Since this repository only contains the app folder of the android application, the first thing we need to do is create the android project correctly
   1. Open Android studio and click "create new project"
   2. In "Application name" type in "MathematicFanatic" and in "Company Domain" type in "swen_anigains"
   3. Check off "Phone and Tablet" and select "API 23: Android 6.0(Marshallow)" in the Minimum SDK dropdown.
