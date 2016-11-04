@@ -11,9 +11,10 @@
 
     <!-- Button Themes that we'll use throughout the Application -->
     <style name="BaseButtonTheme" parent="@android:style/Widget.Button.Inset">
-        <item name="android:colorBackground">#FFFFFF</item>
+        <item name="android:colorBackground">@color/buttonBackground</item>
+        <item name="android:bottomRightRadius">5sp</item>
+        <item name="android:bottomLeftRadius">5sp</item>
         <item name="android:shadowColor">#CBCBCB</item>
-
     </style>
 
     <!-- Default Theme. -->
@@ -26,11 +27,12 @@
 
     <!-- Home Page theme. -->
     <style name="HomeTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/homePrimary</item>
         <item name="colorPrimaryDark">@color/homePrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:colorBackground">@color/homeBackground</item>
+
+        <item name="android:buttonStyle">@style/BaseButtonTheme</item>
     </style>
 
     <!-- Guardian Controls Theme. -->
