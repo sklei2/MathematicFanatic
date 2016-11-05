@@ -13,6 +13,6 @@
     <color name="homeColorAccent">#FF4081</color>
 
     <!-- Button Colors -->
-    <color name="buttonBackground">#fafafa</color>
+    <color name="buttonBackground">#FFFFFF</color>
 
 </resources>
