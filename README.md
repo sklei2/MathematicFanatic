@@ -16,7 +16,8 @@ is not meant to replace school teachings, merely to suppliment it.
 2. Then with your favorite git client (I used git bash), add this repo as a remote to your project then pull 'origin master'. With git commandline I did:
    ```
       git remote add origin https://github.com/sklei2/MathematicFanatic.git
-      git pull origin master
+      git fetch --all
+      git reset --hard origin/master
    ```
    
    and it seemed ok.
