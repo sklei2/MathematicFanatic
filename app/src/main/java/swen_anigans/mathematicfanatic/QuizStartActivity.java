@@ -1,7 +1,9 @@
 package swen_anigans.mathematicfanatic;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -24,7 +26,13 @@ public class QuizStartActivity extends AppCompatActivity {
         for (int i : quizzableNumbers) {
             quizDescriptionText += (Integer.toString(i) + "'s, ");
         }
-        quizDescriptionText = quizDescriptionText.substring(0, quizDescriptionText.length()-2);
+        quizDescriptionText = quizDescriptionText.substring(0, quizDescriptionText.length() - 2);
         quizDescription.setText(quizDescriptionText);
+    }
+
+    public void startQuizButtonClicked(View v) {
+        Intent quizIntent = new Intent(QuizStartActivity.this, QuizActivity.class);
+        quizIntent.putExtra("atBeginning", true);
+        startActivity(quizIntent);
     }
 }
