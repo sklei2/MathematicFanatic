@@ -6,14 +6,6 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">Helvetica</item>
-        <item name="android:textSize">30sp</item>
-    </style>
-
-    <!-- Button Themes that we'll use throughout the Application -->
-    <style name="BaseButtonTheme" parent="@android:style/Widget.Button.Inset">
-        <item name="android:colorBackground">@color/buttonBackground</item>
-        <item name="android:bottomRightRadius">5sp</item>
-        <item name="android:bottomLeftRadius">5sp</item>
     </style>
 
     <!-- Default Theme. -->
@@ -30,8 +22,6 @@
         <item name="colorPrimaryDark">@color/homePrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:colorBackground">@color/homeBackground</item>
-
-        <item name="android:buttonStyle">@style/BaseButtonTheme</item>
     </style>
 
     <!-- Guardian Controls Theme. -->

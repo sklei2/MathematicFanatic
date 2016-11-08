@@ -14,5 +14,6 @@
 
     <!-- Button Colors -->
     <color name="buttonBackground">#FFFFFF</color>
+    <color name="buttonShadow">#989898</color>
 
 </resources>
