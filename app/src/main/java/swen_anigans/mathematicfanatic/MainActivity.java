@@ -29,11 +29,13 @@ public class MainActivity extends AppCompatActivity {
         Button studentButton = new Button(this);
         Button progressReportButton = new Button(this);
         // replace the hardcoded text with the name of the student
-        studentButton.setText("Student X");
         studentButton.setBackgroundResource(R.drawable.long_button);
+        studentButton.setTextSize(15);
+        studentButton.setText("Student X");
 
-        progressReportButton.setText(R.string.progress_report_button);
         progressReportButton.setBackgroundResource(R.drawable.short_button);
+        progressReportButton.setTextSize(15);
+        progressReportButton.setText(R.string.progress_report_button);
 
         // This is where we would probably hook up the button's intent
 
