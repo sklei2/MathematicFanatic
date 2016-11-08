@@ -51,6 +51,5 @@
         android:layout_alignParentEnd="true"
         android:layout_marginRight="20dp"
         android:background="@drawable/ic_settings_black_64dp" />
-
-
+    
 </RelativeLayout>
