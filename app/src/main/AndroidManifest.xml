@@ -16,8 +16,12 @@
         </activity>
         <activity
             android:name=".GuardianSettings"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".StudentSettings"></activity>
+            android:parentActivityName=".MainActivity">
+
+        </activity>
+        <activity android:name=".StudentSettings">
+
+        </activity>
     </application>
 
 </manifest>
