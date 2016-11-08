@@ -16,6 +16,7 @@
     <color name="guardianPrimaryDark">#263238</color>
     <color name="guardianBackground">#CFD8DC</color>
     <color name="guardianColorAccent">#FF6666</color>
+    <color name="guardianListBackground">#eceff1</color>
 
     <!-- Button Colors -->
     <color name="buttonBackground">#FFFFFF</color>
