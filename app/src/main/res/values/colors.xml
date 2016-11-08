@@ -14,6 +14,7 @@
 
     <!-- Button Colors -->
     <color name="buttonBackground">#FFFFFF</color>
+    <color name="buttonClickedBackground">#717171</color>
     <color name="buttonShadow">#989898</color>
 
 </resources>
