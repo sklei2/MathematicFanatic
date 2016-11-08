@@ -5,12 +5,17 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-
     <!-- Home screen -->
     <color name="homePrimary">#FFEB3B</color>
     <color name="homePrimaryDark">#F57F17</color>
     <color name="homeBackground">#FFF9C4</color>
     <color name="homeColorAccent">#FF4081</color>
+
+    <!-- Guardian Settings/PIN -->
+    <color name="guardianPrimary">#607D8B</color>
+    <color name="guardianPrimaryDark">#263238</color>
+    <color name="guardianBackground">#CFD8DC</color>
+    <color name="guardianColorAccent">#FF6666</color>
 
     <!-- Button Colors -->
     <color name="buttonBackground">#FFFFFF</color>

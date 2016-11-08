@@ -6,6 +6,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">Helvetica</item>
+        <item name="android:textSize">30sp</item>
     </style>
 
     <!-- Default Theme. -->
@@ -25,6 +26,12 @@
     </style>
 
     <!-- Guardian Controls Theme. -->
+    <style name="GuardianTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/guardianPrimary</item>
+        <item name="colorPrimaryDark">@color/guardianPrimaryDark</item>
+        <item name="android:colorBackground">@color/guardianBackground</item>
+        <item name="colorAccent">@color/guardianColorAccent</item>
+    </style>
 
     <!-- Locker Theme. -->
 
