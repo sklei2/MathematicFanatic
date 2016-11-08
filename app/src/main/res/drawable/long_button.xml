@@ -15,6 +15,7 @@
                     <corners android:radius="10dp"/>
                     <stroke android:width="5px" android:color="#000000"/>
                     <size android:width="@dimen/long_button_width"/>
+                    <size android:height="@dimen/button_height"/>
                     <padding android:left="@dimen/button_padding"/>
                     <padding android:right="@dimen/button_padding"/>
                 </shape>
@@ -36,6 +37,7 @@
                     <corners android:radius="10dp"/>
                     <stroke android:width="5px" android:color="#000000"/>
                     <size android:width="@dimen/long_button_width"/>
+                    <size android:height="@dimen/button_height"/>
                     <padding android:left="@dimen/button_padding"/>
                     <padding android:right="@dimen/button_padding"/>
                 </shape>
