@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="learning_concepts">
+        <item>Imagery</item>
+        <item>Fact Families</item>
+        <item>List Memorization</item>
+    </string-array>
+</resources>
