@@ -15,6 +15,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".QuizResultsActivity"
+        <activity
+            android:name=".QuizActivity"
+        <activity
+            android:name=".QuizStartActivity"
+        <activity
+            android:name=".QuizSubmissionActivity"
+        <activity android:name=".RecessActivity"
+        <activity android:name=".VideoTheaterActivity"></activity>
     </application>
 
 </manifest>
