@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Default Colors -->
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+    <!-- Home screen -->
+    <color name="homePrimary">#FFEB3B</color>
+    <color name="homePrimaryDark">#F57F17</color>
+    <color name="homeBackground">#FFF9C4</color>
+    <color name="homeColorAccent">#FF4081</color>
+
+    <!-- Button Colors -->
+    <color name="buttonBackground">#FFFFFF</color>
+    <color name="buttonClickedBackground">#717171</color>
+    <color name="buttonShadow">#989898</color>
+
 </resources>

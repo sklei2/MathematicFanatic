@@ -1,11 +1,37 @@
 <resources>
 
-    <!-- Base application theme. -->
+    <!-- These will be used for the text at the top of every action bar. -->
+    <style name="ActionBarText" parent="@android:style/TextAppearance.Large">
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">Helvetica</item>
+    </style>
+
+    <!-- Default Theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <!-- Home Page theme. -->
+    <style name="HomeTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/homePrimary</item>
+        <item name="colorPrimaryDark">@color/homePrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/homeBackground</item>
+    </style>
+
+    <!-- Guardian Controls Theme. -->
+
+    <!-- Locker Theme. -->
+
+    <!-- Quiz Theme. -->
+
+    <!-- Classroom Theme. -->
+
+    <!-- Recess Theme. -->
 
 </resources>
