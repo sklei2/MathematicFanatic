@@ -43,7 +43,12 @@
     </style>
 
     <!-- Locker Theme. -->
-
+    <style name="LockerTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/lockerPrimary</item>
+        <item name="colorPrimaryDark">@color/lockerPrimaryDark</item>
+        <item name="android:colorBackground">@color/lockerBackground</item>
+        <item name="android:buttonStyle">@style/ButtonTheme</item>
+    </style>
     <!-- Quiz Theme. -->
 
     <!-- Classroom Theme. -->
