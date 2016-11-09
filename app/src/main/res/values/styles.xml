@@ -6,6 +6,12 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">Helvetica</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="ButtonTheme" parent="@android:style/Widget.Button.Inset">
+        <item name="android:fontFamily">Helvetica</item>
+        <item name="android:textSize">19sp</item>
     </style>
 
     <!-- Default Theme. -->
@@ -22,9 +28,19 @@
         <item name="colorPrimaryDark">@color/homePrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:colorBackground">@color/homeBackground</item>
+
+        <item name="android:buttonStyle">@style/ButtonTheme</item>
     </style>
 
     <!-- Guardian Controls Theme. -->
+    <style name="GuardianTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/guardianPrimary</item>
+        <item name="colorPrimaryDark">@color/guardianPrimaryDark</item>
+        <item name="android:colorBackground">@color/guardianBackground</item>
+        <item name="colorAccent">@color/guardianColorAccent</item>
+
+        <item name="android:buttonStyle">@style/ButtonTheme</item>
+    </style>
 
     <!-- Locker Theme. -->
 
