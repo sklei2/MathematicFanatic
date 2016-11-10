@@ -1,6 +1,20 @@
 <resources>
 
-    <!-- Base application theme. -->
+    <!-- These will be used for the text at the top of every action bar. -->
+    <style name="ActionBarText" parent="@android:style/TextAppearance.Large">
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">Helvetica</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="ButtonTheme" parent="@android:style/Widget.Button.Inset">
+        <item name="android:fontFamily">Helvetica</item>
+        <item name="android:textSize">19sp</item>
+    </style>
+
+    <!-- Default Theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -8,6 +22,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+<<<<<<< HEAD
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -16,5 +31,39 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+=======
+    <!-- Home Page theme. -->
+    <style name="HomeTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/homePrimary</item>
+        <item name="colorPrimaryDark">@color/homePrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/homeBackground</item>
+
+        <item name="android:buttonStyle">@style/ButtonTheme</item>
+    </style>
+
+    <!-- Guardian Controls Theme. -->
+    <style name="GuardianTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/guardianPrimary</item>
+        <item name="colorPrimaryDark">@color/guardianPrimaryDark</item>
+        <item name="android:colorBackground">@color/guardianBackground</item>
+        <item name="colorAccent">@color/guardianColorAccent</item>
+
+        <item name="android:buttonStyle">@style/ButtonTheme</item>
+    </style>
+
+    <!-- Locker Theme. -->
+    <style name="LockerTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/lockerPrimary</item>
+        <item name="colorPrimaryDark">@color/lockerPrimaryDark</item>
+        <item name="android:colorBackground">@color/lockerBackground</item>
+        <item name="android:buttonStyle">@style/ButtonTheme</item>
+    </style>
+    <!-- Quiz Theme. -->
+
+    <!-- Classroom Theme. -->
+
+    <!-- Recess Theme. -->
+>>>>>>> 3ae1072a24cc1c48d48a5abb7180d54760362035
 
 </resources>

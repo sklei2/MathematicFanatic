@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Default Colors -->
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!-- Home screen -->
+    <color name="homePrimary">#FFEB3B</color>
+    <color name="homePrimaryDark">#F57F17</color>
+    <color name="homeBackground">#FFF9C4</color>
+    <color name="homeColorAccent">#FF4081</color>
+
+    <!-- Guardian Settings/PIN -->
+    <color name="guardianPrimary">#607D8B</color>
+    <color name="guardianPrimaryDark">#263238</color>
+    <color name="guardianBackground">#CFD8DC</color>
+    <color name="guardianColorAccent">#FF6666</color>
+    <color name="guardianListBackground">#eceff1</color>
+
+    <!-- Button Colors -->
+    <color name="buttonBackground">#FFFFFF</color>
+    <color name="buttonClickedBackground">#717171</color>
+    <color name="buttonShadow">#989898</color>
+
+    <!-- Locker Colors -->
+    <color name="lockerPrimary">#F44336</color>
+    <color name="lockerPrimaryDark">#B71C1C</color>
+    <color name="lockerClassroomColor">#4CAF50</color>
+    <color name="lockerQuizColor">#2196F3</color>
+    <color name="lockerRecessColor">#FF9800</color>
+    <color name="lockerBackground">#F7FAFC</color>
+
+
 </resources>

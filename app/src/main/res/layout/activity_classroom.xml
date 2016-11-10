@@ -38,21 +38,16 @@
         android:layout_marginEnd="19dp"
         android:id="@+id/previousButton" />
 
-    <NumberPicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/numberPicker2"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:orientation="horizontal" />
-
     <TextView
         android:text="1/20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/questionNumber" />
+        android:id="@+id/questionNumber"
+        android:textColor="FFFFFF"
+        android:textSize="30px"
+        />
 
     <TextView
         android:text="3 X 4"
@@ -61,5 +56,20 @@
         android:id="@+id/questionAsked"
         android:layout_below="@+id/questionNumber"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp" />
+        android:layout_marginTop="42dp"
+        android:textSize="60px"
+        android:textColor="FFFFFF"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_alignBottom="@+id/checkButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="84dp"
+        android:id="@+id/answer"
+        android:text="0"
+        android:textAlignment="center" />
+
 </RelativeLayout>
