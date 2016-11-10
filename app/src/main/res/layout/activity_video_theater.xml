@@ -12,7 +12,15 @@
     tools:context="swen_anigans.mathematicfanatic.VideoTheaterActivity">
     <TextView
         android:id="@+id/selected"
-        android:text="@string/selected"
+        android:text="@string/videotheaterheading"
+        android:textSize="50dp"
+        android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    <LinearLayout
+        android:id="@+id/vidsGroup"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </LinearLayout>
 </LinearLayout>

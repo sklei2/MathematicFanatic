@@ -11,5 +11,5 @@
     <string name="reward6">Minecraft</string>
     <string name="medallibrary">Medal Library</string>
     <string name="videotheater">Video Theater</string>
-    <string name="selected"></string>
+    <string name="videotheaterheading">Select Reward</string>
 </resources>

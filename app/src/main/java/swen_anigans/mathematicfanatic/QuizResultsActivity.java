@@ -1,16 +1,11 @@
 package swen_anigans.mathematicfanatic;
 
 import android.content.Intent;
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
-import android.icu.text.DecimalFormat;
-import android.media.Image;
+import android.net.Uri;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutCompat;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -27,16 +22,25 @@ public class QuizResultsActivity extends AppCompatActivity {
     public final static String SELECTED = "selected";
     private static int videoId;
 
+    private static String picked = null;
+
     private static String[] rewardNames;
     private static TextView pickedTV;
 
-    String[] videoCategories = {null,
+    private static String[] videoCategories = {
             "Magic",
             "Animals",
             "Medieval Times",
             "Construction",
             "Superheroes",
             "Minecraft"};
+    private static String[] videoIds = {
+            "9HGfJhPqdBk",
+            "DR8SJqdknO8",
+            "sCywdHNummE",
+            "BMbDhwB1RjI",
+            "SXZ3qWAvbVs",
+            "apDWFOpLZiU",};
 
     private enum Star {
         FULL (2),
@@ -67,7 +71,16 @@ public class QuizResultsActivity extends AppCompatActivity {
 
         Star[] starValues = getStars(correct,total,starGroup.getChildCount());
         setStars(starViews,starValues);
-        setRewardListeners();
+
+        if(picked == null) {
+            setRewardListeners();
+        } else {
+            LinearLayout slideUp = (LinearLayout) findViewById(R.id.slideuppanel);
+            pickedTV = ((TextView) slideUp.getChildAt(0));
+            slideUp.removeAllViews();
+            formRewardSelectedLayout(slideUp,picked);
+        }
+
     }
 
     private LinearLayout formRewardSelectedLayout(LinearLayout ll, String r) {
@@ -86,9 +99,10 @@ public class QuizResultsActivity extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(QuizResultsActivity.this,VideoTheaterActivity.class);
-                intent.putExtra(QuizResultsActivity.SELECTED,videoId);
-                startActivity(intent);
+                Intent vidIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:"+videoIds[videoId]));
+                vidIntent.putExtra("force_fullscreen", true);
+                vidIntent.putExtra("finish_on_ended", true);
+                startActivity(vidIntent);
             }
         });
         b1.setId(View.generateViewId());
@@ -104,6 +118,8 @@ public class QuizResultsActivity extends AppCompatActivity {
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(QuizResultsActivity.this, VideoTheaterActivity.class);
+                startActivity(intent);
             }
         });
         b2.setId(View.generateViewId());
@@ -126,7 +142,8 @@ public class QuizResultsActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     LinearLayout slideUp = (LinearLayout) ((Button) v).getParent();
                     slideUp.removeAllViews();
-                    formRewardSelectedLayout(slideUp,((Button)v).getText().toString());
+                    picked = ((Button)v).getText().toString();
+                    formRewardSelectedLayout(slideUp,picked);
                 }
             });
         }
