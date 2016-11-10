@@ -22,7 +22,7 @@ public class StudentSettings extends AppCompatActivity {
         // This is where we would set the text on the toolbar
         // to match the student's name or new student if it is a new one.
         TextView toolbarText = (TextView) findViewById(R.id.toolbar_text);
-        toolbarText.setText("{STUDENT_NAME}");
+        toolbarText.setText("New Student or Name");
 
         // Make it so that the image button next to the spinner also
         // drops the menu.
