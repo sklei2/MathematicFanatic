@@ -20,6 +20,7 @@ public class GuardianSettings extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         myToolbar.setBackgroundResource(R.color.guardianPrimary);
         setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ArrayList<String> list = new ArrayList<String>();
         list.add("student 1");
