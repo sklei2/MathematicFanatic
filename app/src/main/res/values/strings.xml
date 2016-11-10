@@ -3,4 +3,5 @@
     <string name="progress_report_button">Report Card</string>
     <string name="guardian_settings">Guardian Settings</string>
     <string name="locker">Locker</string>
+    <string name="title_activity_help">Help</string>
 </resources>
