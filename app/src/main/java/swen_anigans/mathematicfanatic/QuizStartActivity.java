@@ -3,6 +3,7 @@ package swen_anigans.mathematicfanatic;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
@@ -20,6 +21,10 @@ public class QuizStartActivity extends AppCompatActivity {
         ArrayList<Integer> quizNumbersIn = new ArrayList<Integer>(Arrays.asList(5, 6)); //Hardcoded.
         quizzableNumbers = quizNumbersIn;
         setContentView(R.layout.activity_quiz_start);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        myToolbar.setBackgroundResource(R.color.quizPrimary);
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         TextView quizDescription = (TextView) findViewById(R.id.quizDescription);
         String quizDescriptionText = "Quiz on ";
