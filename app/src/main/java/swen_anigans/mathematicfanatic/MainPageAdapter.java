@@ -56,8 +56,6 @@ public class MainPageAdapter extends BaseAdapter implements ListAdapter {
         // Set the text
         studentButton.setText(list.get(i));
 
-        // Add button listeners
-
         return view;
     }
 }

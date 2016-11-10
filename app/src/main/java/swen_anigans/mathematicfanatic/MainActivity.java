@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<String> list = new ArrayList<>();
         list.add("Student 1");
         list.add("Student 2");
+        list.add("Student 3");
 
         // Create the adapter
         MainPageAdapter adapter = new MainPageAdapter(list, this);
@@ -41,6 +42,20 @@ public class MainActivity extends AppCompatActivity {
     public void ToSettings(View view)
     {
         Intent intent = new Intent(this, GuardianSettings.class);
+        startActivity(intent);
+    }
+
+    public void ToLocker(View view)
+    {
+        // Grab the button's text
+        Button clickedButton = (Button) view;
+        String studentText = clickedButton.getText().toString();
+
+        // This student text would then be used to set the current
+        // student from our "database"
+
+        // Then jump on over to the locker page!
+        Intent intent = new Intent(this, StudentLocker.class);
         startActivity(intent);
     }
 }
