@@ -26,7 +26,10 @@
             android:parentActivityName=".MainActivity">
 
         </activity>
-        <activity android:name=".ClassroomActivity" android:theme="@style/ClssroomTheme">
+        <activity
+            android:name=".ClassroomActivity"
+            android:theme="@style/ClssroomTheme"
+            android:parentActivityName=".StudentLocker">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

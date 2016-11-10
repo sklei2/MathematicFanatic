@@ -14,15 +14,12 @@ public class ClassroomActivity extends AppCompatActivity {
         setTheme(R.style.ClssroomTheme);
         setContentView(R.layout.activity_classroom);
 
-        /*Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        myToolbar.setBackgroundResource(R.color.homePrimary);
-        setSupportActionBar(myToolbar);
-
-        /*
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setBackgroundResource(R.color.classroomPrimary);
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
-        */
+
+
     }
 }
