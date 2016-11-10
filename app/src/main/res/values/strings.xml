@@ -1,10 +1,13 @@
 <resources>
     <string name="app_name">Mathematic Fanatic</string>
 
-    <string name="title_activity_classroom">classroom</string>
+    <string name="title_activity_classroom">Classroom</string>
 
     <string name="progress_report_button">Report Card</string>
     <string name="guardian_settings">Guardian Settings</string>
     <string name="locker">Locker</string>
+
+    <string name="title_activity_help">Help</string>
+
 
 </resources>

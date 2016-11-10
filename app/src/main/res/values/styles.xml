@@ -2,7 +2,7 @@
 
     <!-- These will be used for the text at the top of every action bar. -->
     <style name="ActionBarText" parent="@android:style/TextAppearance.Large">
-        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">left</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">Helvetica</item>
@@ -73,6 +73,13 @@
         <item name="android:colorBackground">@color/classroomBackground</item>
     </style>
 
+    <!-- Help Theme. -->
+    <style name="HelpTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/helpPrimary</item>
+        <item name="colorPrimaryDark">@color/helpPrimaryDark</item>
+        <item name="android:colorBackground">@color/helpBackground</item>
+        <item name="android:buttonStyle">@style/ButtonTheme</item>
+    </style>
 
     <!-- Recess Theme. -->
 
