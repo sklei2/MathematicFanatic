@@ -26,14 +26,8 @@ public class MainActivity extends AppCompatActivity {
         // Grab the listview
         ListView studentButtons = (ListView)findViewById(R.id.student_buttons);
 
-        // this would be replaced with the list from the singleton
-        ArrayList<String> list = new ArrayList<>();
-        list.add("Student 1");
-        list.add("Student 2");
-        list.add("Student 3");
-
         // Create the adapter
-        MainPageAdapter adapter = new MainPageAdapter(list, this);
+        MainPageAdapter adapter = new MainPageAdapter(DataManager.getInstance().students, this);
 
         // add the adapter to the list
         studentButtons.setAdapter(adapter);

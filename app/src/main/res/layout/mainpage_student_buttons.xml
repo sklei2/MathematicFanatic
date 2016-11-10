@@ -19,6 +19,7 @@
         android:layout_width="@dimen/short_button_width"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:text="@string/progress_report_button"/>
+        android:text="@string/progress_report_button"
+        android:clickable="false"/>
 
 </LinearLayout>

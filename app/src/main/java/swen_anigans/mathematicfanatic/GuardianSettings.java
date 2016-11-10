@@ -22,12 +22,8 @@ public class GuardianSettings extends AppCompatActivity {
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ArrayList<String> list = new ArrayList<String>();
-        list.add("student 1");
-        list.add("student 2");
-
         // create adapter class that will deal with all the student shenanigans
-        GuardianSettingsAdapter adapter = new GuardianSettingsAdapter(list, this);
+        GuardianSettingsAdapter adapter = new GuardianSettingsAdapter(DataManager.getInstance().students, this);
 
         // set the list view adapter
         ListView studentList = (ListView) findViewById(R.id.student_list_view);
