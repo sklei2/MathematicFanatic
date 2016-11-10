@@ -49,7 +49,14 @@
         <item name="android:colorBackground">@color/lockerBackground</item>
         <item name="android:buttonStyle">@style/ButtonTheme</item>
     </style>
+
     <!-- Quiz Theme. -->
+    <style name="QuizTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/quizPrimary</item>
+        <item name="android:colorPrimaryDark">@color/quizPrimaryDark</item>
+        <item name="android:colorBackground">@color/quizBackground</item>
+        <item name="android:buttonStyle">@style/ButtonTheme</item>
+    </style>
 
     <!-- Classroom Theme. -->
 
