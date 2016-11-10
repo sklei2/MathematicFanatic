@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class StudentLocker extends AppCompatActivity
 {
@@ -19,6 +20,8 @@ public class StudentLocker extends AppCompatActivity
         setContentView(R.layout.activity_student_locker);
         Toolbar toolbar = (Toolbar) findViewById(R.id.Lockertoolbar);
         setSupportActionBar(toolbar);
+        TextView title = (TextView) findViewById(R.id.LockerTitle);
+        title.setText("");
 
         //set the up button
         getActionBar().setDisplayHomeAsUpEnabled(true);
