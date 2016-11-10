@@ -53,6 +53,13 @@
 
     <!-- Classroom Theme. -->
 
+    <!-- Help Theme. -->
+    <style name="HelpTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/helpPrimary</item>
+        <item name="colorPrimaryDark">@color/helpPrimaryDark</item>
+        <item name="android:colorBackground">@color/helpBackground</item>
+        <item name="android:buttonStyle">@style/ButtonTheme</item>
+    </style>
     <!-- Recess Theme. -->
 
 </resources>

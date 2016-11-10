@@ -29,7 +29,7 @@
         android:layout_marginTop="145dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="something"
+        android:text="you can do it!"
         android:textSize="32sp"/>
 
 </RelativeLayout>

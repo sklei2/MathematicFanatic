@@ -31,5 +31,10 @@
     <color name="lockerRecessColor">#FF9800</color>
     <color name="lockerBackground">#F7FAFC</color>
 
+    <!-- Help Colors -->
+    <color name="helpPrimary">#E60073</color>
+    <color name="helpPrimaryDark">#993366</color>
+    <color name="helpBackground">#FFB3DA</color>
+    <color name="helpAccent">#00B3B3</color>
 
 </resources>
