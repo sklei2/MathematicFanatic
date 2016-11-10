@@ -15,7 +15,7 @@ public class DataManager
     private static DataManager instance;
 
     protected ArrayList<student> students;
-    public static student curStudent;
+    protected student curStudent;
     protected HashMap<Interest,String> Interests;
 
     private DataManager(){

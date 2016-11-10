@@ -21,7 +21,7 @@ public class StudentLocker extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.Lockertoolbar);
         setSupportActionBar(toolbar);
         TextView title = (TextView) findViewById(R.id.LockerTitle);
-        title.setText("");
+        title.setText(DataManager.getInstance().curStudent+"'s Locker");
 
         //set the up button
         getActionBar().setDisplayHomeAsUpEnabled(true);
