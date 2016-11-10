@@ -27,50 +27,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <Button
-        android:text="Check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/checkButton"
-        android:layout_marginBottom="65dp"
-        android:layout_above="@+id/nextButton"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:text="&lt;"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/nextButton"
-        android:layout_toStartOf="@+id/checkButton"
-        android:layout_marginEnd="19dp"
-        android:id="@+id/previousButton"
-        android:height="40dp"
-        android:width="30dp"
-        />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:layout_alignBottom="@+id/checkButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="84dp"
-        android:id="@+id/answer"
-        android:text="0"
-        android:textAlignment="center" />
-
-    <TextView
-        android:text="3 X 4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/questionAsked"
-        android:layout_marginTop="47dp"
-        android:textSize="60sp"
-        android:textColor="@color/guardianPrimaryDark"
-        android:layout_below="@+id/questionNumber"
-        android:layout_centerHorizontal="true" />
-
     <TextView
         android:text="1/20"
         android:layout_width="wrap_content"
@@ -83,19 +39,65 @@
         android:width="60dp"
         android:textAlignment="center"
         android:gravity="center"
-        android:layout_below="@+id/appBarLayout"
-        android:layout_alignEnd="@+id/nextButton"
-        android:layout_marginTop="84dp" />
+        android:layout_marginTop="78dp"
+        android:layout_marginEnd="25dp"
+        android:layout_alignParentEnd="true" />
 
-    <Button
-        android:text="&gt;"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/quizQuestion"
+        android:layout_marginTop="48dp"
+        android:layout_below="@+id/questionNumber"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkButton"
+        android:layout_alignStart="@+id/editQuizAnswer"
+        android:layout_alignEnd="@+id/editQuizAnswer"
+        android:layout_below="@+id/editQuizAnswer" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editQuizAnswer"
+        android:text="0"
+        android:textAlignment="center"
+        android:layout_below="@+id/quizQuestion"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="61dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&gt;"
         android:id="@+id/nextButton"
-        android:height="40dp"
-        android:width="30dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/questionAsked" />
+        android:textSize="40sp"
+        android:onClick="previousPage"
+        android:layout_alignEnd="@+id/questionNumber"
+        android:layout_toEndOf="@+id/quizQuestion"
+        android:layout_below="@+id/checkButton"
+        android:layout_alignParentBottom="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&lt;"
+        android:id="@+id/prevButton"
+        android:textSize="40sp"
+        android:onClick="previousPage"
+        android:layout_marginStart="26dp"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/quizQuestion"
+        android:layout_below="@+id/checkButton"
+        android:layout_alignParentBottom="true" />
+
 
 </RelativeLayout>
