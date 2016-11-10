@@ -145,5 +145,15 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="@string/reward4" />
+        <Button
+            android:id="@+id/reward5"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/reward5" />
+        <Button
+            android:id="@+id/reward6"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/reward6" />
         </LinearLayout>
 </com.sothree.slidinguppanel.SlidingUpPanelLayout>
