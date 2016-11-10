@@ -41,7 +41,8 @@
         android:layout_alignTop="@+id/add_student_button"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="20dp"
-        android:background="@drawable/ic_settings_black_64dp" />
+        android:background="@drawable/ic_settings_black_64dp"
+        android:onClick="ToSettings"/>
 
     <ListView
         android:id="@+id/student_buttons"
