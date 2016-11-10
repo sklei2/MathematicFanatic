@@ -214,7 +214,8 @@
         android:layout_width="@dimen/long_button_width"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -238,15 +239,57 @@
         android:layout_below="@+id/textView3"
         android:layout_alignStart="@+id/textView3" />
 
-    <!--
-    <EditText
+    <LinearLayout
+        android:id="@+id/linear_range_controls"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:layout_alignTop="@+id/textView3"
-        android:layout_alignStart="@+id/student_name_text"
-        android:id="@+id/editText3"
-        android:background="@color/guardianListBackground"/>
-    -->
+        android:orientation="horizontal"
+        android:layout_above="@+id/textView4"
+        android:layout_alignStart="@+id/student_name_text">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_width="102dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/low_range"
+                android:background="@color/guardianListBackground"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:paddingEnd="@dimen/activity_horizontal_margin"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="low"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/high_range"
+                android:background="@color/guardianListBackground"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="high"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 </RelativeLayout>
