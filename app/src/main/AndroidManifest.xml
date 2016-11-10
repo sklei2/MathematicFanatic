@@ -20,6 +20,13 @@
 
         </activity>
         <activity android:name=".StudentSettings"/>
+        <activity
+            android:name=".StudentLocker"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/LockerTheme">
+
+        </activity>
+
     </application>
 
 </manifest>
