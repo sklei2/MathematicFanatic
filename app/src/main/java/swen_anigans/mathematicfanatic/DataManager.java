@@ -62,21 +62,11 @@ public class DataManager
         return -1;
     }
 
-    public int updateStudent(student st){
-        for(student student : students){
-            if(student.name.equals(st.name)) {
-                students.remove(student);
-                students.add(st);
-                return 0;
-            }
-        }
-        return -1;
-    }
 
     public student getStudent(String name){
-        for(student st : students){
-            if(st.name.equals(name)) {
-                return st;
+        for(int i = 0; i < students.size(); i++){
+            if(students.get(i).name.equals(name)) {
+                return students.get(i);
             }
         }
 
