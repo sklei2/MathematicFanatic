@@ -19,9 +19,7 @@
             android:parentActivityName=".MainActivity">
 
         </activity>
-        <activity android:name=".StudentSettings">
-
-        </activity>
+        <activity android:name=".StudentSettings"/>
     </application>
 
 </manifest>
