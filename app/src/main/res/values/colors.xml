@@ -13,7 +13,7 @@
 
     <!-- Guardian Settings/PIN -->
     <color name="guardianPrimary">#607D8B</color>
-    <color name="guardianPrimaryDark">#263238</color>
+    <color name="guardianPrimaryDark">#000000</color>
     <color name="guardianBackground">#CFD8DC</color>
     <color name="guardianColorAccent">#FF6666</color>
     <color name="guardianListBackground">#eceff1</color>
@@ -30,6 +30,11 @@
     <color name="lockerQuizColor">#2196F3</color>
     <color name="lockerRecessColor">#FF9800</color>
     <color name="lockerBackground">#F7FAFC</color>
+
+    <!-- Classroom Colors -->
+    <color name="classroomPrimary">#1B5E20</color>
+    <color name="classroomPrimaryDark">#4CAF50</color>
+    <color name="classroomBackground">#C8E6C9</color>
 
 
 </resources>

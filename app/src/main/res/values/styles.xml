@@ -22,7 +22,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-<<<<<<< HEAD
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -31,8 +31,9 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-=======
+
     <!-- Home Page theme. -->
+
     <style name="HomeTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/homePrimary</item>
         <item name="colorPrimaryDark">@color/homePrimaryDark</item>
@@ -43,6 +44,7 @@
     </style>
 
     <!-- Guardian Controls Theme. -->
+
     <style name="GuardianTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/guardianPrimary</item>
         <item name="colorPrimaryDark">@color/guardianPrimaryDark</item>
@@ -53,17 +55,25 @@
     </style>
 
     <!-- Locker Theme. -->
+
     <style name="LockerTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/lockerPrimary</item>
         <item name="colorPrimaryDark">@color/lockerPrimaryDark</item>
         <item name="android:colorBackground">@color/lockerBackground</item>
         <item name="android:buttonStyle">@style/ButtonTheme</item>
     </style>
+
     <!-- Quiz Theme. -->
 
     <!-- Classroom Theme. -->
 
+    <style name="ClssroomTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/classroomPrimary</item>
+        <item name="colorPrimaryDark">@color/classroomPrimaryDark</item>
+        <item name="android:colorBackground">@color/classroomBackground</item>
+    </style>
+
+
     <!-- Recess Theme. -->
->>>>>>> 3ae1072a24cc1c48d48a5abb7180d54760362035
 
 </resources>

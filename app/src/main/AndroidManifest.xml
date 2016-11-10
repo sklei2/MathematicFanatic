@@ -6,6 +6,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat.Light"
         android:supportsRtl="true">
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -24,12 +25,13 @@
             android:parentActivityName=".MainActivity">
 
         </activity>
-        <activity android:name=".ClassroomActivity">
+        <activity android:name=".ClassroomActivity" android:theme="@style/ClssroomTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".StudentLocker"

@@ -11,14 +11,17 @@
     tools:context="swen_anigans.mathematicfanatic.ClassroomActivity">
 
     <Button
-        android:text="NEXT"
+        android:text="&gt;"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:id="@+id/nextButton"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="20dp" />
+        android:layout_marginEnd="20dp"
+        android:height="40dp"
+        android:width="30dp"
+        />
 
     <Button
         android:text="Check"
@@ -30,13 +33,16 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:text="PREV"
+        android:text="&lt;"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/nextButton"
         android:layout_toStartOf="@+id/checkButton"
         android:layout_marginEnd="19dp"
-        android:id="@+id/previousButton" />
+        android:id="@+id/previousButton"
+        android:height="40dp"
+        android:width="30dp"
+        />
 
     <TextView
         android:text="1/20"
@@ -45,8 +51,13 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:id="@+id/questionNumber"
-        android:textColor="FFFFFF"
-        android:textSize="30px"
+        android:textColor="@color/guardianPrimaryDark"
+        android:textSize="20sp"
+        android:background="@drawable/border"
+        android:height="30dp"
+        android:width="60dp"
+        android:textAlignment="center"
+        android:gravity="center"
         />
 
     <TextView
@@ -57,8 +68,8 @@
         android:layout_below="@+id/questionNumber"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="42dp"
-        android:textSize="60px"
-        android:textColor="FFFFFF"/>
+        android:textSize="60sp"
+        android:textColor="@color/guardianPrimaryDark"/>
 
     <EditText
         android:layout_width="wrap_content"
