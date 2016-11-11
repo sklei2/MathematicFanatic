@@ -78,7 +78,7 @@ public class activity_help extends AppCompatActivity {
 
         // Retrieve values a and b from last Activity Intent
         Intent intent = getIntent();
-        int[] values = intent.getIntArrayExtra("ab");
+        int[] values = intent.getIntArrayExtra("abValues");
         a = values[0];
         b = values[1];
 

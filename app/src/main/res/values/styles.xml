@@ -61,12 +61,11 @@
         <item name="android:colorBackground">@color/lockerBackground</item>
         <item name="android:buttonStyle">@style/ButtonTheme</item>
     </style>
-<<<<<<< HEAD
+
 
     <!-- Quiz Theme. -->
 
-=======
->>>>>>> 7fd079e792bc2220c9bb7c5f1fe7f4839219a2f3
+
     <!-- Classroom Theme. -->
 
     <style name="ClssroomTheme" parent="Theme.AppCompat.Light.NoActionBar">
