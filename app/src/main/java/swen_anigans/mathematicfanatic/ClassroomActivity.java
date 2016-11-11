@@ -1,7 +1,6 @@
 package swen_anigans.mathematicfanatic;
 
 import android.content.Intent;
-import android.os.CountDownTimer;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,8 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import java.security.KeyStore;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
@@ -37,17 +34,20 @@ public class ClassroomActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
-/*
+
         pageNumber = 1;
+        totalPages = 20;
+        classroomQuestions = new ArrayList<ArrayList<Integer>>();
+        expectedAnswers = new ArrayList<Integer>();
+        answers = new ArrayList<Integer>();
         initializeQuestions();
 
         for (int i = 0; i < totalPages; i++) {
-            answers.set(i, 0);
-            expectedAnswers.set(i, -1);
+            answers.add(0);
+
         }
 
         renderPage();
-        */
         
         //finishedQuestions();
     }
@@ -55,6 +55,7 @@ public class ClassroomActivity extends AppCompatActivity {
     public void initializeQuestions() {
         //TODO later need to make the numbers pick dynamic
         classroomNumbers = new ArrayList<Integer>(Arrays.asList(3, 8)); //Hardcoding the numbers to be quizzed on.
+
 
         for (int i = 0; i < totalPages; i++) {
             ArrayList<Integer> problemNumbers = new ArrayList<Integer>();
@@ -76,7 +77,7 @@ public class ClassroomActivity extends AppCompatActivity {
         String questionString = (Integer.toString(currentQuestion.get(0)) + " X " + Integer.toString(currentQuestion.get(1)));
         quizQuestion.setText(questionString);
 
-        Button PreviousButton = (Button) findViewById(R.id.quizPreviousButton);
+        Button PreviousButton = (Button) findViewById(R.id.prevButton);
         if (pageNumber == 1) {
             //Hides the back button on the first page
             PreviousButton.setVisibility(View.INVISIBLE);
@@ -85,19 +86,21 @@ public class ClassroomActivity extends AppCompatActivity {
         }
 
         TextView quizPagesComplete = (TextView) findViewById(R.id.quizPagesComplete);
-        quizPagesComplete.setText(pageNumber);
+        quizPagesComplete.setText(pageNumber+"/20");
     }
 
-    public void previousPage() {
+    public void previousPage(View view) {
         pageNumber -= 1;
         saveAnswer();
         renderPage();
     }
 
-    public void nextPage() {
-        pageNumber += 1;
+    public void nextPage(View view) {
+
         saveAnswer();
+        pageNumber += 1;
         if (pageNumber > totalPages) {
+            /*
             Intent quizSubmissionIntent = new Intent(ClassroomActivity.this, QuizSubmissionActivity.class);
 
             Bundle quizNumbersBundle = new Bundle();
@@ -107,6 +110,10 @@ public class ClassroomActivity extends AppCompatActivity {
             quizSubmissionIntent.putExtra("answers", answers);
             quizSubmissionIntent.putExtra("expectedAnswers", expectedAnswers);
             startActivity(quizSubmissionIntent);
+            */
+
+            finishedQuestions();
+
         }
         else {
             renderPage();
@@ -115,11 +122,12 @@ public class ClassroomActivity extends AppCompatActivity {
 
     public void saveAnswer() {
         EditText quizAnswerInput = (EditText) findViewById(R.id.editClassroomAnswer);
-        if (quizAnswerInput.getText().toString() != "") {
-            int quizAnswer = Integer.parseInt(quizAnswerInput.getText().toString());
+        String answer = quizAnswerInput.getText().toString();
+        if (answer != "") {
+            int quizAnswer = Integer.parseInt(answer);
             answers.set(pageNumber-1, quizAnswer);
         }
-        quizAnswerInput.setText("");
+        quizAnswerInput.setText("0");
     }
 
     public void goToHelp(View view) {
@@ -132,13 +140,12 @@ public class ClassroomActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
     public void finishedQuestions(){
         int[] items = { R.id.prevButton,
                         R.id.nextButton,
                         R.id.checkButton,
                         R.id.editClassroomAnswer,
-                        R.id.questionNumber,
+                        R.id.quizPagesComplete,
                         R.id.goToHelpButton
                         };
         TextView screenItem;
