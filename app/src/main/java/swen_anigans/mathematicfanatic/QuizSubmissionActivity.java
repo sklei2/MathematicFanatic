@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class QuizSubmissionActivity extends AppCompatActivity {
 
-    private ArrayList<ArrayList<Integer>> quizNumbers;
+    private ArrayList<ArrayList<Integer>> quizQuestions;
     private ArrayList<Integer> answers;
     private ArrayList<Integer> expectedAnswers;
 
@@ -20,7 +20,7 @@ public class QuizSubmissionActivity extends AppCompatActivity {
 
         Intent quizSubmissionIntent = getIntent();
 
-        quizNumbers = (ArrayList<ArrayList<Integer>>) quizSubmissionIntent.getSerializableExtra("quizNumbers");
+        quizQuestions = (ArrayList<ArrayList<Integer>>) quizSubmissionIntent.getSerializableExtra("quizNumbers");
         answers = quizSubmissionIntent.getIntegerArrayListExtra("answers");
         expectedAnswers = quizSubmissionIntent.getIntegerArrayListExtra("expectedAnswers");
     }
@@ -40,18 +40,17 @@ public class QuizSubmissionActivity extends AppCompatActivity {
             i++;
         }
 
-        /*
-        Intent resultsIntent = new Intent(QuizSubmissionActivity.this, ); //TODO: Change ResultsActivity to the name of Alec's thing.
+        Intent resultsIntent = new Intent(QuizSubmissionActivity.this, QuizResultsActivity.class);
         resultsIntent.putExtra("numberCorrect", correct);
         resultsIntent.putExtra("numberTotal", total);
-        */
     }
 
-    public void previousPage() {
+    public void previousPage(View view) {
         Intent quizIntent = new Intent(QuizSubmissionActivity.this, QuizActivity.class);
         quizIntent.putExtra("atBeginning", false);
-        quizIntent.putExtra("quizNumbers", quizNumbers);
+        quizIntent.putExtra("quizQuestions", quizQuestions);
         quizIntent.putExtra("answers", answers);
         quizIntent.putExtra("expectedAnswers", expectedAnswers);
+        startActivity(quizIntent);
     }
 }
