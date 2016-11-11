@@ -173,7 +173,8 @@ public class QuizActivity extends AppCompatActivity {
         }
 
         TextView quizPagesComplete = (TextView) findViewById(R.id.quizPagesComplete);
-        quizPagesComplete.setText(Integer.toString(pageNumber));
+        String pagesCompleteText = String.valueOf(pageNumber) + " / " + String.valueOf(totalPages);
+        quizPagesComplete.setText(pagesCompleteText);
 
         int currentAnswer = answers.get(pageNumber-1);
         if (currentAnswer != 0) {
