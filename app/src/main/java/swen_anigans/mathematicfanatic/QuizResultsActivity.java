@@ -124,7 +124,7 @@ public class QuizResultsActivity extends AppCompatActivity {
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(QuizResultsActivity.this, RecessActivity.class);
+                Intent intent = new Intent(QuizResultsActivity.this, StudentLocker.class);
                 startActivity(intent);
             }
         });

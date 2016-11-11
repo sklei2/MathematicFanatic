@@ -47,7 +47,9 @@
         <activity android:name=".RecessActivity"
             android:theme="@style/RecessTheme"/>
         <activity android:name=".VideoTheaterActivity"
-            android:theme="@style/RecessTheme"/>
+            android:theme="@style/RecessTheme">
+            android:parentActivityName=".MainActivity"
+        </activity>
     </application>
 
 </manifest>

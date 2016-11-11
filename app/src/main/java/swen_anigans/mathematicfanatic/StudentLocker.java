@@ -24,7 +24,7 @@ public class StudentLocker extends AppCompatActivity
         title.setText(DataManager.getInstance().curStudent+"'s Locker");
 
         //set the up button
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 
