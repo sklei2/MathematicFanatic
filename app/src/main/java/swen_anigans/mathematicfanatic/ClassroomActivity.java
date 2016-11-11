@@ -75,7 +75,7 @@ public class ClassroomActivity extends AppCompatActivity {
         TextView quizQuestion = (TextView) findViewById(R.id.classroomQuestion);
         ArrayList<Integer> currentQuestion = classroomQuestions.get(pageNumber-1);
 
-        String questionString = (Integer.toString(currentQuestion.get(0)) + " X " + Integer.toString(currentQuestion.get(1)));
+        String questionString = (Integer.toString(currentQuestion.get(1)) + " X " + Integer.toString(currentQuestion.get(0)));
         quizQuestion.setText(questionString);
 
         Button PreviousButton = (Button) findViewById(R.id.prevButton);
@@ -128,8 +128,8 @@ public class ClassroomActivity extends AppCompatActivity {
 
     public void goToHelp(View view) {
         ArrayList<Integer> currentQuestion = classroomQuestions.get(pageNumber-1);
-        int a = currentQuestion.get(0);
-        int b = currentQuestion.get(1);
+        int a = currentQuestion.get(1);
+        int b = currentQuestion.get(0);
         Intent intent = new Intent(this, activity_help.class);
         int[] temp = {a,b};
         intent.putExtra("abValues",temp);
