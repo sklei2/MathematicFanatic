@@ -60,8 +60,8 @@ public class QuizResultsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz_results);
     //get info we need (thanks Grant!)
         Intent intent = getIntent();
-        int total = intent.getIntExtra("numberCorrect",21);
-        int correct = intent.getIntExtra("numberTotal",13);
+        int total = intent.getIntExtra("numberTotal",21);
+        int correct = intent.getIntExtra("numberCorrect",13);
 
         ((TextView)findViewById(R.id.correct)).setText(java.lang.Integer.toString(correct));
         ((TextView)findViewById(R.id.total)).setText(java.lang.Integer.toString(total));
