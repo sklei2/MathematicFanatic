@@ -34,6 +34,20 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
+        <activity
+            android:name=".QuizResultsActivity"
+            android:exported="true"
+            android:theme="@style/QuizTheme"/>
+        <activity
+            android:name=".QuizActivity"/>
+        <activity
+            android:name=".QuizStartActivity"/>
+        <activity
+            android:name=".QuizSubmissionActivity"/>
+        <activity android:name=".RecessActivity"
+            android:theme="@style/RecessTheme"/>
+        <activity android:name=".VideoTheaterActivity"
+            android:theme="@style/RecessTheme"/>
     </application>
 
 </manifest>
