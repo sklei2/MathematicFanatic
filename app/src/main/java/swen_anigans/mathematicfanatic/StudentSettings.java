@@ -5,6 +5,7 @@ import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -150,37 +151,57 @@ public class StudentSettings extends AppCompatActivity {
         String name = nameText.getText().toString();
         int lowRange = Integer.valueOf(lowRangeText.getText().toString());
         int highRange = Integer.valueOf(highRangeText.getText().toString());
-        Interest interest_1 = Interest.valueOf(interest1.getSelectedItem().toString().toUpperCase());
-        Interest interest_2 = Interest.valueOf(interest2.getSelectedItem().toString().toUpperCase());
-        Interest interest_3 = Interest.valueOf(interest3.getSelectedItem().toString().toUpperCase());
+
+        // Convert each of the strings into something that we'll see in the enum
+        String interest1String = interest1.getSelectedItem().toString().toUpperCase();
+        interest1String = interest1String.replaceAll("\\s", "_");
+        String interest2String = interest2.getSelectedItem().toString().toUpperCase();
+        interest2String = interest2String.replaceAll("\\s", "_");
+        String interest3String = interest3.getSelectedItem().toString().toUpperCase();
+        interest3String = interest3String.replaceAll("\\s", "_");
         String conceptString = concepts.getSelectedItem().toString().toUpperCase();
-        conceptString.replace(" ", "_");
+        conceptString = conceptString.replaceAll("\\s", "_");
+
+        // get the enums
+        Interest interest_1 = Interest.valueOf(interest1String);
+        Interest interest_2 = Interest.valueOf(interest2String);
+        Interest interest_3 = Interest.valueOf(interest3String);
         LearningType concept = LearningType.valueOf(conceptString);
 
         try
         {
             student newStudent = new student(name, lowRange, highRange, interest_1, interest_2, interest_3, concept);
             DataManager.getInstance().addStudent(newStudent);
-            Intent intent = new Intent(this, parent);
-            Toast.makeText(this, "Student Created", Toast.LENGTH_SHORT).show();
-            startActivity(intent);
+            onBackPressed();
+            Toast.makeText(this, "Student Created", Toast.LENGTH_LONG).show();
         }
         catch(Exception e)
         {
-            Toast.makeText(this, "Invalid Values in the form", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Invalid Values in the form", Toast.LENGTH_LONG).show();
         }
     }
 
     private void saveStudent()
     {
+        // Get all the values from the form.
         String name = nameText.getText().toString();
         int lowRange = Integer.valueOf(lowRangeText.getText().toString());
         int highRange = Integer.valueOf(highRangeText.getText().toString());
-        Interest interest_1 = Interest.valueOf(interest1.getSelectedItem().toString().toUpperCase());
-        Interest interest_2 = Interest.valueOf(interest2.getSelectedItem().toString().toUpperCase());
-        Interest interest_3 = Interest.valueOf(interest3.getSelectedItem().toString().toUpperCase());
+
+        // Convert each of the strings into something that we'll see in the enum
+        String interest1String = interest1.getSelectedItem().toString().toUpperCase();
+        interest1String = interest1String.replaceAll("\\s", "_");
+        String interest2String = interest2.getSelectedItem().toString().toUpperCase();
+        interest2String = interest2String.replaceAll("\\s", "_");
+        String interest3String = interest3.getSelectedItem().toString().toUpperCase();
+        interest3String = interest3String.replaceAll("\\s", "_");
         String conceptString = concepts.getSelectedItem().toString().toUpperCase();
-        conceptString.replace(" ", "_");
+        conceptString = conceptString.replaceAll("\\s", "_");
+
+        // get the enums
+        Interest interest_1 = Interest.valueOf(interest1String);
+        Interest interest_2 = Interest.valueOf(interest2String);
+        Interest interest_3 = Interest.valueOf(interest3String);
         LearningType concept = LearningType.valueOf(conceptString);
 
         try
@@ -193,13 +214,29 @@ public class StudentSettings extends AppCompatActivity {
             current.interests = interests;
             current.learningType = concept;
 
-            Intent intent = new Intent(this, GuardianSettings.class);
-            startActivity(intent);
-            Toast.makeText(this, "Save Successful", Toast.LENGTH_SHORT).show();
+            onBackPressed();
+            Toast.makeText(this, "Save Successful", Toast.LENGTH_LONG).show();
         }
         catch(Exception e)
         {
-            Toast.makeText(this, "Invalid Values in the form", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Invalid Values in the form", Toast.LENGTH_LONG).show();
         }
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Intent intent = new Intent(this, parent);
+        startActivity(intent);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == android.R.id.home)
+        {
+            onBackPressed();
+            return true;
+        }
+        return false;
     }
 }

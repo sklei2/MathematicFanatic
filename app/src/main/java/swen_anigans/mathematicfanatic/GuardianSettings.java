@@ -24,6 +24,8 @@ public class GuardianSettings extends AppCompatActivity {
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        DataManager.getInstance().curStudent = null;
+
         // create adapter class that will deal with all the student shenanigans
         GuardianSettingsAdapter adapter = new GuardianSettingsAdapter(DataManager.getInstance().students, this);
 
