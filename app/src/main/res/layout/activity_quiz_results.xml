@@ -77,7 +77,7 @@
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 android:src="@drawable/ic_star_border"
-                android:tint="#F09000"/>
+                android:tint="@color/starTint"/>
             <ImageView
                 android:id="@+id/star2"
                 android:layout_weight="1"
@@ -86,7 +86,7 @@
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 android:src="@drawable/ic_star_border"
-                android:tint="#F09000"/>
+                android:tint="@color/starTint"/>
             <ImageView
                 android:id="@+id/star3"
                 android:layout_weight="1"
@@ -95,7 +95,7 @@
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 android:src="@drawable/ic_star_border"
-                android:tint="#F09000"/>
+                android:tint="@color/starTint"/>
             <ImageView
                 android:id="@+id/star4"
                 android:layout_weight="1"
@@ -104,7 +104,7 @@
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 android:src="@drawable/ic_star_border"
-                android:tint="#F09000"/>
+                android:tint="@color/starTint"/>
             <ImageView
                 android:id="@+id/star5"
                 android:layout_weight="1"
@@ -113,7 +113,7 @@
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 android:src="@drawable/ic_star_border"
-                android:tint="#F09000"/>
+                android:tint="@color/starTint"/>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
