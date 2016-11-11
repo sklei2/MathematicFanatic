@@ -25,7 +25,7 @@ public class ClassroomActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(R.style.ClssroomTheme);
+        setTheme(R.style.ClassroomTheme);
         setContentView(R.layout.activity_classroom);
 
         //back button and header
