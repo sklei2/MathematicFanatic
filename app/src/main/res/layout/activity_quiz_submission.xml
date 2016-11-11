@@ -43,7 +43,8 @@
         android:id="@+id/quizTimer"
         android:layout_below="@+id/my_toolbar"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="6dp" />
+        android:layout_marginStart="6dp"
+        android:background="@drawable/border"/>
 
     <TextView
         android:layout_width="wrap_content"
