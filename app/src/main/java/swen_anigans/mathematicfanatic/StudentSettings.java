@@ -163,6 +163,7 @@ public class StudentSettings extends AppCompatActivity {
             DataManager.getInstance().addStudent(newStudent);
             Intent intent = new Intent(this, parent);
             startActivity(intent);
+            Toast.makeText(this, "Student Created", Toast.LENGTH_SHORT).show();
         }
         catch(Exception e)
         {
