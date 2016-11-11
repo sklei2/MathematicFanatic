@@ -8,7 +8,6 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.AppCompat.Light"
         android:supportsRtl="true">
 
         <activity
@@ -21,12 +20,6 @@
         </activity>
 
         <activity
-
-            android:name="swen_anigains.mathematicfanatic.ClassroomActivity"
-            android:label="@string/title_activity_classroom"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".GuardianSettings"
             android:parentActivityName=".MainActivity"/>
 
@@ -36,13 +29,9 @@
 
         <activity
             android:name=".ClassroomActivity"
-            android:theme="@style/ClssroomTheme"
+            android:theme="@style/ClassroomTheme"
             android:parentActivityName=".StudentLocker">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <activity

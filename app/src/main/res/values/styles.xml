@@ -21,15 +21,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    
 
     <!-- Home Page theme. -->
 
@@ -66,8 +58,8 @@
 
     <!-- Classroom Theme. -->
 
-    <style name="ClssroomTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/classroomPrimary</item>
+    <style name="ClassroomTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/lockerClassroomColor</item>
         <item name="colorPrimaryDark">@color/classroomPrimaryDark</item>
         <item name="android:colorBackground">@color/classroomBackground</item>
     </style>
