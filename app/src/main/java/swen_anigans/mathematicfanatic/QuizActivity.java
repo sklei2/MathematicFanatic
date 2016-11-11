@@ -36,8 +36,6 @@ public class QuizActivity extends AppCompatActivity {
             quizQuestions = (ArrayList<ArrayList<Integer>>) quizIntent.getSerializableExtra("quizQuestions");
             answers = quizIntent.getIntegerArrayListExtra("answers");
             expectedAnswers = quizIntent.getIntegerArrayListExtra("expectedAnswers");
-
-            System.out.println(quizQuestions);
         }
         else {
             pageNumber = 1;
