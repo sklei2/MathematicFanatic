@@ -18,7 +18,7 @@ public class QuizStartActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ArrayList<Integer> quizNumbersIn = new ArrayList<Integer>(Arrays.asList(5, 6)); //Hardcoded.
+        ArrayList<Integer> quizNumbersIn = new ArrayList<Integer>(Arrays.asList(3, 8)); //Hardcoded.
         quizzableNumbers = quizNumbersIn;
         setContentView(R.layout.activity_quiz_start);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);

@@ -1,8 +1,7 @@
 <resources>
-
     <!-- These will be used for the text at the top of every action bar. -->
     <style name="ActionBarText" parent="@android:style/TextAppearance.Large">
-        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">left</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">Helvetica</item>
@@ -50,16 +49,30 @@
         <item name="android:buttonStyle">@style/ButtonTheme</item>
     </style>
 
+    <!-- Classroom Theme. -->
+
+    <!-- Help Theme. -->
+    <style name="HelpTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/helpPrimary</item>
+        <item name="colorPrimaryDark">@color/helpPrimaryDark</item>
+        <item name="android:colorBackground">@color/helpBackground</item>
+        <item name="android:buttonStyle">@style/ButtonTheme</item>
+    </style>
+
     <!-- Quiz Theme. -->
     <style name="QuizTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:colorPrimary">@color/quizPrimary</item>
-        <item name="android:colorPrimaryDark">@color/quizPrimaryDark</item>
+        <item name="colorPrimary">@color/quizPrimary</item>
+        <item name="colorPrimaryDark">@color/quizPrimaryDark</item>
         <item name="android:colorBackground">@color/quizBackground</item>
         <item name="android:buttonStyle">@style/ButtonTheme</item>
     </style>
 
-    <!-- Classroom Theme. -->
-
     <!-- Recess Theme. -->
+    <style name="RecessTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/recessPrimary</item>
+        <item name="colorPrimaryDark">@color/recessPrimaryDark</item>
+        <item name="android:colorBackground">@color/recessBackground</item>
+        <item name="android:buttonStyle">@style/ButtonTheme</item>
+    </style>
 
 </resources>
