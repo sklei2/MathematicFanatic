@@ -26,7 +26,7 @@ and install the application. Once application is downloaded, tap "Open".
 - Back button from Help activity returns user to start of Classroom functionality instead of back to the place where the user left off.
 - Classroom's "Check" button doesn't yet display correct/incorrect.
 
-## Getting Started:
+## Development Setup
 1. Since this repository only contains the app folder of the android application, the first thing we need to do is create the android project correctly
   1. Open Android studio and click "create new project"
   2. In "Application name" type in "MathematicFanatic" and in "Company Domain" type in "swen_anigains"
