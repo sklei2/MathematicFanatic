@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="&lt;"
-        android:id="@id/button2"
+        android:id="@+id/button2"
         android:textSize="40sp"
         android:onClick="previousPage"
         android:layout_alignParentStart="true"
@@ -66,17 +66,5 @@
         android:layout_toEndOf="@+id/quizTimer"
         android:layout_marginTop="54dp"
         android:onClick="quizSubmission"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="&lt;"
-        android:id="@+id/button2"
-        android:textSize="40sp"
-        android:onClick="previousPage"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_toStartOf="@+id/quizSubmitConfirmationButton"
-        android:layout_below="@+id/quizSubmitConfirmationButton" />
 
 </RelativeLayout>
