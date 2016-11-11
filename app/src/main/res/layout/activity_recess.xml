@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_recess"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="swen_anigans.mathematicfanatic.RecessActivity"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        android:layout_marginBottom="@dimen/activity_vertical_margin">
+        <TextView
+            style="@style/ActionBarText"
+            android:text="@string/recess"
+            android:textColor="#FFFFFF" />
+    </android.support.v7.widget.Toolbar>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/medallibrary"
+            android:text="@string/medallibrary"
+            android:textSize="35sp"
+            android:layout_width="0dp"
+            android:layout_height="380dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical" />
+        <Space
+            android:layout_width="16dp"
+            android:layout_height="match_parent" />
+        <Button
+            android:id="@+id/videotheater"
+            android:text="@string/videotheater"
+            android:textSize="35sp"
+            android:layout_width="0dp"
+            android:layout_height="380dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+</LinearLayout>

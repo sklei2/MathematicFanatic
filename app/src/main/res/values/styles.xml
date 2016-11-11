@@ -1,5 +1,4 @@
 <resources>
-
     <!-- These will be used for the text at the top of every action bar. -->
     <style name="ActionBarText" parent="@android:style/TextAppearance.Large">
         <item name="android:gravity">left</item>
@@ -49,8 +48,6 @@
         <item name="android:colorBackground">@color/lockerBackground</item>
         <item name="android:buttonStyle">@style/ButtonTheme</item>
     </style>
-    <!-- Quiz Theme. -->
-
     <!-- Classroom Theme. -->
 
     <!-- Help Theme. -->
@@ -60,6 +57,21 @@
         <item name="android:colorBackground">@color/helpBackground</item>
         <item name="android:buttonStyle">@style/ButtonTheme</item>
     </style>
+
+    <!-- Quiz Theme. -->
+    <style name="QuizTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/quizPrimary</item>
+        <item name="colorPrimaryDark">@color/quizPrimaryDark</item>
+        <item name="android:colorBackground">@color/quizBackground</item>
+        <item name="android:buttonStyle">@style/ButtonTheme</item>
+    </style>
+
     <!-- Recess Theme. -->
+    <style name="RecessTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/recessPrimary</item>
+        <item name="colorPrimaryDark">@color/recessPrimaryDark</item>
+        <item name="android:colorBackground">@color/recessBackground</item>
+        <item name="android:buttonStyle">@style/ButtonTheme</item>
+    </style>
 
 </resources>
