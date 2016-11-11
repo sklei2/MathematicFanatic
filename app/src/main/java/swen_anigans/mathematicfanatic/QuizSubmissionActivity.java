@@ -33,15 +33,12 @@ public class QuizSubmissionActivity extends AppCompatActivity {
 
         int i = 0;
         while (i < total) {
-            System.out.println("answer: " + Integer.toString(answers.get(i)));
-            System.out.println("expected: " + Integer.toString(expectedAnswers.get(i)));
             if (answers.get(i) == expectedAnswers.get(i)) {
                 correct += 1;
             }
 
             i++;
         }
-        System.out.println(correct);
 
         Intent resultsIntent = new Intent(QuizSubmissionActivity.this, QuizResultsActivity.class);
         resultsIntent.putExtra("numberCorrect", correct);
