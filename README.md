@@ -22,6 +22,7 @@ Some of our designs for interaction weren't possible to implement in Android wit
 (range picker, button sizes/margins)
 Settings aren't yet reflected in the functionality:
 ("range" is limited to 3's and 8's, Videos not yet based off of interests, Concept Learning is limited to Visualization)
+Videos aren't related to the reward. They are only sample video content.
 Back button from Help activity returns user to start of Classroom functionality instead of back to the place where the user left off.
 Classroom's "Check" button doesn't yet display correct/incorrect.
 
