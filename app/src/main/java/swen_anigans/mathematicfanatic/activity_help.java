@@ -21,6 +21,14 @@ public class activity_help extends AppCompatActivity {
     private Integer b = 1;
     private Integer c = 1;
 
+    private static final Map<Integer, String> items;
+    static
+    {
+        items = new HashMap<Integer, String>();
+        items.put(8, "grapes");
+        items.put(3, "balloons");
+    }
+
     private static final Map<Integer, Integer> threes;
     static
     {
@@ -57,7 +65,6 @@ public class activity_help extends AppCompatActivity {
         eights.put(12,R.drawable.eight_12);
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,7 +93,6 @@ public class activity_help extends AppCompatActivity {
         else
             resID = R.drawable.image_not_found;
 
-
         ImageView visualHelp = (ImageView)findViewById(R.id.visualization);
         visualHelp.setImageResource(resID);
 
@@ -96,6 +102,11 @@ public class activity_help extends AppCompatActivity {
         TextView equationView = (TextView) findViewById(R.id.equationView);
         equationView.setText(equationString);
 
+        // Create explanation string
+        String item = items.get(b);
+        String explanation = a.toString() + " bunches of " + b.toString() + " " + item + " gives you\n" + c.toString() + " " + item;
+        TextView explanationView = (TextView) findViewById(R.id.visualDescription);
+        explanationView.setText(explanation);
     }
 
 }
