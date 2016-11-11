@@ -24,7 +24,7 @@ public class DataManager
     }
 
     public static DataManager getInstance(){
-        if(instance.equals(null)){
+        if(instance == (null)){
             instance = new DataManager();
         }
         return instance;
