@@ -17,12 +17,12 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
 public class QuizActivity extends AppCompatActivity {
-    private int pageNumber;
-    private int totalPages;
-    private ArrayList<ArrayList<Integer>> quizQuestions;
-    private ArrayList<Integer> quizNumbers;
-    private ArrayList<Integer> answers;
-    private ArrayList<Integer> expectedAnswers;
+    private int pageNumber; //The current page number
+    private int totalPages; //The total # of pages
+    private ArrayList<ArrayList<Integer>> quizQuestions; //A 2d arraylist of quiz questions. [[3, 8], [8, 2]] = 3*8, 8*2
+    private ArrayList<Integer> quizNumbers; //The numbers that the user will be quized on
+    private ArrayList<Integer> answers; //The answers entered by the user
+    private ArrayList<Integer> expectedAnswers; //The calculated answers to the questions
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +31,22 @@ public class QuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
 
         Intent quizIntent = getIntent();
+        //Checks if coming from the quiz submission page or the quiz start page. If coming from submission, goes into the if.
+        //Inits variables and setup accordingly.
         if (quizIntent.getBooleanExtra("atBeginning", true) == false) {
             pageNumber = totalPages;
-            quizQuestions = (ArrayList<ArrayList<Integer>>) quizIntent.getSerializableExtra("quizQuestions");
+
+            quizQuestions = new ArrayList<>();
+            ArrayList<Integer> firstMult = quizIntent.getIntegerArrayListExtra("firstMult");
+            ArrayList<Integer> secondMult = quizIntent.getIntegerArrayListExtra("secondMult");
+
+            for (int i = 0; i < firstMult.size(); i++) {
+                ArrayList<Integer> problem = new ArrayList<>();
+                problem.add(firstMult.get(i));
+                problem.add(secondMult.get(i));
+                quizQuestions.add(problem);
+            }
+
             answers = quizIntent.getIntegerArrayListExtra("answers");
             expectedAnswers = quizIntent.getIntegerArrayListExtra("expectedAnswers");
         }
@@ -47,6 +60,7 @@ public class QuizActivity extends AppCompatActivity {
             }
         }
 
+        //Timer functionality, will continute to ttempt to get working.
         /*
         final TextView quizTimer = (TextView) findViewById(R.id.quizTimer);
         long startingTime = 120000; //Initializes the timer to 2 minutes.
@@ -80,6 +94,7 @@ public class QuizActivity extends AppCompatActivity {
         expectedAnswers = new ArrayList<>();
         quizNumbers = new ArrayList<Integer>(Arrays.asList(3, 8)); //Hardcoding the numbers to be quizzed on.
 
+        //Prevents dups in questions
         /*
         ArrayList<Integer> problemNumbers = new ArrayList<Integer>();
         int firstNumber = quizNumbers.get(ThreadLocalRandom.current().nextInt(0, quizNumbers.size())); //Gets a random number from quizNumbers.
@@ -92,11 +107,12 @@ public class QuizActivity extends AppCompatActivity {
         */
 
         //TODO: Change this to not have duplicates.
-        for (int i = 1; i < totalPages; i++) {
+        for (int i = 0; i < totalPages; i++) {
             ArrayList<Integer> problemNumbers = new ArrayList<Integer>();
             int firstNumber = quizNumbers.get(ThreadLocalRandom.current().nextInt(0, quizNumbers.size())); //Gets a random number from quizNumbers.
             int secondNumber = ThreadLocalRandom.current().nextInt(1, 13); //Gets a random number from 1-12.
 
+            //Prevents dups in questions
             /*
             for (int j = 0; j < quizNumbers.size(); j++) {
                 while (quizQuestions.get(j).get(0) == firstNumber && quizQuestions.get(j).get(1) == secondNumber) {
@@ -124,13 +140,18 @@ public class QuizActivity extends AppCompatActivity {
     public void nextPage(View view) {
         saveAnswer();
         pageNumber += 1;
-        if (pageNumber >= totalPages) {
+        if (pageNumber > totalPages) {
             Intent quizSubmissionIntent = new Intent(QuizActivity.this, QuizSubmissionActivity.class);
 
-            Bundle quizNumbersBundle = new Bundle();
-            quizNumbersBundle.putSerializable("quizQuestions", quizNumbers);
+            ArrayList<Integer> firstMult = new ArrayList<>();
+            ArrayList<Integer> secondMult = new ArrayList<>();
+            for (int i = 0; i < quizQuestions.size(); i++) {
+                firstMult.add(quizQuestions.get(i).get(0));
+                secondMult.add(quizQuestions.get(i).get(1));
+            }
 
-            //quizSubmissionIntent.putExtra("quizNumbers", quizNumbersBundle);
+            quizSubmissionIntent.putExtra("firstMult", firstMult);
+            quizSubmissionIntent.putExtra("secondMult", secondMult);
             quizSubmissionIntent.putExtra("answers", answers);
             quizSubmissionIntent.putExtra("expectedAnswers", expectedAnswers);
             startActivity(quizSubmissionIntent);
