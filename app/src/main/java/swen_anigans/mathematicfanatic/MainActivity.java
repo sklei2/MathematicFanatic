@@ -1,6 +1,7 @@
 package swen_anigans.mathematicfanatic;
 
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -31,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
         // add the adapter to the list
         studentButtons.setAdapter(adapter);
+
+        // Make sure that the DataManager is initialized to have no current use
+        DataManager.getInstance().curStudent = null;
     }
 
     public void ToSettings(View view)
@@ -47,9 +51,17 @@ public class MainActivity extends AppCompatActivity {
 
         // This student text would then be used to set the current
         // student from our "database"
+        DataManager.getInstance().setCurStudent(studentText);
 
         // Then jump on over to the locker page!
         Intent intent = new Intent(this, StudentLocker.class);
+        startActivity(intent);
+    }
+
+    public void NewStudent(View view)
+    {
+        Intent intent = new Intent(this, StudentSettings.class);
+        intent.putExtra("parent", "swen_anigans.mathematicfanatic.MainActivity");
         startActivity(intent);
     }
 }
