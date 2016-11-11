@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Default Colors -->
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <!-- Quiz Colors -->
+    <color name="quizPrimary">#2196F3</color>
+    <color name="quizPrimaryDark">#0D47A1</color>
+    <color name="quizBackground">#BBDEFB</color>
+<!-- recess -->
+    <color name="recessPrimary">#FF9800</color>
+    <color name="recessPrimaryDark">#E65100</color>
+    <color name="recessBackground">#FFE0B2</color>
 </resources>

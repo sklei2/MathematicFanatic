@@ -1,11 +1,39 @@
 <resources>
+    <!-- These will be used for the text at the top of every action bar. -->
+    <style name="ActionBarText" parent="@android:style/TextAppearance.Large">
+        <item name="android:gravity">left</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">Helvetica</item>
+        <item name="android:textSize">30sp</item>
+    </style>
 
+    <style name="ButtonTheme" parent="@android:style/Widget.Button.Inset">
+        <item name="android:fontFamily">Helvetica</item>
+        <item name="android:textSize">19sp</item>
+    </style>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- Quiz Theme. -->
+    <style name="QuizTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/quizPrimary</item>
+        <item name="colorPrimaryDark">@color/quizPrimaryDark</item>
+        <item name="android:colorBackground">@color/quizBackground</item>
+        <item name="android:buttonStyle">@style/ButtonTheme</item>
+    </style>
+
+    <!-- Recess Theme. -->
+    <style name="RecessTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/recessPrimary</item>
+        <item name="colorPrimaryDark">@color/recessPrimaryDark</item>
+        <item name="android:colorBackground">@color/recessBackground</item>
+        <item name="android:buttonStyle">@style/ButtonTheme</item>
     </style>
 
 </resources>

@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -21,6 +22,7 @@ public class QuizResultsActivity extends AppCompatActivity {
 
     public final static String SELECTED = "selected";
     private static int videoId;
+    private static boolean played = false;
 
     private static String picked = null;
 
@@ -71,7 +73,6 @@ public class QuizResultsActivity extends AppCompatActivity {
 
         Star[] starValues = getStars(correct,total,starGroup.getChildCount());
         setStars(starViews,starValues);
-
         if(picked == null) {
             setRewardListeners();
         } else {
@@ -81,6 +82,11 @@ public class QuizResultsActivity extends AppCompatActivity {
             formRewardSelectedLayout(slideUp,picked);
         }
 
+        // Back Button things
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        toolbar.setBackgroundResource(R.color.quizPrimary);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private LinearLayout formRewardSelectedLayout(LinearLayout ll, String r) {

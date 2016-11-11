@@ -7,6 +7,7 @@ import android.support.v4.widget.SlidingPaneLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -45,6 +46,11 @@ public class VideoTheaterActivity extends AppCompatActivity {
         Intent intent = getIntent();
         selected = intent.getIntExtra(QuizResultsActivity.SELECTED,-1); // -1 = none selected
 
+        // Back Button things
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        toolbar.setBackgroundResource(R.color.recessPrimary);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         formButtons((ViewGroup) findViewById(R.id.vidsGroup));
     }

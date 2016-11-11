@@ -17,14 +17,18 @@
         </activity>
         <activity
             android:name=".QuizResultsActivity"
+            android:exported="true"
+            android:theme="@style/QuizTheme"/>
         <activity
-            android:name=".QuizActivity"
+            android:name=".QuizActivity"/>
         <activity
-            android:name=".QuizStartActivity"
+            android:name=".QuizStartActivity"/>
         <activity
-            android:name=".QuizSubmissionActivity"
+            android:name=".QuizSubmissionActivity"/>
         <activity android:name=".RecessActivity"
-        <activity android:name=".VideoTheaterActivity"></activity>
+            android:theme="@style/RecessTheme"/>
+        <activity android:name=".VideoTheaterActivity"
+            android:theme="@style/RecessTheme"/>
     </application>
 
 </manifest>
