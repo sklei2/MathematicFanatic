@@ -8,11 +8,9 @@ import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Map;
 
-import static android.R.attr.id;
 
 public class activity_help extends AppCompatActivity {
 
