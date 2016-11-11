@@ -122,6 +122,7 @@
         android:layout_below="@+id/checkButton"
         android:layout_alignParentStart="true"
         android:enabled="false"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        android:onClick="goToLocker" />
 
 </RelativeLayout>

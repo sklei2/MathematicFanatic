@@ -48,7 +48,8 @@ public class ClassroomActivity extends AppCompatActivity {
 
         renderPage();
         */
-
+        
+        //finishedQuestions();
     }
 
     public void initializeQuestions() {
@@ -153,8 +154,11 @@ public class ClassroomActivity extends AppCompatActivity {
         screenItem.setEnabled(true);
         screenItem.setPadding(20,75,20,10);
         screenItem.setHeight(400);
+    }
 
-
+    public void goToLocker(View view){
+        Intent intent = new Intent(this, StudentLocker.class);
+        startActivity(intent);
     }
 
 }
