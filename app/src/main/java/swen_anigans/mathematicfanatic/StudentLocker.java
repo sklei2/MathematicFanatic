@@ -46,7 +46,7 @@ public class StudentLocker extends AppCompatActivity
     }
 
     public void toClassroom(View view){
-        Intent intent = new Intent(this, QuizStartActivity.class);
+        Intent intent = new Intent(this, ClassroomActivity.class);
         startActivity(intent);
     }
 

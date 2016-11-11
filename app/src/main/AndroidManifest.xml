@@ -41,7 +41,7 @@
         <activity
             android:name=".activity_help"
             android:label="@string/title_activity_help"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".ClassroomActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
