@@ -37,8 +37,6 @@ public class QuizSubmissionActivity extends AppCompatActivity {
     }
 
     public void quizSubmission(View v) {
-        //TODO: Go to quiz results page.
-        //TODO: Figure out how submission's gonna go down.
         int correct = 0;
         int total = answers.size();
 
@@ -54,6 +52,7 @@ public class QuizSubmissionActivity extends AppCompatActivity {
         Intent resultsIntent = new Intent(QuizSubmissionActivity.this, QuizResultsActivity.class);
         resultsIntent.putExtra("numberCorrect", correct);
         resultsIntent.putExtra("numberTotal", total);
+        startActivity(resultsIntent);
     }
 
     public void previousPage(View view) {
