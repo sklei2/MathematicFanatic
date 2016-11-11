@@ -113,4 +113,15 @@
         android:layout_marginStart="11dp"
         android:onClick="goToHelp"/>
 
+    <Button
+        android:text="Return To Locker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/returnToLocker"
+        android:layout_marginTop="51dp"
+        android:layout_below="@+id/checkButton"
+        android:layout_alignParentStart="true"
+        android:enabled="false"
+        android:visibility="invisible" />
+
 </RelativeLayout>

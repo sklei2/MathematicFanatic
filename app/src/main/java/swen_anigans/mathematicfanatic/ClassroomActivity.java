@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.security.KeyStore;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
@@ -36,7 +37,7 @@ public class ClassroomActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
-
+/*
         pageNumber = 1;
         initializeQuestions();
 
@@ -46,6 +47,8 @@ public class ClassroomActivity extends AppCompatActivity {
         }
 
         renderPage();
+        */
+
     }
 
     public void initializeQuestions() {
@@ -84,7 +87,6 @@ public class ClassroomActivity extends AppCompatActivity {
         quizPagesComplete.setText(pageNumber);
     }
 
-
     public void previousPage() {
         pageNumber -= 1;
         saveAnswer();
@@ -119,8 +121,6 @@ public class ClassroomActivity extends AppCompatActivity {
         quizAnswerInput.setText("");
     }
 
-
-
     public void goToHelp(View view) {
         ArrayList<Integer> currentQuestion = classroomQuestions.get(pageNumber-1);
         int a = currentQuestion.get(0);
@@ -129,6 +129,32 @@ public class ClassroomActivity extends AppCompatActivity {
         int[] temp = {a,b};
         intent.putExtra("abValues",temp);
         startActivity(intent);
+    }
+
+
+    public void finishedQuestions(){
+        int[] items = { R.id.prevButton,
+                        R.id.nextButton,
+                        R.id.checkButton,
+                        R.id.editClassroomAnswer,
+                        R.id.questionNumber,
+                        R.id.goToHelpButton
+                        };
+        TextView screenItem;
+        for(int i = 0; i < items.length; i++) {
+            screenItem= (TextView) findViewById(items[i]);
+            screenItem.setVisibility(View.GONE);
+        }
+        screenItem = (TextView) findViewById(R.id.classroomQuestion);
+        screenItem.setText("Nice Job you finished 20 questions!");
+        screenItem.setPadding(10,400,10,10);
+        screenItem = (TextView) findViewById(R.id.returnToLocker);
+        screenItem.setVisibility(View.VISIBLE);
+        screenItem.setEnabled(true);
+        screenItem.setPadding(20,75,20,10);
+        screenItem.setHeight(400);
+
+
     }
 
 }
