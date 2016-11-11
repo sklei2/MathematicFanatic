@@ -24,9 +24,6 @@
             />
     </android.support.v7.widget.Toolbar>
 
-
-
-
     <include layout="@layout/content_student_locker"/>
 
 </android.support.design.widget.CoordinatorLayout>

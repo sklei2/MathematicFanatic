@@ -51,7 +51,7 @@ public class StudentLocker extends AppCompatActivity
     }
 
     public void toRecess(View view){
-        Intent intent = new Intent(this, QuizStartActivity.class);
+        Intent intent = new Intent(this, RecessActivity.class);
         startActivity(intent);
     }
 
