@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="learning_concepts">
+        <item>Imagery</item>
+        <item>Fact Families</item>
+        <item>List Memorization</item>
+    </string-array>
+    <string-array name="interests">
+        <item>Magic</item>
+        <item>Animals</item>
+        <item>Medieval Times</item>
+        <item>Construction</item>
+        <item>Superheroes</item>
+        <item>Minecraft</item>
+    </string-array>
+</resources>
