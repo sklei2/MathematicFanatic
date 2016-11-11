@@ -147,29 +147,30 @@ public class StudentSettings extends AppCompatActivity {
 
     private void createNewStudent()
     {
-        // Get all the values from the form.
-        String name = nameText.getText().toString();
-        int lowRange = Integer.valueOf(lowRangeText.getText().toString());
-        int highRange = Integer.valueOf(highRangeText.getText().toString());
-
-        // Convert each of the strings into something that we'll see in the enum
-        String interest1String = interest1.getSelectedItem().toString().toUpperCase();
-        interest1String = interest1String.replaceAll("\\s", "_");
-        String interest2String = interest2.getSelectedItem().toString().toUpperCase();
-        interest2String = interest2String.replaceAll("\\s", "_");
-        String interest3String = interest3.getSelectedItem().toString().toUpperCase();
-        interest3String = interest3String.replaceAll("\\s", "_");
-        String conceptString = concepts.getSelectedItem().toString().toUpperCase();
-        conceptString = conceptString.replaceAll("\\s", "_");
-
-        // get the enums
-        Interest interest_1 = Interest.valueOf(interest1String);
-        Interest interest_2 = Interest.valueOf(interest2String);
-        Interest interest_3 = Interest.valueOf(interest3String);
-        LearningType concept = LearningType.valueOf(conceptString);
-
         try
         {
+            // Get all the values from the form.
+            String name = nameText.getText().toString();
+            int lowRange = Integer.valueOf(lowRangeText.getText().toString());
+            int highRange = Integer.valueOf(highRangeText.getText().toString());
+
+            // Convert each of the strings into something that we'll see in the enum
+            String interest1String = interest1.getSelectedItem().toString().toUpperCase();
+            interest1String = interest1String.replaceAll("\\s", "_");
+            String interest2String = interest2.getSelectedItem().toString().toUpperCase();
+            interest2String = interest2String.replaceAll("\\s", "_");
+            String interest3String = interest3.getSelectedItem().toString().toUpperCase();
+            interest3String = interest3String.replaceAll("\\s", "_");
+            String conceptString = concepts.getSelectedItem().toString().toUpperCase();
+            conceptString = conceptString.replaceAll("\\s", "_");
+
+            // get the enums
+            Interest interest_1 = Interest.valueOf(interest1String);
+            Interest interest_2 = Interest.valueOf(interest2String);
+            Interest interest_3 = Interest.valueOf(interest3String);
+            LearningType concept = LearningType.valueOf(conceptString);
+
+            // create student and add to manager
             student newStudent = new student(name, lowRange, highRange, interest_1, interest_2, interest_3, concept);
             DataManager.getInstance().addStudent(newStudent);
             onBackPressed();
@@ -183,29 +184,30 @@ public class StudentSettings extends AppCompatActivity {
 
     private void saveStudent()
     {
-        // Get all the values from the form.
-        String name = nameText.getText().toString();
-        int lowRange = Integer.valueOf(lowRangeText.getText().toString());
-        int highRange = Integer.valueOf(highRangeText.getText().toString());
-
-        // Convert each of the strings into something that we'll see in the enum
-        String interest1String = interest1.getSelectedItem().toString().toUpperCase();
-        interest1String = interest1String.replaceAll("\\s", "_");
-        String interest2String = interest2.getSelectedItem().toString().toUpperCase();
-        interest2String = interest2String.replaceAll("\\s", "_");
-        String interest3String = interest3.getSelectedItem().toString().toUpperCase();
-        interest3String = interest3String.replaceAll("\\s", "_");
-        String conceptString = concepts.getSelectedItem().toString().toUpperCase();
-        conceptString = conceptString.replaceAll("\\s", "_");
-
-        // get the enums
-        Interest interest_1 = Interest.valueOf(interest1String);
-        Interest interest_2 = Interest.valueOf(interest2String);
-        Interest interest_3 = Interest.valueOf(interest3String);
-        LearningType concept = LearningType.valueOf(conceptString);
-
         try
         {
+            // Get all the values from the form.
+            String name = nameText.getText().toString();
+            int lowRange = Integer.valueOf(lowRangeText.getText().toString());
+            int highRange = Integer.valueOf(highRangeText.getText().toString());
+
+            // Convert each of the strings into something that we'll see in the enum
+            String interest1String = interest1.getSelectedItem().toString().toUpperCase();
+            interest1String = interest1String.replaceAll("\\s", "_");
+            String interest2String = interest2.getSelectedItem().toString().toUpperCase();
+            interest2String = interest2String.replaceAll("\\s", "_");
+            String interest3String = interest3.getSelectedItem().toString().toUpperCase();
+            interest3String = interest3String.replaceAll("\\s", "_");
+            String conceptString = concepts.getSelectedItem().toString().toUpperCase();
+            conceptString = conceptString.replaceAll("\\s", "_");
+
+            // get the enums
+            Interest interest_1 = Interest.valueOf(interest1String);
+            Interest interest_2 = Interest.valueOf(interest2String);
+            Interest interest_3 = Interest.valueOf(interest3String);
+            LearningType concept = LearningType.valueOf(conceptString);
+
+            // update the current student
             Interest[] interests = {interest_1, interest_2, interest_3};
 
             current.name = name;

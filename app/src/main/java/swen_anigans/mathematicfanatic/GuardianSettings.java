@@ -42,6 +42,7 @@ public class GuardianSettings extends AppCompatActivity {
         DataManager.getInstance().setCurStudent(studentName);
 
         Intent intent = new Intent(this, StudentSettings.class);
+        intent.putExtra("parent", "swen_anigans.mathematicfanatic.GuardianSettings");
         startActivity(intent);
     }
 
