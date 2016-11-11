@@ -74,6 +74,7 @@ public class ClassroomActivity extends AppCompatActivity {
     public void renderPage() {
         TextView quizQuestion = (TextView) findViewById(R.id.classroomQuestion);
         ArrayList<Integer> currentQuestion = classroomQuestions.get(pageNumber-1);
+
         String questionString = (Integer.toString(currentQuestion.get(0)) + " X " + Integer.toString(currentQuestion.get(1)));
         quizQuestion.setText(questionString);
 
@@ -85,13 +86,20 @@ public class ClassroomActivity extends AppCompatActivity {
             PreviousButton.setVisibility(View.VISIBLE);
         }
 
+        //populate the answer field with the previous answer
+        int currentAnswer = answers.get(pageNumber-1);
+        if (currentAnswer != 0) {
+            EditText editQuizAnswer = (EditText) findViewById(R.id.editClassroomAnswer);
+            editQuizAnswer.setText(Integer.toString(currentAnswer));
+        }
+
         TextView quizPagesComplete = (TextView) findViewById(R.id.quizPagesComplete);
         quizPagesComplete.setText(pageNumber+"/20");
     }
 
     public void previousPage(View view) {
-        pageNumber -= 1;
         saveAnswer();
+        pageNumber -= 1;
         renderPage();
     }
 
@@ -100,22 +108,8 @@ public class ClassroomActivity extends AppCompatActivity {
         saveAnswer();
         pageNumber += 1;
         if (pageNumber > totalPages) {
-            /*
-            Intent quizSubmissionIntent = new Intent(ClassroomActivity.this, QuizSubmissionActivity.class);
-
-            Bundle quizNumbersBundle = new Bundle();
-            quizNumbersBundle.putSerializable("quizNumbers", classroomNumbers);
-
-            quizSubmissionIntent.putExtra("quizNumbers", quizNumbersBundle);
-            quizSubmissionIntent.putExtra("answers", answers);
-            quizSubmissionIntent.putExtra("expectedAnswers", expectedAnswers);
-            startActivity(quizSubmissionIntent);
-            */
-
             finishedQuestions();
-
-        }
-        else {
+        } else {
             renderPage();
         }
     }
@@ -123,11 +117,13 @@ public class ClassroomActivity extends AppCompatActivity {
     public void saveAnswer() {
         EditText quizAnswerInput = (EditText) findViewById(R.id.editClassroomAnswer);
         String answer = quizAnswerInput.getText().toString();
-        if (answer != "") {
+        if (!answer.isEmpty()) {
             int quizAnswer = Integer.parseInt(answer);
             answers.set(pageNumber-1, quizAnswer);
+        }else{
+            answers.set(pageNumber-1, 0);
         }
-        quizAnswerInput.setText("0");
+        quizAnswerInput.setText("");
     }
 
     public void goToHelp(View view) {

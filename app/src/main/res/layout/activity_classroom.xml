@@ -119,7 +119,6 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/editClassroomAnswer"
-        android:text="0"
         android:textAlignment="center"
         android:layout_marginTop="61dp"
         android:layout_below="@+id/classroomQuestion"
