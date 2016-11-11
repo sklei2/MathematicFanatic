@@ -162,8 +162,8 @@ public class StudentSettings extends AppCompatActivity {
             student newStudent = new student(name, lowRange, highRange, interest_1, interest_2, interest_3, concept);
             DataManager.getInstance().addStudent(newStudent);
             Intent intent = new Intent(this, parent);
-            startActivity(intent);
             Toast.makeText(this, "Student Created", Toast.LENGTH_SHORT).show();
+            startActivity(intent);
         }
         catch(Exception e)
         {
