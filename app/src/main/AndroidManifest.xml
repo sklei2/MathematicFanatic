@@ -37,13 +37,16 @@
             android:exported="true"
             android:theme="@style/QuizTheme"/>
         <activity
-            android:name=".QuizActivity"/>
+            android:name=".QuizActivity"
+            android:theme="@style/QuizTheme"/>
 
         <activity
-            android:name=".QuizStartActivity"/>
+            android:name=".QuizStartActivity"
+            android:theme="@style/QuizTheme"/>
 
         <activity
-            android:name=".QuizSubmissionActivity"/>
+            android:name=".QuizSubmissionActivity"
+            android:theme="@style/QuizTheme"/>
 
         <activity android:name=".RecessActivity"
             android:theme="@style/RecessTheme"
