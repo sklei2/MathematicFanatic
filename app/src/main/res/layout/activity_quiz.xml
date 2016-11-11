@@ -55,7 +55,8 @@
         android:id="@+id/quizPagesComplete"
         android:layout_above="@+id/editQuizAnswer"
         android:layout_toEndOf="@+id/editQuizAnswer"
-        android:layout_marginBottom="18dp" />
+        android:layout_marginBottom="18dp"
+        android:background="@drawable/border"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -64,7 +65,8 @@
         android:text="Medium Text"
         android:id="@+id/quizTimer"
         android:layout_alignBottom="@+id/quizPagesComplete"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@drawable/border"/>
 
     <TextView
         android:layout_width="wrap_content"
