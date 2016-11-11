@@ -9,4 +9,14 @@
     <dimen name="button_height">20dp</dimen>
     <dimen name="button_padding">2dp</dimen>
 
+    <!--
+    BIG Button padding and margin (quiz and classroom):
+        - Padding is used both on left and right (start and end)
+        to get the button width
+        - margin is used on the end for the left button and start
+        for the right button to get the spacing.
+    -->
+    <dimen name="big_button_horizontal_padding">65dp</dimen>
+    <dimen name="big_button_margin">55dp</dimen>
+
 </resources>

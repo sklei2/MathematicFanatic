@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,6 +30,10 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         totalPages = 20; //Hardcoding this for now, may change further on.
         setContentView(R.layout.activity_quiz);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        myToolbar.setBackgroundResource(R.color.quizPrimary);
+        setSupportActionBar(myToolbar);
 
         Intent quizIntent = getIntent();
         //Checks if coming from the quiz submission page or the quiz start page. If coming from submission, goes into the if.
@@ -189,7 +194,8 @@ public class QuizActivity extends AppCompatActivity {
         }
 
         TextView quizPagesComplete = (TextView) findViewById(R.id.quizPagesComplete);
-        quizPagesComplete.setText(Integer.toString(pageNumber));
+        String pagesCompleteText = String.valueOf(pageNumber) + " / " + String.valueOf(totalPages);
+        quizPagesComplete.setText(pagesCompleteText);
 
         int currentAnswer = answers.get(pageNumber-1);
         if (currentAnswer != 0) {

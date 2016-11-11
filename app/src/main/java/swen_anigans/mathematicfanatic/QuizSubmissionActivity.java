@@ -3,6 +3,7 @@ package swen_anigans.mathematicfanatic;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -17,6 +18,9 @@ public class QuizSubmissionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_submission);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        myToolbar.setBackgroundResource(R.color.quizPrimary);
+        setSupportActionBar(myToolbar);
 
         Intent quizSubmissionIntent = getIntent();
 
@@ -37,8 +41,6 @@ public class QuizSubmissionActivity extends AppCompatActivity {
     }
 
     public void quizSubmission(View v) {
-        //TODO: Go to quiz results page.
-        //TODO: Figure out how submission's gonna go down.
         int correct = 0;
         int total = answers.size();
 
@@ -54,6 +56,7 @@ public class QuizSubmissionActivity extends AppCompatActivity {
         Intent resultsIntent = new Intent(QuizSubmissionActivity.this, QuizResultsActivity.class);
         resultsIntent.putExtra("numberCorrect", correct);
         resultsIntent.putExtra("numberTotal", total);
+        startActivity(resultsIntent);
     }
 
     public void previousPage(View view) {
