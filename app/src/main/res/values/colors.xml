@@ -43,5 +43,14 @@
     <color name="helpBackground">#FFB3DA</color>
     <color name="helpAccent">#00B3B3</color>
 
+    <!-- Quiz Colors -->
+    <color name="quizPrimary">#2196F3</color>
+    <color name="quizPrimaryDark">#0D47A1</color>
+    <color name="quizBackground">#BBDEFB</color>
+
+    <!-- Recess Colors -->
+    <color name="recessPrimary">#FF9800</color>
+    <color name="recessPrimaryDark">#E65100</color>
+    <color name="recessBackground">#FFE0B2</color>
 
 </resources>
