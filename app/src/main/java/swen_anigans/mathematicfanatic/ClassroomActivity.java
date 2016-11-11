@@ -16,6 +16,7 @@ import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ClassroomActivity extends AppCompatActivity {
+
     private int pageNumber;
     private int totalPages;
     private ArrayList<ArrayList<Integer>> classroomQuestions;
@@ -83,6 +84,7 @@ public class ClassroomActivity extends AppCompatActivity {
         quizPagesComplete.setText(pageNumber);
     }
 
+
     public void previousPage() {
         pageNumber -= 1;
         saveAnswer();
@@ -117,5 +119,16 @@ public class ClassroomActivity extends AppCompatActivity {
         quizAnswerInput.setText("");
     }
 
+
+
+    public void goToHelp(View view) {
+        ArrayList<Integer> currentQuestion = classroomQuestions.get(pageNumber-1);
+        int a = currentQuestion.get(0);
+        int b = currentQuestion.get(1);
+        Intent intent = new Intent(this, activity_help.class);
+        int[] temp = {a,b};
+        intent.putExtra("abValues",temp);
+        startActivity(intent);
+    }
 
 }
