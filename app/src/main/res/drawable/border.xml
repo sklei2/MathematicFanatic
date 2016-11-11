@@ -8,7 +8,7 @@
             <stroke
                 android:width="5px"
                 android:color="#000000"
-                />
+            />
 
             <padding android:left="@dimen/button_padding"/>
             <padding android:right="@dimen/button_padding"/>

@@ -21,7 +21,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    
+
     <!-- Home Page theme. -->
+
     <style name="HomeTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/homePrimary</item>
         <item name="colorPrimaryDark">@color/homePrimaryDark</item>
@@ -32,6 +35,7 @@
     </style>
 
     <!-- Guardian Controls Theme. -->
+
     <style name="GuardianTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/guardianPrimary</item>
         <item name="colorPrimaryDark">@color/guardianPrimaryDark</item>
@@ -42,6 +46,7 @@
     </style>
 
     <!-- Locker Theme. -->
+
     <style name="LockerTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/lockerPrimary</item>
         <item name="colorPrimaryDark">@color/lockerPrimaryDark</item>
@@ -49,7 +54,15 @@
         <item name="android:buttonStyle">@style/ButtonTheme</item>
     </style>
 
+    <!-- Quiz Theme. -->
+
     <!-- Classroom Theme. -->
+
+    <style name="ClassroomTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/lockerClassroomColor</item>
+        <item name="colorPrimaryDark">@color/classroomPrimaryDark</item>
+        <item name="android:colorBackground">@color/classroomBackground</item>
+    </style>
 
     <!-- Help Theme. -->
     <style name="HelpTheme" parent="Theme.AppCompat.Light.NoActionBar">

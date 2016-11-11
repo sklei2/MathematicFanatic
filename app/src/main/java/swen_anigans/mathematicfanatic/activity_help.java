@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -78,7 +79,7 @@ public class activity_help extends AppCompatActivity {
 
         // Retrieve values a and b from last Activity Intent
         Intent intent = getIntent();
-        int[] values = intent.getIntArrayExtra("ab");
+        int[] values = intent.getIntArrayExtra("abValues");
         a = values[0];
         b = values[1];
 
@@ -105,6 +106,16 @@ public class activity_help extends AppCompatActivity {
         String explanation = a.toString() + " bunches of " + b.toString() + " " + item + " gives you\n" + c.toString() + " " + item;
         TextView explanationView = (TextView) findViewById(R.id.visualDescription);
         explanationView.setText(explanation);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == android.R.id.home)
+        {
+            onBackPressed();
+            return true;
+        }
+        return false;
     }
 
 }

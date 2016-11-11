@@ -28,6 +28,12 @@
             android:theme="@style/GuardianTheme" />
 
         <activity
+            android:name=".ClassroomActivity"
+            android:theme="@style/ClassroomTheme"
+            android:parentActivityName=".StudentLocker">
+            
+        </activity>
+        <activity
             android:name=".StudentLocker"
             android:parentActivityName=".MainActivity"
             android:theme="@style/LockerTheme"/>
@@ -35,7 +41,7 @@
         <activity
             android:name=".activity_help"
             android:label="@string/title_activity_help"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".ClassroomActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
