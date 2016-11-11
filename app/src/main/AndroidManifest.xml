@@ -12,6 +12,7 @@
             android:theme="@style/HomeTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -26,6 +27,7 @@
             android:parentActivityName=".MainActivity">
 
         </activity>
+        <activity android:name=".StudentSettings"/>
         <activity
             android:name=".ClassroomActivity"
             android:theme="@style/ClssroomTheme"
