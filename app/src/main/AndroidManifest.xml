@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="swen_anigans.mathematicfanatic">
+    package="swen_anigans.mathematicfanatic"
+    android:versionCode="0.5"
+    android:versionName="Beta Release">
 
     <application
         android:allowBackup="true"
@@ -8,14 +10,16 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat.Light"
         android:supportsRtl="true">
-        <activity android:name=".MainActivity"
+
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/HomeTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
 
             android:name="swen_anigains.mathematicfanatic.ClassroomActivity"
@@ -24,10 +28,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".GuardianSettings"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"/>
 
-        </activity>
-        <activity android:name=".StudentSettings"/>
+        <activity
+            android:name=".StudentSettings"
+            android:theme="@style/GuardianTheme" />
+
         <activity
             android:name=".ClassroomActivity"
             android:theme="@style/ClssroomTheme"
@@ -42,32 +48,39 @@
         <activity
             android:name=".StudentLocker"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/LockerTheme">
-
-        </activity>
+            android:theme="@style/LockerTheme"/>
+        
         <activity
             android:name=".activity_help"
             android:label="@string/title_activity_help"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
             android:name=".QuizResultsActivity"
             android:exported="true"
             android:theme="@style/QuizTheme"/>
+
         <activity
-            android:name=".QuizActivity"/>
+            android:name=".QuizActivity"
+            android:theme="@style/QuizTheme"/>
+
         <activity
-            android:name=".QuizStartActivity"/>
+            android:name=".QuizStartActivity"
+            android:theme="@style/QuizTheme"/>
+
         <activity
-            android:name=".QuizSubmissionActivity"/>
+            android:name=".QuizSubmissionActivity"
+            android:theme="@style/QuizTheme"/>
+
         <activity android:name=".RecessActivity"
-            android:theme="@style/RecessTheme"/>
+            android:theme="@style/RecessTheme"
+            android:parentActivityName=".StudentLocker"/>
+
         <activity android:name=".VideoTheaterActivity"
-            android:theme="@style/RecessTheme">
-            android:parentActivityName=".MainActivity"
-        </activity>
+            android:theme="@style/RecessTheme"
+            android:parentActivityName=".RecessActivity"/>
+
     </application>
 
 </manifest>

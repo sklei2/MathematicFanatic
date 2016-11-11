@@ -6,16 +6,16 @@
     <string name="progress_report_button">Report Card</string>
     <string name="guardian_settings">Guardian Settings</string>
     <string name="locker">Locker</string>
-
+    <string name="quiz">Quiz</string>
     <string name="title_activity_help">Help</string>
     <string name="recess">Recess</string>
     <string name="quizcomplete">Quiz Complete</string>
     <string name="correct">0</string>
     <string name="total">0</string>
-    <string name="pick_reward">123</string>
+    <string name="pick_reward">Pick Reward</string>
     <string name="reward1">Magic</string>
     <string name="reward2">Animals</string>s
-    <string name="reward3">Medieval Times</string>
+    <string name="reward3">Medieval</string>
     <string name="reward4">Construction</string>
     <string name="reward5">Superheroes</string>
     <string name="reward6">Minecraft</string>

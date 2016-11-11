@@ -3,6 +3,7 @@ package swen_anigans.mathematicfanatic;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -21,7 +22,18 @@ public class StudentLocker extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.Lockertoolbar);
         setSupportActionBar(toolbar);
         TextView title = (TextView) findViewById(R.id.LockerTitle);
-        title.setText(DataManager.getInstance().curStudent+"'s Locker");
+
+        String titleText;
+        if(DataManager.getInstance().curStudent.name.toUpperCase().endsWith("S"))
+        {
+            titleText = DataManager.getInstance().curStudent.name + "' Locker";
+        }
+        else
+        {
+            titleText = DataManager.getInstance().curStudent.name + "'s Locker";
+        }
+
+        title.setText(titleText);
 
         //set the up button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -39,7 +51,7 @@ public class StudentLocker extends AppCompatActivity
     }
 
     public void toRecess(View view){
-        Intent intent = new Intent(this, QuizStartActivity.class);
+        Intent intent = new Intent(this, RecessActivity.class);
         startActivity(intent);
     }
 

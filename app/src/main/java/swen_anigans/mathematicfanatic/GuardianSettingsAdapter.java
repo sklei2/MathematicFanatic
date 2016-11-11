@@ -16,11 +16,10 @@ import java.util.ArrayList;
  */
 public class GuardianSettingsAdapter extends BaseAdapter implements ListAdapter {
 
-    // Update this so that the "String" is the student class
-    private ArrayList<String> list = new ArrayList<>();
+    private ArrayList<student> list = new ArrayList<>();
     private Context context;
 
-    public GuardianSettingsAdapter(ArrayList<String> list, Context context)
+    public GuardianSettingsAdapter(ArrayList<student> list, Context context)
     {
         this.list = list;
         this.context = context;
@@ -52,7 +51,7 @@ public class GuardianSettingsAdapter extends BaseAdapter implements ListAdapter 
 
         // Edit the text on the button
         Button studentButton = (Button)view.findViewById(R.id.student_settings_button);
-        studentButton.setText(list.get(i));
+        studentButton.setText(list.get(i).name);
 
         // Add button listeners here
         ImageButton deleteButton = (ImageButton) view.findViewById(R.id.remove_student_button);

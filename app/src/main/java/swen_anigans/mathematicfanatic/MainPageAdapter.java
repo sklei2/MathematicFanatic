@@ -16,10 +16,10 @@ import java.util.ArrayList;
 public class MainPageAdapter extends BaseAdapter implements ListAdapter {
 
     // Change the string to be the student class
-    private ArrayList<String> list = new ArrayList<>();
+    private ArrayList<student> list = new ArrayList<>();
     private Context context;
 
-    public MainPageAdapter(ArrayList<String> list, Context context)
+    public MainPageAdapter(ArrayList<student> list, Context context)
     {
         this.list = list;
         this.context = context;
@@ -54,9 +54,7 @@ public class MainPageAdapter extends BaseAdapter implements ListAdapter {
         Button progressReportButton = (Button) view.findViewById(R.id.progress_report_button);
 
         // Set the text
-        studentButton.setText(list.get(i));
-
-        // Add button listeners
+        studentButton.setText(list.get(i).name);
 
         return view;
     }
