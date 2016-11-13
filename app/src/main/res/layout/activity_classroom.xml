@@ -61,7 +61,9 @@
         android:id="@+id/checkButton"
         android:layout_alignStart="@+id/editClassroomAnswer"
         android:layout_alignEnd="@+id/editClassroomAnswer"
-        android:layout_below="@+id/editClassroomAnswer" />
+        android:layout_below="@+id/editClassroomAnswer"
+        android:onClick="checkAnswer"
+        />
 
     <Button
         android:layout_width="wrap_content"
