@@ -1,5 +1,6 @@
 package swen_anigans.mathematicfanatic;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
@@ -164,4 +167,28 @@ public class ClassroomActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void checkAnswer(View view){
+        EditText answerInput = (EditText) findViewById(R.id.editClassroomAnswer);
+        String answer = answerInput.getText().toString();
+        CharSequence text;
+        if (!answer.isEmpty()) {
+            int quizAnswer = Integer.parseInt(answer);
+            answers.set(pageNumber-1, quizAnswer);
+            boolean correct;
+            if(quizAnswer == expectedAnswers.get(pageNumber - 1)){
+                text = "Correct!";
+            }else{
+                text = "Incorrect";
+            }
+
+        }else{
+            answers.set(pageNumber-1, 0);
+            text = "Please enter an answer first.";
+        }
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
 }
