@@ -55,7 +55,7 @@ public class ClassroomActivity extends AppCompatActivity {
             int secondNumber = classroomNumbers.get(ThreadLocalRandom.current().nextInt(0, classroomNumbers.size()));
             int answer = firstNumber * secondNumber;
 
-            Question q = new Question(firstNumber, secondNumber, answer);
+            Question q = new Question(firstNumber, secondNumber);
             questions.add(q);
         }
     }
@@ -64,12 +64,12 @@ public class ClassroomActivity extends AppCompatActivity {
         TextView questionDisplay = (TextView) findViewById(R.id.classroomQuestion);
         Question question = questions.get(pageNumber - 1);
 
-        String questionString = question.getFirstNumber() + " X " + question.getSecondNumber();
+        String questionString = question.firstNumber + " X " + question.secondNumber;
         questionDisplay.setText(questionString);
 
-        if (question.getSubmittedAnswer() != 0){
+        if (question.submittedAnswer != 0){
             EditText editQuizAnswer = (EditText) findViewById(R.id.editClassroomAnswer);
-            editQuizAnswer.setText(Integer.toString(question.getSubmittedAnswer()));
+            editQuizAnswer.setText(Integer.toString(question.submittedAnswer));
         }
 
         Button PreviousButton = (Button) findViewById(R.id.prevButton);
@@ -106,9 +106,9 @@ public class ClassroomActivity extends AppCompatActivity {
         String answerText = answerInput.getText().toString();
         if(!answerText.isEmpty()){
             int answer = Integer.parseInt(answerText);
-            questions.get(pageNumber - 1).setSubmittedAnswer(answer);
+            questions.get(pageNumber - 1).submittedAnswer = answer;
         }else{
-            questions.get(pageNumber - 1).setSubmittedAnswer(0);
+            questions.get(pageNumber - 1).submittedAnswer = 0;
         }
         answerInput.setText("");
     }
@@ -116,7 +116,7 @@ public class ClassroomActivity extends AppCompatActivity {
     public void goToHelp(View view){
         Question question = questions.get(pageNumber - 1);
         Intent intent = new Intent(this, activity_help.class);
-        int[] temp = {question.getFirstNumber(), question.getSecondNumber()};
+        int[] temp = {question.firstNumber, question.secondNumber};
         intent.putExtra("abValues", temp);
         startActivity(intent);
     }
@@ -155,7 +155,7 @@ public class ClassroomActivity extends AppCompatActivity {
         String text;
         if(!answerText.isEmpty()){
             int submittedAnswer = Integer.parseInt(answerText);
-            questions.get(pageNumber - 1).setSubmittedAnswer(submittedAnswer);
+            questions.get(pageNumber - 1).submittedAnswer = submittedAnswer;
             if(questions.get(pageNumber - 1).checkAnswer()){
                 text = "Correct";
             }else{

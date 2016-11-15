@@ -1,7 +1,6 @@
 package swen_anigans.mathematicfanatic;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  * Created by Matthew Gallagher on 11/14/2016.
@@ -9,10 +8,10 @@ import java.util.ArrayList;
 
 public class Question implements Serializable {
 
-    private int firstNumber;
-    private int secondNumber;
-    private int submittedAnswer;
-    private int answer;
+    public int firstNumber;
+    public int secondNumber;
+    public int submittedAnswer;
+    public int answer;
 
     public Question(){
         firstNumber = 0;
@@ -21,37 +20,11 @@ public class Question implements Serializable {
         submittedAnswer = 0;
     }
 
-    public Question(int first, int second, int a){
+    public Question(int first, int second){
         firstNumber = first;
         secondNumber = second;
-        answer = a;
+        answer = firstNumber * secondNumber;
         submittedAnswer = 0;
-    }
-
-    public int getFirstNumber(){
-        return firstNumber;
-    }
-    public int getSecondNumber(){
-        return secondNumber;
-    }
-    public int getAnswer(){
-        return answer;
-    }
-    public int getSubmittedAnswer(){
-        return submittedAnswer;
-    }
-
-    public void setFirstNumber(int num){
-        firstNumber = num;
-    }
-    public void setSecondNumber(int num){
-        secondNumber = num;
-    }
-    public void setAnswer(int answer) {
-        this.answer = answer;
-    }
-    public void setSubmittedAnswer(int submittedAnswer) {
-        this.submittedAnswer = submittedAnswer;
     }
 
     //returns 1 if the answer is correct
