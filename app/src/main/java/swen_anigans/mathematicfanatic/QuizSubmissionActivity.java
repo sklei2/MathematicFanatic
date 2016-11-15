@@ -1,6 +1,7 @@
 package swen_anigans.mathematicfanatic;
 
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -24,20 +25,9 @@ public class QuizSubmissionActivity extends AppCompatActivity {
 
         Intent quizSubmissionIntent = getIntent();
 
-        quizQuestions = new ArrayList<>();
-        ArrayList<Integer> firstMult = quizSubmissionIntent.getIntegerArrayListExtra("firstMult");
-        ArrayList<Integer> secondMult = quizSubmissionIntent.getIntegerArrayListExtra("secondMult");
-
-        for (int i = 0; i < firstMult.size(); i++) {
-            ArrayList<Integer> problem = new ArrayList<>();
-            problem.add(firstMult.get(i));
-            problem.add(secondMult.get(i));
-            quizQuestions.add(problem);
-        }
-
-
-        answers = quizSubmissionIntent.getIntegerArrayListExtra("answers");
-        expectedAnswers = quizSubmissionIntent.getIntegerArrayListExtra("expectedAnswers");
+        quizQuestions = DataManager.getInstance().quizContent.questions;
+        answers = DataManager.getInstance().quizContent.answers;
+        expectedAnswers = DataManager.getInstance().quizContent.expectedAnswers;
     }
 
     public void quizSubmission(View v) {
@@ -63,17 +53,6 @@ public class QuizSubmissionActivity extends AppCompatActivity {
         Intent quizIntent = new Intent(QuizSubmissionActivity.this, QuizActivity.class);
         quizIntent.putExtra("atBeginning", false);
 
-        ArrayList<Integer> firstMult = new ArrayList<>();
-        ArrayList<Integer> secondMult = new ArrayList<>();
-        for (int i = 0; i < quizQuestions.size(); i++) {
-            firstMult.add(quizQuestions.get(i).get(0));
-            secondMult.add(quizQuestions.get(i).get(1));
-        }
-
-        quizIntent.putExtra("firstMult", firstMult);
-        quizIntent.putExtra("secondMult", secondMult);
-        quizIntent.putExtra("answers", answers);
-        quizIntent.putExtra("expectedAnswers", expectedAnswers);
         startActivity(quizIntent);
     }
 }
