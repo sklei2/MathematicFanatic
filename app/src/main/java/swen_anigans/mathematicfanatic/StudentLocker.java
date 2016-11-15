@@ -33,6 +33,11 @@ public class StudentLocker extends AppCompatActivity
 
         title.setText(titleText);
 
+        if(DataManager.getInstance().questionsContent == null)
+        {
+            DataManager.getInstance().questionsContent = new QuestionContent(20);
+        }
+
         //set the up button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
