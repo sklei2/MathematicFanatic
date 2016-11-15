@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Created by mrg18_000 on 11/14/2016.
+ * Created by Matthew Gallagher on 11/14/2016.
  */
 
 public class Question implements Serializable {
@@ -18,12 +18,14 @@ public class Question implements Serializable {
         firstNumber = 0;
         secondNumber = 0;
         answer = 0;
+        submitedAnswer = 0;
     }
 
     public Question(int first, int second, int a){
         firstNumber = first;
         secondNumber = second;
         answer = a;
+        submitedAnswer = 0;
     }
 
     public int getFirstNumber(){
@@ -54,11 +56,16 @@ public class Question implements Serializable {
 
     //returns 1 if the answer is correct
     //returns 0 if the answer is incorrect
-    public int checkAnswer(){
+    public boolean checkAnswer(){
         if (submitedAnswer == answer){
-            return 1;
+            return true;
         }else{
-            return 0;
+            return false;
         }
+    }
+
+    public String toString(){
+        String s = "(" + firstNumber + ", " + secondNumber + ", " + answer + ", " + submitedAnswer + ")\n";
+        return s;
     }
 }
