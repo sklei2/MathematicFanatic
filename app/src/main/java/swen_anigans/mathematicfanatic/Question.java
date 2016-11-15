@@ -11,21 +11,21 @@ public class Question implements Serializable {
 
     private int firstNumber;
     private int secondNumber;
-    private int submitedAnswer;
+    private int submittedAnswer;
     private int answer;
 
     public Question(){
         firstNumber = 0;
         secondNumber = 0;
         answer = 0;
-        submitedAnswer = 0;
+        submittedAnswer = 0;
     }
 
     public Question(int first, int second, int a){
         firstNumber = first;
         secondNumber = second;
         answer = a;
-        submitedAnswer = 0;
+        submittedAnswer = 0;
     }
 
     public int getFirstNumber(){
@@ -37,8 +37,8 @@ public class Question implements Serializable {
     public int getAnswer(){
         return answer;
     }
-    public int getSubmitedAnswer(){
-        return submitedAnswer;
+    public int getSubmittedAnswer(){
+        return submittedAnswer;
     }
 
     public void setFirstNumber(int num){
@@ -50,14 +50,14 @@ public class Question implements Serializable {
     public void setAnswer(int answer) {
         this.answer = answer;
     }
-    public void setSubmitedAnswer(int submitedAnswer) {
-        this.submitedAnswer = submitedAnswer;
+    public void setSubmittedAnswer(int submittedAnswer) {
+        this.submittedAnswer = submittedAnswer;
     }
 
     //returns 1 if the answer is correct
     //returns 0 if the answer is incorrect
     public boolean checkAnswer(){
-        if (submitedAnswer == answer){
+        if (submittedAnswer == answer){
             return true;
         }else{
             return false;
@@ -65,7 +65,7 @@ public class Question implements Serializable {
     }
 
     public String toString(){
-        String s = "(" + firstNumber + ", " + secondNumber + ", " + answer + ", " + submitedAnswer + ")\n";
+        String s = "(" + firstNumber + ", " + secondNumber + ", " + answer + ", " + submittedAnswer + ")\n";
         return s;
     }
 }

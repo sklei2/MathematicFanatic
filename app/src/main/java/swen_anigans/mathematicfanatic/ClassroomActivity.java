@@ -67,9 +67,9 @@ public class ClassroomActivity extends AppCompatActivity {
         String questionString = question.getFirstNumber() + " X " + question.getSecondNumber();
         questionDisplay.setText(questionString);
 
-        if (question.getSubmitedAnswer() != 0){
+        if (question.getSubmittedAnswer() != 0){
             EditText editQuizAnswer = (EditText) findViewById(R.id.editClassroomAnswer);
-            editQuizAnswer.setText(Integer.toString(question.getSubmitedAnswer()));
+            editQuizAnswer.setText(Integer.toString(question.getSubmittedAnswer()));
         }
 
         Button PreviousButton = (Button) findViewById(R.id.prevButton);
@@ -106,9 +106,9 @@ public class ClassroomActivity extends AppCompatActivity {
         String answerText = answerInput.getText().toString();
         if(!answerText.isEmpty()){
             int answer = Integer.parseInt(answerText);
-            questions.get(pageNumber - 1).setSubmitedAnswer(answer);
+            questions.get(pageNumber - 1).setSubmittedAnswer(answer);
         }else{
-            questions.get(pageNumber - 1).setSubmitedAnswer(0);
+            questions.get(pageNumber - 1).setSubmittedAnswer(0);
         }
         answerInput.setText("");
     }
@@ -154,8 +154,8 @@ public class ClassroomActivity extends AppCompatActivity {
         String answerText = answerInput.getText().toString();
         String text;
         if(!answerText.isEmpty()){
-            int submitedAnswer = Integer.parseInt(answerText);
-            questions.get(pageNumber - 1).setSubmitedAnswer(submitedAnswer);
+            int submittedAnswer = Integer.parseInt(answerText);
+            questions.get(pageNumber - 1).setSubmittedAnswer(submittedAnswer);
             if(questions.get(pageNumber - 1).checkAnswer()){
                 text = "Correct";
             }else{
