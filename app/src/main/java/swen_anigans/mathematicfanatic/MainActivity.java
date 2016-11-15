@@ -12,6 +12,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import static swen_anigans.mathematicfanatic.LearningType.*;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -52,6 +54,17 @@ public class MainActivity extends AppCompatActivity {
         // This student text would then be used to set the current
         // student from our "database"
         DataManager.getInstance().setCurStudent(studentText);
+
+        // Create the Helper based on the learning concepts of the user
+        switch(DataManager.getInstance().curStudent.learningType)
+        {
+            case IMAGERY:
+                DataManager.getInstance().supplier = new HelpImageSupplier();
+            case FACT_FAMILIES:
+                break;
+            case LIST_MEMORIZATION:
+                break;
+        }
 
         // Then jump on over to the locker page!
         Intent intent = new Intent(this, StudentLocker.class);
