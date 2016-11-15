@@ -86,6 +86,8 @@ public class ClassroomActivity extends AppCompatActivity {
 
     public void previousPage(View view) {
         saveAnswer();
+        TextView answerInput = (TextView) findViewById(R.id.editClassroomAnswer);
+        answerInput.setText("");
         pageNumber -= 1;
         renderPage();
     }
@@ -93,6 +95,8 @@ public class ClassroomActivity extends AppCompatActivity {
     public void nextPage(View view) {
 
         saveAnswer();
+        TextView answerInput = (TextView) findViewById(R.id.editClassroomAnswer);
+        answerInput.setText("");
         pageNumber += 1;
         if (pageNumber > totalPages) {
             finishedQuestions();
@@ -110,7 +114,7 @@ public class ClassroomActivity extends AppCompatActivity {
         }else{
             questions.get(pageNumber - 1).submittedAnswer = 0;
         }
-        answerInput.setText("");
+
     }
 
     public void goToHelp(View view){
@@ -150,9 +154,19 @@ public class ClassroomActivity extends AppCompatActivity {
     }
 
     public void checkAnswer(View view){
+        String text;
+        saveAnswer();
+        if(questions.get(pageNumber - 1).submittedAnswer == 0){
+            text = "Please enter an answer first.";
+        }else if(questions.get(pageNumber - 1).checkAnswer()){
+            text = "Correct";
+        }else{
+            text = "Incorrect";
+        }
+        /*
         TextView answerInput = (TextView) findViewById(R.id.editClassroomAnswer);
         String answerText = answerInput.getText().toString();
-        String text;
+
         if(!answerText.isEmpty()){
             int submittedAnswer = Integer.parseInt(answerText);
             questions.get(pageNumber - 1).submittedAnswer = submittedAnswer;
@@ -164,6 +178,7 @@ public class ClassroomActivity extends AppCompatActivity {
         }else{
             text = "Please enter an answer first.";
         }
+        */
         Context context = getApplicationContext();
         int duration = Toast.LENGTH_SHORT;
 
