@@ -31,15 +31,15 @@ public class QuizActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
 
         Intent quizIntent = getIntent();
+        this.quizContent = DataManager.getInstance().questionsContent;
+
         // is it coming from the beginning?
         if(quizIntent.getBooleanExtra("atBeginning", false))
         {
             pageNumber = 1;
-            initializeQuizQuestions();
         }
         else{
             // it came from the submission
-            this.quizContent = DataManager.getInstance().quizContent;
             pageNumber = totalPages;
         }
 
@@ -69,11 +69,6 @@ public class QuizActivity extends AppCompatActivity {
         */
 
         renderPage();
-    }
-
-    public void initializeQuizQuestions() {
-        quizContent = new QuestionContent(totalPages);
-        DataManager.getInstance().quizContent = quizContent;
     }
 
     public void previousPage(View view) {
