@@ -177,13 +177,20 @@ public class ClassroomActivity extends AppCompatActivity {
         answerInput.setText("");
     }
 
-    public void goToHelp(View view) {
+    public void goToHelp2(View view) {
         ArrayList<Integer> currentQuestion = classroomQuestions.get(pageNumber-1);
         int a = currentQuestion.get(1);
         int b = currentQuestion.get(0);
         Intent intent = new Intent(this, activity_help.class);
         int[] temp = {a,b};
         intent.putExtra("abValues",temp);
+        startActivity(intent);
+    }
+    public void goToHelp(View view){
+        Question question = questions.get(pageNumber - 1);
+        Intent intent = new Intent(this, activity_help.class);
+        int[] temp = {question.getFirstNumber(), question.getSecondNumber()};
+        intent.putExtra("abValues", temp);
         startActivity(intent);
     }
 
