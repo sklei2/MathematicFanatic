@@ -58,31 +58,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Time"
-        android:id="@+id/quizPagesComplete"
-        android:layout_above="@+id/editQuizAnswer"
-        android:layout_toEndOf="@+id/editQuizAnswer"
-        android:layout_marginBottom="18dp"
-        android:background="@drawable/border"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Timer"
-        android:id="@+id/quizTimer"
-        android:layout_alignBottom="@+id/quizPagesComplete"
-        android:layout_alignParentStart="true"
-        android:background="@drawable/border"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
         android:id="@+id/quizQuestion"
@@ -101,5 +76,33 @@
         android:layout_below="@+id/quizQuestion"
         android:layout_toEndOf="@+id/quizTimer"
         android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Pages"
+        android:id="@+id/quizPagesComplete"
+        android:layout_marginBottom="19dp"
+        android:background="@drawable/border"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:layout_above="@+id/editQuizAnswer"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Timer"
+        android:id="@+id/quizTimer"
+        android:background="@drawable/border"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:layout_alignBaseline="@+id/quizPagesComplete"
+        android:layout_alignBottom="@+id/quizPagesComplete"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="14dp" />
 
 </RelativeLayout>
