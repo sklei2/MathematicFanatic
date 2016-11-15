@@ -47,7 +47,8 @@
         <activity
             android:name=".QuizResultsActivity"
             android:exported="true"
-            android:theme="@style/QuizTheme"/>
+            android:theme="@style/QuizTheme"
+            android:parentActivityName=".StudentLocker"/>
 
         <activity
             android:name=".QuizActivity"
@@ -55,7 +56,8 @@
 
         <activity
             android:name=".QuizStartActivity"
-            android:theme="@style/QuizTheme"/>
+            android:theme="@style/QuizTheme"
+            android:parentActivityName=".StudentLocker"/>
 
         <activity
             android:name=".QuizSubmissionActivity"
