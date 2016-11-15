@@ -12,7 +12,8 @@
 
         <activity
             android:name=".MainActivity"
-            android:theme="@style/HomeTheme">
+            android:theme="@style/HomeTheme"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -21,53 +22,63 @@
 
         <activity
             android:name=".GuardianSettings"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".StudentSettings"
-            android:theme="@style/GuardianTheme" />
+            android:theme="@style/GuardianTheme"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".ClassroomActivity"
             android:theme="@style/ClassroomTheme"
-            android:parentActivityName=".StudentLocker">
-            
-        </activity>
+            android:parentActivityName=".StudentLocker"
+            android:screenOrientation="portrait"/>
+
         <activity
             android:name=".StudentLocker"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/LockerTheme"/>
+            android:theme="@style/LockerTheme"
+            android:screenOrientation="portrait"/>
         
         <activity
             android:name=".activity_help"
             android:label="@string/title_activity_help"
             android:parentActivityName=".ClassroomActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".QuizResultsActivity"
             android:exported="true"
-            android:theme="@style/QuizTheme"/>
+            android:theme="@style/QuizTheme"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".QuizActivity"
-            android:theme="@style/QuizTheme"/>
+            android:theme="@style/QuizTheme"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".QuizStartActivity"
-            android:theme="@style/QuizTheme"/>
+            android:theme="@style/QuizTheme"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".QuizSubmissionActivity"
-            android:theme="@style/QuizTheme"/>
+            android:theme="@style/QuizTheme"
+            android:screenOrientation="portrait"/>
 
         <activity android:name=".RecessActivity"
             android:theme="@style/RecessTheme"
-            android:parentActivityName=".StudentLocker"/>
+            android:parentActivityName=".StudentLocker"
+            android:screenOrientation="portrait"/>
 
         <activity android:name=".VideoTheaterActivity"
             android:theme="@style/RecessTheme"
-            android:parentActivityName=".RecessActivity"/>
+            android:parentActivityName=".RecessActivity"
+            android:screenOrientation="portrait"/>
 
     </application>
 
