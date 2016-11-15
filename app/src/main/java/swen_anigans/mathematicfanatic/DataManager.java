@@ -1,10 +1,7 @@
 package swen_anigans.mathematicfanatic;
 
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Hashtable;
 
 /**
  * Created by Mitchell on 11/9/2016.
