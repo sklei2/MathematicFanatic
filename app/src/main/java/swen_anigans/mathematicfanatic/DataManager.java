@@ -16,6 +16,8 @@ public class DataManager
     protected HashMap<Interest,String> Interests;
     protected QuestionContent questionsContent;
 
+    public IHelpSupplier supplier;
+
     private DataManager(){
         students = new ArrayList<student>();
         Interests = new HashMap<Interest,String>();
@@ -60,7 +62,6 @@ public class DataManager
         return -1;
     }
 
-
     public student getStudent(String name){
         for(int i = 0; i < students.size(); i++){
             if(students.get(i).name.equals(name)) {
@@ -70,4 +71,5 @@ public class DataManager
 
         return null;
     }
+
 }
