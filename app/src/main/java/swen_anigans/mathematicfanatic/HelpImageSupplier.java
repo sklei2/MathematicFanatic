@@ -1,8 +1,6 @@
 package swen_anigans.mathematicfanatic;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 
 /**
  * Created by Sean on 11/14/2016.
