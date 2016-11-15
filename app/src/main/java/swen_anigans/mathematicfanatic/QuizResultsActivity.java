@@ -73,14 +73,8 @@ public class QuizResultsActivity extends AppCompatActivity {
 
         Star[] starValues = getStars(correct,total,starGroup.getChildCount());
         setStars(starViews,starValues);
-        if(picked == null) {
-            setRewardListeners();
-        } else {
-            LinearLayout slideUp = (LinearLayout) findViewById(R.id.slideuppanel);
-            pickedTV = ((TextView) slideUp.getChildAt(0));
-            slideUp.removeAllViews();
-            formRewardSelectedLayout(slideUp,picked);
-        }
+
+        setRewardListeners();
 
         // Back Button things
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
