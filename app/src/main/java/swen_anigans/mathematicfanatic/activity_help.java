@@ -9,9 +9,6 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.HashMap;
-import java.util.Map;
-
 
 public class activity_help extends AppCompatActivity {
 
@@ -19,50 +16,6 @@ public class activity_help extends AppCompatActivity {
     private Integer a = 1;
     private Integer b = 1;
     private Integer c = 1;
-
-    private static final Map<Integer, String> items;
-    static
-    {
-        items = new HashMap<Integer, String>();
-        items.put(8, "grapes");
-        items.put(3, "balloons");
-    }
-
-    private static final Map<Integer, Integer> threes;
-    static
-    {
-        threes = new HashMap<Integer, Integer>();
-        threes.put(1,R.drawable.three_01);
-        threes.put(2,R.drawable.three_02);
-        threes.put(3,R.drawable.three_03);
-        threes.put(4,R.drawable.three_04);
-        threes.put(5,R.drawable.three_05);
-        threes.put(6,R.drawable.three_06);
-        threes.put(7,R.drawable.three_07);
-        threes.put(8,R.drawable.three_08);
-        threes.put(9,R.drawable.three_09);
-        threes.put(10,R.drawable.three_10);
-        threes.put(11,R.drawable.three_11);
-        threes.put(12,R.drawable.three_12);
-    }
-
-    private static final Map<Integer, Integer> eights;
-    static
-    {
-        eights = new HashMap<Integer, Integer>();
-        eights.put(1,R.drawable.eight_01);
-        eights.put(2,R.drawable.eight_02);
-        eights.put(3,R.drawable.eight_03);
-        eights.put(4,R.drawable.eight_04);
-        eights.put(5,R.drawable.eight_05);
-        eights.put(6,R.drawable.eight_06);
-        eights.put(7,R.drawable.eight_07);
-        eights.put(8,R.drawable.eight_08);
-        eights.put(9,R.drawable.eight_09);
-        eights.put(10,R.drawable.eight_10);
-        eights.put(11,R.drawable.eight_11);
-        eights.put(12,R.drawable.eight_12);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,13 +37,7 @@ public class activity_help extends AppCompatActivity {
         b = values[1];
 
         // Set ImageView visualHelp based on values a and b
-        Integer resID = 0;
-        if (b == 3)
-            resID = threes.get(a);
-        else if (b == 8)
-            resID = eights.get(a);
-        else
-            resID = R.drawable.image_not_found;
+        Integer resID = DataManager.getInstance().supplier.getImageResource(a, b);
 
         ImageView visualHelp = (ImageView)findViewById(R.id.visualization);
         visualHelp.setImageResource(resID);
@@ -102,7 +49,7 @@ public class activity_help extends AppCompatActivity {
         equationView.setText(equationString);
 
         // Create explanation string
-        String item = items.get(b);
+        String item = DataManager.getInstance().supplier.getItemText(b);
         String explanation = a.toString() + " bunches of " + b.toString() + " " + item + " gives you\n" + c.toString() + " " + item;
         TextView explanationView = (TextView) findViewById(R.id.visualDescription);
         explanationView.setText(explanation);
