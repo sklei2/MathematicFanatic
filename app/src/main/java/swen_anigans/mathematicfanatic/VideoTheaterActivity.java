@@ -1,24 +1,16 @@
 package swen_anigans.mathematicfanatic;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v4.widget.SlidingPaneLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Space;
-import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class VideoTheaterActivity extends AppCompatActivity {
