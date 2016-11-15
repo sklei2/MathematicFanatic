@@ -1,7 +1,6 @@
 package swen_anigans.mathematicfanatic;
 
 import android.content.Intent;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -25,9 +24,9 @@ public class QuizSubmissionActivity extends AppCompatActivity {
 
         Intent quizSubmissionIntent = getIntent();
 
-        quizQuestions = DataManager.getInstance().quizContent.questions;
-        answers = DataManager.getInstance().quizContent.answers;
-        expectedAnswers = DataManager.getInstance().quizContent.expectedAnswers;
+        quizQuestions = DataManager.getInstance().questionsContent.questions;
+        answers = DataManager.getInstance().questionsContent.answers;
+        expectedAnswers = DataManager.getInstance().questionsContent.expectedAnswers;
     }
 
     public void quizSubmission(View v) {
