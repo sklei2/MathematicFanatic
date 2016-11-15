@@ -14,6 +14,7 @@ public class DataManager
     protected ArrayList<student> students;
     protected student curStudent;
     protected HashMap<Interest,String> Interests;
+    protected QuestionContent quizContent;
 
     private DataManager(){
         students = new ArrayList<student>();
