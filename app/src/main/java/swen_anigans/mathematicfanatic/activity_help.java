@@ -2,16 +2,12 @@ package swen_anigans.mathematicfanatic;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class activity_help extends AppCompatActivity {
