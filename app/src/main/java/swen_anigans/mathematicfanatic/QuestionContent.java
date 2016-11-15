@@ -71,4 +71,21 @@ public class QuestionContent
             expectedAnswers.add(-1);
         }
     }
+
+    // we don't want the questions in the same order everytime
+    // we're teaching the math not the order.
+    public void ShuffleQuestions()
+    {
+
+    }
+
+    // After a quiz or classroom where answers are submitted we need
+    // to make sure that they are cleared
+    public void ClearAnswers()
+    {
+        for(int i = 0; i < answers.size(); i++)
+        {
+            answers.set(i, 0);
+        }
+    }
 }
