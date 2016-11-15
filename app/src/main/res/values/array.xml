@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Keep this file alphabetic please - sk -->
 <resources>
     <string-array name="learning_concepts">
-        <item>Imagery</item>
         <item>Fact Families</item>
+        <item>Imagery</item>
         <item>List Memorization</item>
     </string-array>
     <string-array name="interests">
-        <item>Magic</item>
-        <item>Minecraft</item>
         <item>Animals</item>
-        <item>Medieval</item>
-        <item>Superheroes</item>
         <item>Construction</item>
+        <item>Magic</item>
+        <item>Medieval</item>
+        <item>Minecraft</item>
+        <item>Superheroes</item>
     </string-array>
 </resources>
