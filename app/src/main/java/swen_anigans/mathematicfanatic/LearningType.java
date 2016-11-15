@@ -6,5 +6,5 @@ package swen_anigans.mathematicfanatic;
 
 public enum LearningType
 {
-    IMAGERY, FACT_FAMILIES, LIST_MEMORIZATION
+    FACT_FAMILIES, IMAGERY, LIST_MEMORIZATION
 }
