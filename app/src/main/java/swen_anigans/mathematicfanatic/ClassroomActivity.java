@@ -11,19 +11,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
+
 public class ClassroomActivity extends AppCompatActivity {
 
-    private int pageNumber;
-    private int totalPages;
-    private ArrayList<ArrayList<Integer>> classroomQuestions;
+    private int pageNumber = 1;
+    private int totalPages = 20;
     private ArrayList<Integer> classroomNumbers;
-    private ArrayList<Integer> answers;
-    private ArrayList<Integer> expectedAnswers;
+
+    private ArrayList<Question> questions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,48 +37,40 @@ public class ClassroomActivity extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
 
-        pageNumber = 1;
-        totalPages = 20;
-        classroomQuestions = new ArrayList<ArrayList<Integer>>();
-        expectedAnswers = new ArrayList<Integer>();
-        answers = new ArrayList<Integer>();
+        questions = new ArrayList<Question>();
+
         initializeQuestions();
 
-        for (int i = 0; i < totalPages; i++) {
-            answers.add(0);
-
-        }
-
         renderPage();
-        
-        //finishedQuestions();
     }
 
     public void initializeQuestions() {
         //TODO later need to make the numbers pick dynamic
         classroomNumbers = new ArrayList<Integer>(Arrays.asList(3, 8)); //Hardcoding the numbers to be quizzed on.
 
-
-        for (int i = 0; i < totalPages; i++) {
-            ArrayList<Integer> problemNumbers = new ArrayList<Integer>();
-            int firstNumber = classroomNumbers.get(ThreadLocalRandom.current().nextInt(0, classroomNumbers.size())); //Gets a random number from quizNumbers.
-            int secondNumber = ThreadLocalRandom.current().nextInt(1, 13); //Gets a random number from 1-12.
-
-            problemNumbers.add(firstNumber);
-            problemNumbers.add(secondNumber);
-            classroomQuestions.add(problemNumbers);
-
+        for(int i = 0; i < totalPages; i++){
+            //Gets a random number from 1-12.
+            int firstNumber = ThreadLocalRandom.current().nextInt(1, 13);
+            //Gets a random number from quizNumbers.
+            int secondNumber = classroomNumbers.get(ThreadLocalRandom.current().nextInt(0, classroomNumbers.size()));
             int answer = firstNumber * secondNumber;
-            expectedAnswers.add(answer);
+
+            Question q = new Question(firstNumber, secondNumber);
+            questions.add(q);
         }
     }
 
-    public void renderPage() {
-        TextView quizQuestion = (TextView) findViewById(R.id.classroomQuestion);
-        ArrayList<Integer> currentQuestion = classroomQuestions.get(pageNumber-1);
+    public void renderPage(){
+        TextView questionDisplay = (TextView) findViewById(R.id.classroomQuestion);
+        Question question = questions.get(pageNumber - 1);
 
-        String questionString = (Integer.toString(currentQuestion.get(1)) + " X " + Integer.toString(currentQuestion.get(0)));
-        quizQuestion.setText(questionString);
+        String questionString = question.firstNumber + " X " + question.secondNumber;
+        questionDisplay.setText(questionString);
+
+        if (question.submittedAnswer != 0){
+            EditText editQuizAnswer = (EditText) findViewById(R.id.editClassroomAnswer);
+            editQuizAnswer.setText(Integer.toString(question.submittedAnswer));
+        }
 
         Button PreviousButton = (Button) findViewById(R.id.prevButton);
         if (pageNumber == 1) {
@@ -89,19 +80,14 @@ public class ClassroomActivity extends AppCompatActivity {
             PreviousButton.setVisibility(View.VISIBLE);
         }
 
-        //populate the answer field with the previous answer
-        int currentAnswer = answers.get(pageNumber-1);
-        if (currentAnswer != 0) {
-            EditText editQuizAnswer = (EditText) findViewById(R.id.editClassroomAnswer);
-            editQuizAnswer.setText(Integer.toString(currentAnswer));
-        }
-
         TextView quizPagesComplete = (TextView) findViewById(R.id.quizPagesComplete);
         quizPagesComplete.setText(pageNumber+"/20");
     }
 
     public void previousPage(View view) {
         saveAnswer();
+        TextView answerInput = (TextView) findViewById(R.id.editClassroomAnswer);
+        answerInput.setText("");
         pageNumber -= 1;
         renderPage();
     }
@@ -109,6 +95,8 @@ public class ClassroomActivity extends AppCompatActivity {
     public void nextPage(View view) {
 
         saveAnswer();
+        TextView answerInput = (TextView) findViewById(R.id.editClassroomAnswer);
+        answerInput.setText("");
         pageNumber += 1;
         if (pageNumber > totalPages) {
             finishedQuestions();
@@ -117,25 +105,23 @@ public class ClassroomActivity extends AppCompatActivity {
         }
     }
 
-    public void saveAnswer() {
-        EditText quizAnswerInput = (EditText) findViewById(R.id.editClassroomAnswer);
-        String answer = quizAnswerInput.getText().toString();
-        if (!answer.isEmpty()) {
-            int quizAnswer = Integer.parseInt(answer);
-            answers.set(pageNumber-1, quizAnswer);
+    public void saveAnswer(){
+        TextView answerInput = (TextView) findViewById(R.id.editClassroomAnswer);
+        String answerText = answerInput.getText().toString();
+        if(!answerText.isEmpty()){
+            int answer = Integer.parseInt(answerText);
+            questions.get(pageNumber - 1).submittedAnswer = answer;
         }else{
-            answers.set(pageNumber-1, 0);
+            questions.get(pageNumber - 1).submittedAnswer = 0;
         }
-        quizAnswerInput.setText("");
+
     }
 
-    public void goToHelp(View view) {
-        ArrayList<Integer> currentQuestion = classroomQuestions.get(pageNumber-1);
-        int a = currentQuestion.get(1);
-        int b = currentQuestion.get(0);
+    public void goToHelp(View view){
+        Question question = questions.get(pageNumber - 1);
         Intent intent = new Intent(this, activity_help.class);
-        int[] temp = {a,b};
-        intent.putExtra("abValues",temp);
+        int[] temp = {question.firstNumber, question.secondNumber};
+        intent.putExtra("abValues", temp);
         startActivity(intent);
     }
 
@@ -168,23 +154,31 @@ public class ClassroomActivity extends AppCompatActivity {
     }
 
     public void checkAnswer(View view){
-        EditText answerInput = (EditText) findViewById(R.id.editClassroomAnswer);
-        String answer = answerInput.getText().toString();
-        CharSequence text;
-        if (!answer.isEmpty()) {
-            int quizAnswer = Integer.parseInt(answer);
-            answers.set(pageNumber-1, quizAnswer);
-            boolean correct;
-            if(quizAnswer == expectedAnswers.get(pageNumber - 1)){
-                text = "Correct!";
+        String text;
+        saveAnswer();
+        if(questions.get(pageNumber - 1).submittedAnswer == 0){
+            text = "Please enter an answer first.";
+        }else if(questions.get(pageNumber - 1).checkAnswer()){
+            text = "Correct";
+        }else{
+            text = "Incorrect";
+        }
+        /*
+        TextView answerInput = (TextView) findViewById(R.id.editClassroomAnswer);
+        String answerText = answerInput.getText().toString();
+
+        if(!answerText.isEmpty()){
+            int submittedAnswer = Integer.parseInt(answerText);
+            questions.get(pageNumber - 1).submittedAnswer = submittedAnswer;
+            if(questions.get(pageNumber - 1).checkAnswer()){
+                text = "Correct";
             }else{
                 text = "Incorrect";
             }
-
         }else{
-            answers.set(pageNumber-1, 0);
             text = "Please enter an answer first.";
         }
+        */
         Context context = getApplicationContext();
         int duration = Toast.LENGTH_SHORT;
 
