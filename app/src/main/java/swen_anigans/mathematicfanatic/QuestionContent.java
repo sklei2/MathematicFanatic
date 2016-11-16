@@ -2,7 +2,6 @@ package swen_anigans.mathematicfanatic;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -12,12 +11,16 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class QuestionContent
 {
-    protected ArrayList<Question> questions; //A 2d arraylist of questions. [[3, 8], [8, 2]] = 3*8, 8*2
+    protected ArrayList<Question> questions;
+
+    //region constructors
 
     public QuestionContent(int totalPages)
     {
+        // set to temporarily hold our questions
         Set<Question> uniqueQuestions = new HashSet<>();
 
+        // get all the possible numbers we can use to make a question.
         ArrayList<Integer> numbers = new ArrayList<Integer>();
         int min = DataManager.getInstance().curStudent.rangeMin;
         int max = DataManager.getInstance().curStudent.rangeMax;
@@ -29,7 +32,7 @@ public class QuestionContent
         // using a set to create our questions makes sure we don't have duplicates
         while(uniqueQuestions.size() < totalPages)
         {
-            int firstNumber = numbers.get(ThreadLocalRandom.current().nextInt(0, numbers.size())); //Gets a random number from quizNumbers.
+            int firstNumber = numbers.get(ThreadLocalRandom.current().nextInt(0, numbers.size())); //Gets a random number from user's range.
             int secondNumber = ThreadLocalRandom.current().nextInt(1, 13); //Gets a random number from 1-12.
 
             Question newQuestion = new Question(firstNumber, secondNumber);
@@ -43,8 +46,12 @@ public class QuestionContent
         questions = new ArrayList<Question>(uniqueQuestions);
     }
 
-    // we don't want the questions in the same order everytime
-    // we're teaching the math not the order.
+    //endregion
+
+    //region public functions
+
+    // we don't want the questions in the same order every time.
+    // we're teaching math, not memorization.
     public void ShuffleQuestions()
     {
 
@@ -59,4 +66,6 @@ public class QuestionContent
             q.submittedAnswer = 0;
         }
     }
+
+    //endregion
 }

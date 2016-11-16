@@ -43,6 +43,8 @@ public class Question implements Serializable {
         return s;
     }
 
+    //region Overridden methods for the hashes/sets
+
     @Override
     public boolean equals(Object obj)
     {
@@ -67,4 +69,6 @@ public class Question implements Serializable {
     {
         return Objects.hash(firstNumber, secondNumber, submittedAnswer);
     }
+
+    //endregion
 }
