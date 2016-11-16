@@ -10,9 +10,7 @@ import java.util.ArrayList;
 
 public class QuizSubmissionActivity extends AppCompatActivity {
 
-    private ArrayList<ArrayList<Integer>> quizQuestions;
-    private ArrayList<Integer> answers;
-    private ArrayList<Integer> expectedAnswers;
+    ArrayList<Question> questions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,29 +20,23 @@ public class QuizSubmissionActivity extends AppCompatActivity {
         myToolbar.setBackgroundResource(R.color.quizPrimary);
         setSupportActionBar(myToolbar);
 
-        Intent quizSubmissionIntent = getIntent();
-
-        quizQuestions = DataManager.getInstance().questionsContent.questions;
-        answers = DataManager.getInstance().questionsContent.answers;
-        expectedAnswers = DataManager.getInstance().questionsContent.expectedAnswers;
+        questions = DataManager.getInstance().questionsContent.questions;
     }
 
     public void quizSubmission(View v) {
         int correct = 0;
-        int total = answers.size();
 
-        int i = 0;
-        while (i < total) {
-            if (answers.get(i) == expectedAnswers.get(i)) {
+        for(int i = 0; i < questions.size(); i++)
+        {
+            if (questions.get(i).checkAnswer())
+            {
                 correct += 1;
             }
-
-            i++;
         }
 
         Intent resultsIntent = new Intent(QuizSubmissionActivity.this, QuizResultsActivity.class);
         resultsIntent.putExtra("numberCorrect", correct);
-        resultsIntent.putExtra("numberTotal", total);
+        resultsIntent.putExtra("numberTotal", questions.size());
         startActivity(resultsIntent);
     }
 

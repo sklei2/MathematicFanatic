@@ -95,18 +95,18 @@ public class QuizActivity extends AppCompatActivity {
         EditText quizAnswerInput = (EditText) findViewById(R.id.editQuizAnswer);
         if (!quizAnswerInput.getText().toString().isEmpty()) {
             int quizAnswer = Integer.parseInt(quizAnswerInput.getText().toString());
-            quizContent.answers.set(pageNumber-1, quizAnswer);
+            quizContent.questions.get(pageNumber-1).submittedAnswer = quizAnswer;
         }
         else {
-            quizContent.answers.set(pageNumber-1, 0);
+            quizContent.questions.get(pageNumber-1).submittedAnswer = 0;
         }
         quizAnswerInput.setText("");
     }
 
     public void renderPage() {
         TextView quizQuestion = (TextView) findViewById(R.id.quizQuestion);
-        ArrayList<Integer> currentQuestion = quizContent.questions.get(pageNumber-1);
-        String questionString = (Integer.toString(currentQuestion.get(0)) + " X " + Integer.toString(currentQuestion.get(1)));
+        Question currentQuestion = quizContent.questions.get(pageNumber-1);
+        String questionString = (Integer.toString(currentQuestion.firstNumber) + " X " + Integer.toString(currentQuestion.secondNumber));
         quizQuestion.setText(questionString);
 
         Button quizPreviousButton = (Button) findViewById(R.id.quizPreviousButton);
@@ -122,7 +122,7 @@ public class QuizActivity extends AppCompatActivity {
         String pagesCompleteText = String.valueOf(pageNumber) + " / " + String.valueOf(totalPages);
         quizPagesComplete.setText(pagesCompleteText);
 
-        int currentAnswer = quizContent.answers.get(pageNumber-1);
+        int currentAnswer = quizContent.questions.get(pageNumber-1).submittedAnswer;
         if (currentAnswer != 0) {
             EditText editQuizAnswer = (EditText) findViewById(R.id.editQuizAnswer);
             editQuizAnswer.setText(Integer.toString(currentAnswer));
