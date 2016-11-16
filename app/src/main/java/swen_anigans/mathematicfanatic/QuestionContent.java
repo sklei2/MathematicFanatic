@@ -1,7 +1,9 @@
 package swen_anigans.mathematicfanatic;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -10,18 +12,13 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class QuestionContent
 {
-    protected ArrayList<ArrayList<Integer>> questions; //A 2d arraylist of questions. [[3, 8], [8, 2]] = 3*8, 8*2
-    protected ArrayList<Integer> numbers; //The numbers that the user will be quized on
-    protected ArrayList<Integer> answers; //The answers entered by the user
-    protected ArrayList<Integer> expectedAnswers; //The calculated answers to the questions
+    protected ArrayList<Question> questions; //A 2d arraylist of questions. [[3, 8], [8, 2]] = 3*8, 8*2
 
     public QuestionContent(int totalPages)
     {
-        questions = new ArrayList<>();
-        answers = new ArrayList<>();
-        expectedAnswers = new ArrayList<>();
+        Set<Question> uniqueQuestions = new HashSet<>();
 
-        numbers = new ArrayList<Integer>();
+        ArrayList<Integer> numbers = new ArrayList<Integer>();
         int min = DataManager.getInstance().curStudent.rangeMin;
         int max = DataManager.getInstance().curStudent.rangeMax;
         for(int i = min; i <= max; i++)
@@ -29,47 +26,21 @@ public class QuestionContent
             numbers.add(i);
         }
 
-        //TODO: Change this to not have duplicates.
-        for (int i = 0; i < totalPages; i++)
+        // using a set to create our questions makes sure we don't have duplicates
+        while(uniqueQuestions.size() < totalPages)
         {
-            ArrayList<Integer> problemNumbers = new ArrayList<Integer>();
             int firstNumber = numbers.get(ThreadLocalRandom.current().nextInt(0, numbers.size())); //Gets a random number from quizNumbers.
             int secondNumber = ThreadLocalRandom.current().nextInt(1, 13); //Gets a random number from 1-12.
 
-            //Prevents dups in questions
-            /*
-            ArrayList<Integer> problemNumbers = new ArrayList<Integer>();
-            int firstNumber = quizNumbers.get(ThreadLocalRandom.current().nextInt(0, quizNumbers.size())); //Gets a random number from quizNumbers.
-            int secondNumber = ThreadLocalRandom.current().nextInt(1, 13); //Gets a random number from 1-12.
-            problemNumbers.add(firstNumber);
-            problemNumbers.add(secondNumber);
-            quizQuestions.add(problemNumbers);
-            int answer = firstNumber * secondNumber;
-            expectedAnswers.add(answer);
-            */
+            Question newQuestion = new Question(firstNumber, secondNumber);
 
-            //Prevents dups in questions
-            /*
-            for (int j = 0; j < quizNumbers.size(); j++) {
-                while (quizQuestions.get(j).get(0) == firstNumber && quizQuestions.get(j).get(1) == secondNumber) {
-                    firstNumber = quizNumbers.get(ThreadLocalRandom.current().nextInt(0, quizNumbers.size())); //Gets a random number from quizNumbers.
-                    secondNumber = ThreadLocalRandom.current().nextInt(1, 13); //Gets a random number from 1-12.
-                }
+            if(!uniqueQuestions.contains(newQuestion))
+            {
+                uniqueQuestions.add(newQuestion);
             }
-            */
-
-            problemNumbers.add(firstNumber);
-            problemNumbers.add(secondNumber);
-            questions.add(problemNumbers);
-
-            int answer = firstNumber * secondNumber;
-            expectedAnswers.add(answer);
         }
 
-        for (int i = 0; i < totalPages; i++) {
-            answers.add(0);
-            expectedAnswers.add(-1);
-        }
+        questions = new ArrayList<Question>(uniqueQuestions);
     }
 
     // we don't want the questions in the same order everytime
@@ -83,9 +54,9 @@ public class QuestionContent
     // to make sure that they are cleared
     public void ClearAnswers()
     {
-        for(int i = 0; i < answers.size(); i++)
+        for (Question q: questions)
         {
-            answers.set(i, 0);
+            q.submittedAnswer = 0;
         }
     }
 }
