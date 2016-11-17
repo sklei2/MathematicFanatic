@@ -163,7 +163,7 @@ public class ClassroomActivity extends AppCompatActivity {
         }else{
             text = "Incorrect";
         }
-        
+
         Context context = getApplicationContext();
         int duration = Toast.LENGTH_SHORT;
 
