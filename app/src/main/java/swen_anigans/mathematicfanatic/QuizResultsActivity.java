@@ -71,14 +71,8 @@ public class QuizResultsActivity extends AppCompatActivity {
 
         Star[] starValues = getStars(correct,total,starGroup.getChildCount());
         setStars(starViews,starValues);
-        if(picked == null) {
-            setRewardListeners();
-        } else {
-            LinearLayout slideUp = (LinearLayout) findViewById(R.id.slideuppanel);
-            pickedTV = ((TextView) slideUp.getChildAt(0));
-            slideUp.removeAllViews();
-            formRewardSelectedLayout(slideUp,picked);
-        }
+
+        setRewardListeners();
 
         // Back Button things
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
@@ -103,10 +97,12 @@ public class QuizResultsActivity extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent lockerIntent = new Intent(QuizResultsActivity.this, StudentLocker.class);
                 Intent vidIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:"+videoIds[videoId]));
                 vidIntent.putExtra("force_fullscreen", true);
                 vidIntent.putExtra("finish_on_ended", true);
-                startActivity(vidIntent);
+                Intent[] intents = {lockerIntent, vidIntent};
+                startActivities(intents);
             }
         });
         b1.setId(View.generateViewId());
