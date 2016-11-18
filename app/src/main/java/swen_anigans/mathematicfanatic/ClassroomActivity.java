@@ -141,22 +141,7 @@ public class ClassroomActivity extends AppCompatActivity {
         }else{
             text = "Incorrect";
         }
-        /*
-        TextView answerInput = (TextView) findViewById(R.id.editClassroomAnswer);
-        String answerText = answerInput.getText().toString();
 
-        if(!answerText.isEmpty()){
-            int submittedAnswer = Integer.parseInt(answerText);
-            questions.get(pageNumber - 1).submittedAnswer = submittedAnswer;
-            if(questions.get(pageNumber - 1).checkAnswer()){
-                text = "Correct";
-            }else{
-                text = "Incorrect";
-            }
-        }else{
-            text = "Please enter an answer first.";
-        }
-        */
         Context context = getApplicationContext();
         int duration = Toast.LENGTH_SHORT;
 

@@ -59,8 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/checkButton"
-        android:layout_alignStart="@+id/editClassroomAnswer"
-        android:layout_alignEnd="@+id/editClassroomAnswer"
+        android:layout_centerHorizontal="true"
         android:layout_below="@+id/editClassroomAnswer"
         android:onClick="checkAnswer"
         />
@@ -127,6 +126,6 @@
         android:textAlignment="center"
         android:layout_marginTop="61dp"
         android:layout_below="@+id/classroomQuestion"
-        android:layout_toStartOf="@+id/quizPagesComplete" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
