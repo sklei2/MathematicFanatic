@@ -3,6 +3,7 @@ package swen_anigans.mathematicfanatic;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -32,6 +33,17 @@ public class StudentLocker extends AppCompatActivity
         }
 
         title.setText(titleText);
+
+        if(DataManager.getInstance().questionsContent == null)
+        {
+            DataManager.getInstance().questionsContent = new QuestionContent(20);
+        }
+
+        // Clear the submitted answers
+        DataManager.getInstance().questionsContent.ClearAnswers();
+
+        // Shuffle them up!
+        DataManager.getInstance().questionsContent.ShuffleQuestions();
 
         //set the up button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
