@@ -1,7 +1,9 @@
 package swen_anigans.mathematicfanatic;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -54,7 +56,7 @@ public class QuestionContent
     // we're teaching math, not memorization.
     public void ShuffleQuestions()
     {
-
+        Collections.shuffle(questions);
     }
 
     // After a quiz or classroom where answers are submitted we need

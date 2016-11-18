@@ -42,6 +42,9 @@ public class StudentLocker extends AppCompatActivity
         // Clear the submitted answers
         DataManager.getInstance().questionsContent.ClearAnswers();
 
+        // Shuffle them up!
+        DataManager.getInstance().questionsContent.ShuffleQuestions();
+
         //set the up button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
