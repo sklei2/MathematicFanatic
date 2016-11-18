@@ -19,7 +19,7 @@
         - margin is used on the end for the left button and start
         for the right button to get the spacing.
     -->
-    <dimen name="big_button_horizontal_padding">65dp</dimen>
+    <dimen name="big_button_horizontal_padding">55dp</dimen>
     <dimen name="big_button_margin">55dp</dimen>
 
 </resources>

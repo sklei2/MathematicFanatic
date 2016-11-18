@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".QuizActivity">
+    tools:context=".QuizActivity"
+    android:paddingBottom="@dimen/activity_vertical_margin">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -23,59 +23,32 @@
         />
     </android.support.v7.widget.Toolbar>
 
-    <LinearLayout
+    <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editQuizAnswer"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="@dimen/activity_vertical_margin">
+        android:layout_height="361dp"
+        android:text="&lt;"
+        android:id="@+id/quizPreviousButton"
+        android:textSize="40sp"
+        android:onClick="previousPage"
+        android:paddingStart="@dimen/big_button_horizontal_padding"
+        android:paddingEnd="@dimen/big_button_horizontal_padding"
+        android:layout_marginEnd="@dimen/big_button_margin"
+        android:layout_alignStart="@+id/quizTimer"
+        android:layout_below="@+id/editQuizAnswer" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="&lt;"
-            android:id="@+id/quizPreviousButton"
-            android:textSize="40sp"
-            android:onClick="previousPage"
-            android:paddingStart="@dimen/big_button_horizontal_padding"
-            android:paddingEnd="@dimen/big_button_horizontal_padding"
-            android:layout_marginEnd="@dimen/big_button_margin"/>
+    <Button
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="&gt;"
-            android:id="@+id/quizNextButton"
-            android:textSize="40sp"
-            android:onClick="nextPage"
-            android:paddingStart="@dimen/big_button_horizontal_padding"
-            android:paddingEnd="@dimen/big_button_horizontal_padding"
-            android:layout_marginStart="@dimen/big_button_margin" />
-
-    </LinearLayout>
-
-
-    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/quizQuestion"
-        android:layout_marginTop="48dp"
-        android:layout_below="@+id/my_toolbar"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editQuizAnswer"
-        android:layout_marginTop="50dp"
-        android:background="@color/buttonBackground"
-        android:layout_below="@+id/quizQuestion"
-        android:layout_centerHorizontal="true" />
+        android:layout_height="361dp"
+        android:text="&gt;"
+        android:id="@+id/quizNextButton"
+        android:textSize="40sp"
+        android:onClick="nextPage"
+        android:paddingStart="@dimen/big_button_horizontal_padding"
+        android:paddingEnd="@dimen/big_button_horizontal_padding"
+        android:layout_marginStart="@dimen/big_button_margin"
+        android:layout_alignEnd="@+id/quizPagesComplete"
+        android:layout_below="@+id/editQuizAnswer"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -103,5 +76,27 @@
         android:layout_below="@+id/my_toolbar"
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@id/quizTimer"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/quizQuestion"
+        android:layout_marginTop="55dp"
+        android:layout_below="@+id/quizPagesComplete"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editQuizAnswer"
+        android:layout_marginTop="71dp"
+        android:background="@color/buttonBackground"
+        android:layout_below="@+id/quizQuestion"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"/>
 
 </RelativeLayout>
