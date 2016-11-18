@@ -11,18 +11,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.concurrent.ThreadLocalRandom;
 
 
 public class ClassroomActivity extends AppCompatActivity {
 
     private int pageNumber = 1;
     private int totalPages = 20;
-    private ArrayList<Integer> classroomNumbers;
 
-    private ArrayList<Question> questions;
+    private QuestionContent questionContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,32 +33,14 @@ public class ClassroomActivity extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
 
-        questions = new ArrayList<Question>();
-
-        initializeQuestions();
+        questionContent = DataManager.getInstance().questionsContent;
 
         renderPage();
     }
 
-    public void initializeQuestions() {
-        //TODO later need to make the numbers pick dynamic
-        classroomNumbers = new ArrayList<Integer>(Arrays.asList(3, 8)); //Hardcoding the numbers to be quizzed on.
-
-        for(int i = 0; i < totalPages; i++){
-            //Gets a random number from 1-12.
-            int firstNumber = ThreadLocalRandom.current().nextInt(1, 13);
-            //Gets a random number from quizNumbers.
-            int secondNumber = classroomNumbers.get(ThreadLocalRandom.current().nextInt(0, classroomNumbers.size()));
-            int answer = firstNumber * secondNumber;
-
-            Question q = new Question(firstNumber, secondNumber);
-            questions.add(q);
-        }
-    }
-
     public void renderPage(){
         TextView questionDisplay = (TextView) findViewById(R.id.classroomQuestion);
-        Question question = questions.get(pageNumber - 1);
+        Question question = questionContent.questions.get(pageNumber-1);
 
         String questionString = question.firstNumber + " X " + question.secondNumber;
         questionDisplay.setText(questionString);
@@ -110,15 +88,15 @@ public class ClassroomActivity extends AppCompatActivity {
         String answerText = answerInput.getText().toString();
         if(!answerText.isEmpty()){
             int answer = Integer.parseInt(answerText);
-            questions.get(pageNumber - 1).submittedAnswer = answer;
+            questionContent.questions.get(pageNumber - 1).submittedAnswer = answer;
         }else{
-            questions.get(pageNumber - 1).submittedAnswer = 0;
+            questionContent.questions.get(pageNumber - 1).submittedAnswer = 0;
         }
 
     }
 
     public void goToHelp(View view){
-        Question question = questions.get(pageNumber - 1);
+        Question question = questionContent.questions.get(pageNumber - 1);
         Intent intent = new Intent(this, activity_help.class);
         int[] temp = {question.firstNumber, question.secondNumber};
         intent.putExtra("abValues", temp);
@@ -156,9 +134,9 @@ public class ClassroomActivity extends AppCompatActivity {
     public void checkAnswer(View view){
         String text;
         saveAnswer();
-        if(questions.get(pageNumber - 1).submittedAnswer == 0){
+        if(questionContent.questions.get(pageNumber - 1).submittedAnswer == 0){
             text = "Please enter an answer first.";
-        }else if(questions.get(pageNumber - 1).checkAnswer()){
+        }else if(questionContent.questions.get(pageNumber - 1).checkAnswer()){
             text = "Correct";
         }else{
             text = "Incorrect";
