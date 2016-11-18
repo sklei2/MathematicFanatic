@@ -28,7 +28,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editQuizAnswer"
         android:orientation="horizontal"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/activity_vertical_margin">
 
         <Button
             android:layout_width="wrap_content"
@@ -58,31 +59,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Time"
-        android:id="@+id/quizPagesComplete"
-        android:layout_above="@+id/editQuizAnswer"
-        android:layout_toEndOf="@+id/editQuizAnswer"
-        android:layout_marginBottom="18dp"
-        android:background="@drawable/border"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/quizTimer"
-        android:layout_alignBottom="@+id/quizPagesComplete"
-        android:layout_alignParentStart="true"
-        android:background="@drawable/border"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
         android:id="@+id/quizQuestion"
@@ -96,10 +72,36 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/editQuizAnswer"
-        android:layout_marginTop="54dp"
+        android:layout_marginTop="50dp"
         android:background="@color/buttonBackground"
         android:layout_below="@+id/quizQuestion"
-        android:layout_toEndOf="@+id/quizTimer"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Time"
+        android:id="@+id/quizTimer"
+        android:background="@drawable/border"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_below="@+id/my_toolbar"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Pages"
+        android:id="@+id/quizPagesComplete"
+        android:background="@drawable/border"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_below="@+id/my_toolbar"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@id/quizTimer"/>
 
 </RelativeLayout>
