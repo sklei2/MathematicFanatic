@@ -12,11 +12,13 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:layout_marginEnd="5dp"
-        android:onClick="ToLocker"/>
+        android:paddingStart="@dimen/big_button_horizontal_padding"
+        android:paddingEnd="@dimen/big_button_horizontal_padding"
+        android:onClick="ToLocker" />
 
     <Button
         android:id="@+id/progress_report_button"
-        android:layout_width="@dimen/short_button_width"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:text="@string/progress_report_button"
