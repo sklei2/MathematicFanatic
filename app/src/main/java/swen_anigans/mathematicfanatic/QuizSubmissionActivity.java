@@ -10,9 +10,7 @@ import java.util.ArrayList;
 
 public class QuizSubmissionActivity extends AppCompatActivity {
 
-    private ArrayList<ArrayList<Integer>> quizQuestions;
-    private ArrayList<Integer> answers;
-    private ArrayList<Integer> expectedAnswers;
+    ArrayList<Question> questions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,40 +20,23 @@ public class QuizSubmissionActivity extends AppCompatActivity {
         myToolbar.setBackgroundResource(R.color.quizPrimary);
         setSupportActionBar(myToolbar);
 
-        Intent quizSubmissionIntent = getIntent();
-
-        quizQuestions = new ArrayList<>();
-        ArrayList<Integer> firstMult = quizSubmissionIntent.getIntegerArrayListExtra("firstMult");
-        ArrayList<Integer> secondMult = quizSubmissionIntent.getIntegerArrayListExtra("secondMult");
-
-        for (int i = 0; i < firstMult.size(); i++) {
-            ArrayList<Integer> problem = new ArrayList<>();
-            problem.add(firstMult.get(i));
-            problem.add(secondMult.get(i));
-            quizQuestions.add(problem);
-        }
-
-
-        answers = quizSubmissionIntent.getIntegerArrayListExtra("answers");
-        expectedAnswers = quizSubmissionIntent.getIntegerArrayListExtra("expectedAnswers");
+        questions = DataManager.getInstance().questionsContent.questions;
     }
 
     public void quizSubmission(View v) {
         int correct = 0;
-        int total = answers.size();
 
-        int i = 0;
-        while (i < total) {
-            if (answers.get(i) == expectedAnswers.get(i)) {
+        for(int i = 0; i < questions.size(); i++)
+        {
+            if (questions.get(i).checkAnswer())
+            {
                 correct += 1;
             }
-
-            i++;
         }
 
         Intent resultsIntent = new Intent(QuizSubmissionActivity.this, QuizResultsActivity.class);
         resultsIntent.putExtra("numberCorrect", correct);
-        resultsIntent.putExtra("numberTotal", total);
+        resultsIntent.putExtra("numberTotal", questions.size());
         startActivity(resultsIntent);
     }
 
@@ -63,17 +44,6 @@ public class QuizSubmissionActivity extends AppCompatActivity {
         Intent quizIntent = new Intent(QuizSubmissionActivity.this, QuizActivity.class);
         quizIntent.putExtra("atBeginning", false);
 
-        ArrayList<Integer> firstMult = new ArrayList<>();
-        ArrayList<Integer> secondMult = new ArrayList<>();
-        for (int i = 0; i < quizQuestions.size(); i++) {
-            firstMult.add(quizQuestions.get(i).get(0));
-            secondMult.add(quizQuestions.get(i).get(1));
-        }
-
-        quizIntent.putExtra("firstMult", firstMult);
-        quizIntent.putExtra("secondMult", secondMult);
-        quizIntent.putExtra("answers", answers);
-        quizIntent.putExtra("expectedAnswers", expectedAnswers);
         startActivity(quizIntent);
     }
 }

@@ -1,6 +1,7 @@
 package swen_anigans.mathematicfanatic;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * Created by Matthew Gallagher on 11/14/2016.
@@ -41,4 +42,33 @@ public class Question implements Serializable {
         String s = "(" + firstNumber + ", " + secondNumber + ", " + answer + ", " + submittedAnswer + ")\n";
         return s;
     }
+
+    //region Overridden methods for the hashes/sets
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if(!(obj instanceof Question))
+        {
+            return false;
+        }
+        if(obj == this)
+        {
+            return true;
+        }
+
+        Question quest = (Question) obj;
+        return (this.firstNumber == quest.firstNumber) &&
+               (this.secondNumber == quest.secondNumber) &&
+               (this.submittedAnswer == quest.submittedAnswer);
+
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(firstNumber, secondNumber, submittedAnswer);
+    }
+
+    //endregion
 }
