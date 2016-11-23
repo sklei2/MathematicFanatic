@@ -27,7 +27,7 @@ public class ClassroomActivity extends AppCompatActivity {
         setContentView(R.layout.activity_classroom);
 
         //back button and header
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         toolbar.setBackgroundResource(R.color.classroomPrimary);
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
@@ -42,7 +42,7 @@ public class ClassroomActivity extends AppCompatActivity {
         TextView questionDisplay = (TextView) findViewById(R.id.classroomQuestion);
         Question question = questionContent.questions.get(pageNumber-1);
 
-        String questionString = question.firstNumber + " X " + question.secondNumber;
+        String questionString = question.firstNumber + " x " + question.secondNumber;
         questionDisplay.setText(questionString);
 
         if (question.submittedAnswer != 0){

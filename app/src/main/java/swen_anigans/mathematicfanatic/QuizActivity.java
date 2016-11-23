@@ -106,7 +106,7 @@ public class QuizActivity extends AppCompatActivity {
     public void renderPage() {
         TextView quizQuestion = (TextView) findViewById(R.id.quizQuestion);
         Question currentQuestion = quizContent.questions.get(pageNumber-1);
-        String questionString = (Integer.toString(currentQuestion.firstNumber) + " X " + Integer.toString(currentQuestion.secondNumber));
+        String questionString = (Integer.toString(currentQuestion.firstNumber) + " x " + Integer.toString(currentQuestion.secondNumber));
         quizQuestion.setText(questionString);
 
         Button quizPreviousButton = (Button) findViewById(R.id.quizPreviousButton);
