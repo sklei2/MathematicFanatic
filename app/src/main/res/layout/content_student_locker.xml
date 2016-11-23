@@ -21,7 +21,7 @@
             android:id="@+id/classroomButton"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            style="@style/Widget.AppCompat.Button.Colored"
+            android:theme="@style/Widget.AppCompat.Button.Colored"
             android:text="Classroom"
             android:onClick="toClassroom"
             android:textAppearance="@style/TextAppearance.AppCompat.Button"
@@ -30,7 +30,7 @@
         <Button
             android:text="Quiz"
             android:layout_width="match_parent"
-            style="@style/Widget.AppCompat.Button.Colored"
+            android:theme="@style/Widget.AppCompat.Button.Colored"
             android:layout_height="wrap_content"
             android:layout_below="@id/classroomButton"
             android:layout_centerHorizontal="true"
@@ -44,7 +44,7 @@
         <Button
             android:text="Recess"
             android:layout_width="match_parent"
-            style="@style/Widget.AppCompat.Button.Colored"
+            android:theme="@style/Widget.AppCompat.Button.Colored"
             android:layout_height="wrap_content"
             android:layout_below="@id/quizButton"
             android:layout_alignStart="@id/quizButton"
