@@ -87,7 +87,7 @@
         android:layout_marginEnd="@dimen/big_button_margin"
         android:layout_alignParentBottom="true" />
 
-    <ImageButton
+    <Button
         android:id="@+id/goToHelpButton"
         android:background="@drawable/help_icon"
         android:layout_width="75dp"
