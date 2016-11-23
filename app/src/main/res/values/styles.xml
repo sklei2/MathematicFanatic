@@ -78,6 +78,7 @@
         <item name="colorPrimary">@color/quizPrimary</item>
         <item name="colorPrimaryDark">@color/quizPrimaryDark</item>
         <item name="android:colorBackground">@color/quizBackground</item>
+        <item name="colorAccent">@color/quizAccent</item>
         <item name="android:buttonStyle">@style/ButtonTheme</item>
     </style>
 

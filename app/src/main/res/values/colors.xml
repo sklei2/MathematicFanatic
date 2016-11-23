@@ -31,7 +31,6 @@
     <color name="lockerRecessColor">#FF9800</color>
     <color name="lockerBackground">#F7FAFC</color>
 
-
     <!-- Classroom Colors -->
     <color name="classroomPrimary">#4CAF50</color>
     <color name="classroomPrimaryDark">#1B5E20</color>
@@ -47,12 +46,12 @@
     <color name="quizPrimary">#2196F3</color>
     <color name="quizPrimaryDark">#0D47A1</color>
     <color name="quizBackground">#BBDEFB</color>
+    <color name="quizAccent">#2962FF</color>
 
     <!-- Recess Colors -->
     <color name="recessPrimary">#FF9800</color>
     <color name="recessPrimaryDark">#E65100</color>
     <color name="recessBackground">#FFE0B2</color>
-
 
     <!-- Other Colors -->
     <color name="starTint">#fff020</color>
