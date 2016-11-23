@@ -62,6 +62,7 @@
         <item name="colorPrimary">@color/lockerClassroomColor</item>
         <item name="colorPrimaryDark">@color/classroomPrimaryDark</item>
         <item name="android:colorBackground">@color/classroomBackground</item>
+        <item name="colorAccent">@color/classroomAccent</item>
         <item name="android:buttonStyle">@style/ButtonTheme</item>
     </style>
 

@@ -35,6 +35,7 @@
     <color name="classroomPrimary">#4CAF50</color>
     <color name="classroomPrimaryDark">#1B5E20</color>
     <color name="classroomBackground">#C8E6C9</color>
+    <color name="classroomAccent">#00C853</color>
 
     <!-- Help Colors -->
     <color name="helpPrimary">#E60073</color>
