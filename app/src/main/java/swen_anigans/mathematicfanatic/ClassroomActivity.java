@@ -2,6 +2,8 @@ package swen_anigans.mathematicfanatic;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.droidbyme.toastlib.ToastEnum;
+import com.droidbyme.toastlib.ToastLib;
 
 
 public class ClassroomActivity extends AppCompatActivity {
@@ -135,17 +140,26 @@ public class ClassroomActivity extends AppCompatActivity {
         String text;
         saveAnswer();
         if(questionContent.questions.get(pageNumber - 1).submittedAnswer == 0){
-            text = "Please enter an answer first.";
+            text = "Please enter an answer first";
+            ToastLib.error(this, text, Typeface.create("Helvetica", 0));
         }else if(questionContent.questions.get(pageNumber - 1).checkAnswer()){
-            text = "Correct";
+            text = "Correct!";
+            ToastLib.success(this, text, Typeface.create("Helvetica", 0));
         }else{
+            // Custom incorrect toast message
             text = "Incorrect";
+            ToastLib.Builder message = new ToastLib.Builder(this, text);
+            message.duration(ToastEnum.SHORT);
+            message.corner(8);
+            message.margin(56);
+            message.padding(36);
+
+            // color for the message (THIS CAN CHANGE!!)
+            message.textColor(ContextCompat.getColor(this, R.color.white));
+            message.backgroundColor(ContextCompat.getColor(this, R.color.helpPrimaryDark));
+
+            message.show();
         }
 
-        Context context = getApplicationContext();
-        int duration = Toast.LENGTH_SHORT;
-
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
     }
 }
