@@ -92,11 +92,10 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editQuizAnswer"
         android:layout_marginTop="71dp"
-        android:background="@color/buttonBackground"
         android:layout_below="@+id/quizQuestion"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:id="@+id/editQuizAnswer" />
 
 </RelativeLayout>
