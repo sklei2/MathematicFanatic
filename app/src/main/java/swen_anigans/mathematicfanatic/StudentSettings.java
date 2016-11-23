@@ -1,6 +1,7 @@
 package swen_anigans.mathematicfanatic;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -11,6 +12,8 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.droidbyme.toastlib.ToastLib;
 
 public class StudentSettings extends AppCompatActivity {
 
@@ -168,11 +171,11 @@ public class StudentSettings extends AppCompatActivity {
             student newStudent = new student(name, lowRange, highRange, interest_1, interest_2, interest_3, concept);
             DataManager.getInstance().addStudent(newStudent);
             onBackPressed();
-            Toast.makeText(this, "Student Created", Toast.LENGTH_LONG).show();
+            ToastLib.success(this, "Student Created", Typeface.create("Helvetica", 0));
         }
         catch(Exception e)
         {
-            Toast.makeText(this, "Invalid Values in the form", Toast.LENGTH_LONG).show();
+            ToastLib.error(this, "Invalid Values in the form", Typeface.create("Helvetica", 0));
         }
     }
 
@@ -211,11 +214,11 @@ public class StudentSettings extends AppCompatActivity {
             current.learningType = concept;
 
             onBackPressed();
-            Toast.makeText(this, "Save Successful", Toast.LENGTH_LONG).show();
+            ToastLib.success(this, "Save Successful", Typeface.create("Helvetica", 0));
         }
         catch(Exception e)
         {
-            Toast.makeText(this, "Invalid Values in the form", Toast.LENGTH_LONG).show();
+            ToastLib.error(this, "Invalid Values in the form", Typeface.create("Helvetica", 0));
         }
     }
 
