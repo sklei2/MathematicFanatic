@@ -29,6 +29,7 @@ public class QuizActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         myToolbar.setBackgroundResource(R.color.quizPrimary);
         setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Intent quizIntent = getIntent();
         this.quizContent = DataManager.getInstance().questionsContent;
