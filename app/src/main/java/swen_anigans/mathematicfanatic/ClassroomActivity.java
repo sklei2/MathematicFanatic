@@ -145,7 +145,7 @@ public class ClassroomActivity extends AppCompatActivity {
             ToastLib.success(this, text, Typeface.create("Helvetica", 0));
         }else{
             // Custom incorrect toast message
-            text = "Incorrect";
+            text = "Try Again, You can do it!";
             ToastLib.Builder message = new ToastLib.Builder(this, text);
             message.duration(ToastEnum.SHORT);
             message.corner(8);
