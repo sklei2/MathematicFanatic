@@ -1,10 +1,14 @@
 package swen_anigans.mathematicfanatic;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.provider.ContactsContract;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -128,5 +132,33 @@ public class QuizActivity extends AppCompatActivity {
             EditText editQuizAnswer = (EditText) findViewById(R.id.editQuizAnswer);
             editQuizAnswer.setText(Integer.toString(currentAnswer));
         }
+    }
+
+    // Override the back button to first ask for confirmation
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item)
+    {
+        AlertDialog.Builder alert;
+        alert = new AlertDialog.Builder(this);
+
+        alert.setMessage("Leave the quiz?");
+        alert.setPositiveButton("Leave", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent = new Intent(QuizActivity.this, StudentLocker.class);
+                startActivity(intent);
+            }
+        });
+
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // canceled going back.
+            }
+        });
+
+        AlertDialog dialog = alert.create();
+        dialog.show();
+        return true;
     }
 }
