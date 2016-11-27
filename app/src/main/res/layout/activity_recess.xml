@@ -31,18 +31,23 @@
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true">
+        
         <Button
             android:id="@+id/medallibrary"
             android:text="@string/medallibrary"
             android:textSize="35sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:theme="@style/NormalButton"/>
+
         <Button
             android:id="@+id/videotheater"
             android:text="@string/videotheater"
             android:textSize="35sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin"/>
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:theme="@style/NormalButton"/>
+
     </LinearLayout>
 </RelativeLayout>
