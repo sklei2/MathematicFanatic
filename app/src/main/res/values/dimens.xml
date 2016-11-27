@@ -7,7 +7,7 @@
 
     <!-- Our custom/dynamic button dimensions -->
 
-    <dimen name="long_button_width">200dp</dimen>
+    <dimen name="long_button_width">250dp</dimen>
     <dimen name="short_button_width">120dp</dimen>
     <dimen name="button_height">20dp</dimen>
     <dimen name="button_padding">2dp</dimen>

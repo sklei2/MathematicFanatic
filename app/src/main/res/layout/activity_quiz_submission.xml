@@ -31,7 +31,8 @@
         android:layout_marginTop="15dp"
         android:onClick="quizSubmission"
         android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:theme="@style/NormalButton"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -49,7 +50,8 @@
             android:onClick="previousPage"
             android:paddingStart="@dimen/big_button_horizontal_padding"
             android:paddingEnd="@dimen/big_button_horizontal_padding"
-            android:layout_marginEnd="@dimen/big_button_margin"/>
+            android:layout_marginEnd="@dimen/big_button_margin"
+            android:theme="@style/NormalButton"/>
 
     </LinearLayout>
 
