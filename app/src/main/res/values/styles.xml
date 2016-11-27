@@ -61,6 +61,7 @@
         <item name="colorPrimary">@color/lockerClassroomColor</item>
         <item name="colorPrimaryDark">@color/classroomPrimaryDark</item>
         <item name="android:colorBackground">@color/classroomBackground</item>
+        <item name="colorAccent">@color/classroomAccent</item>
     </style>
 
     <!-- Help Theme. -->
@@ -75,6 +76,7 @@
         <item name="colorPrimary">@color/quizPrimary</item>
         <item name="colorPrimaryDark">@color/quizPrimaryDark</item>
         <item name="android:colorBackground">@color/quizBackground</item>
+        <item name="colorAccent">@color/quizAccent</item>
     </style>
 
     <!-- Recess Theme. -->

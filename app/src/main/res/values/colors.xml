@@ -34,6 +34,7 @@
     <color name="classroomPrimary">#4CAF50</color>
     <color name="classroomPrimaryDark">#1B5E20</color>
     <color name="classroomBackground">#C8E6C9</color>
+    <color name="classroomAccent">#00C853</color>
 
     <!-- Help Colors -->
     <color name="helpPrimary">#E60073</color>
@@ -45,6 +46,7 @@
     <color name="quizPrimary">#2196F3</color>
     <color name="quizPrimaryDark">#0D47A1</color>
     <color name="quizBackground">#BBDEFB</color>
+    <color name="quizAccent">#2962FF</color>
 
     <!-- Recess Colors -->
     <color name="recessPrimary">#FF9800</color>
