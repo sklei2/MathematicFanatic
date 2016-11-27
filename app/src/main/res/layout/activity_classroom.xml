@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_classroom"
     android:layout_width="match_parent"
@@ -8,51 +8,45 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="swen_anigans.mathematicfanatic.ClassroomActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
         android:layout_marginBottom="@dimen/activity_vertical_margin">
-        <!--.AppBarOverlay-->
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/classroomPrimary">
-
-            <TextView
+        <TextView
                 style="@style/ActionBarText"
                 android:text="Classroom"
                 android:textColor="#FFFFFF"/>
-        </android.support.v7.widget.Toolbar>
 
-    </android.support.design.widget.AppBarLayout>
+    </android.support.v7.widget.Toolbar>
 
     <TextView
         android:text="1/20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
         android:id="@+id/quizPagesComplete"
         android:textColor="@color/guardianPrimaryDark"
         android:textSize="20sp"
         android:background="@drawable/border"
-        android:height="30dp"
-        android:width="60dp"
+        android:layout_below="@+id/my_toolbar"
         android:textAlignment="center"
         android:gravity="center"
-        android:layout_marginTop="78dp"
-        android:layout_marginEnd="25dp"
+        android:layout_marginEnd="@dimen/activity_vertical_margin"
         android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="60sp"
         android:text="Large Text"
         android:id="@+id/classroomQuestion"
-        android:layout_marginTop="48dp"
-        android:layout_below="@+id/quizPagesComplete"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_below="@+id/goToHelpButton"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -63,8 +57,8 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/editClassroomAnswer"
         android:onClick="checkAnswer"
-        android:theme="@style/NormalButton"
-        />
+        android:layout_marginStart="@dimen/big_button_margin"
+        android:theme="@style/NormalButton" />
 
     <Button
         android:layout_width="wrap_content"
@@ -78,6 +72,7 @@
         android:paddingEnd="@dimen/big_button_horizontal_padding"
         android:paddingStart="@dimen/big_button_horizontal_padding"
         android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/big_button_margin"
         android:theme="@style/NormalButton"/>
 
     <Button
@@ -87,8 +82,6 @@
         android:id="@+id/prevButton"
         android:textSize="40sp"
         android:onClick="previousPage"
-        android:layout_marginStart="26dp"
-        android:layout_alignParentStart="true"
         android:layout_alignStart="@+id/goToHelpButton"
         android:layout_below="@+id/checkButton"
         android:paddingEnd="@dimen/big_button_horizontal_padding"
@@ -101,12 +94,10 @@
         android:background="@drawable/help_icon"
         android:layout_width="75dp"
         android:layout_height="70dp"
-        android:layout_marginTop="60dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
         android:cropToPadding="true"
         android:scaleType="fitXY"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_below="@id/my_toolbar"
+        android:layout_marginStart="@dimen/activity_vertical_margin"
         android:onClick="goToHelp"/>
 
     <Button
@@ -132,7 +123,7 @@
         android:ems="10"
         android:id="@+id/editClassroomAnswer"
         android:textAlignment="center"
-        android:layout_marginTop="61dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_below="@+id/classroomQuestion"
         android:layout_centerHorizontal="true" />
 
