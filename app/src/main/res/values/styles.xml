@@ -8,9 +8,22 @@
         <item name="android:textSize">30sp</item>
     </style>
 
-    <style name="ButtonTheme" parent="@android:style/Widget.Button.Inset">
+    <!-- Button Themes -->
+    <style name="NormalButton" parent="@style/Widget.AppCompat.Button.Colored">
         <item name="android:fontFamily">Helvetica</item>
+        <item name="android:textAllCaps">false</item>
         <item name="android:textSize">19sp</item>
+        <item name="android:colorButtonNormal">@color/buttonBackground</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="StudentButton" parent="@style/NormalButton">
+        <item name="android:colorButtonNormal">@color/homePrimaryDark</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ProgressReportButton" parent="@style/NormalButton">
+        <item name="android:textSize">12sp</item>
     </style>
 
     <!-- Default Theme. -->
@@ -21,49 +34,34 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    
-
     <!-- Home Page theme. -->
-
     <style name="HomeTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/homePrimary</item>
         <item name="colorPrimaryDark">@color/homePrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
         <item name="android:colorBackground">@color/homeBackground</item>
-
-        <item name="android:buttonStyle">@style/ButtonTheme</item>
     </style>
 
     <!-- Guardian Controls Theme. -->
-
     <style name="GuardianTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/guardianPrimary</item>
         <item name="colorPrimaryDark">@color/guardianPrimaryDark</item>
         <item name="android:colorBackground">@color/guardianBackground</item>
         <item name="colorAccent">@color/guardianColorAccent</item>
-
-        <item name="android:buttonStyle">@style/ButtonTheme</item>
     </style>
 
     <!-- Locker Theme. -->
-
     <style name="LockerTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/lockerPrimary</item>
         <item name="colorPrimaryDark">@color/lockerPrimaryDark</item>
         <item name="android:colorBackground">@color/lockerBackground</item>
-        <item name="android:buttonStyle">@style/ButtonTheme</item>
     </style>
 
-    <!-- Quiz Theme. -->
-
     <!-- Classroom Theme. -->
-
     <style name="ClassroomTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/lockerClassroomColor</item>
         <item name="colorPrimaryDark">@color/classroomPrimaryDark</item>
         <item name="android:colorBackground">@color/classroomBackground</item>
         <item name="colorAccent">@color/classroomAccent</item>
-        <item name="android:buttonStyle">@style/ButtonTheme</item>
     </style>
 
     <!-- Help Theme. -->
@@ -71,7 +69,6 @@
         <item name="colorPrimary">@color/helpPrimary</item>
         <item name="colorPrimaryDark">@color/helpPrimaryDark</item>
         <item name="android:colorBackground">@color/helpBackground</item>
-        <item name="android:buttonStyle">@style/ButtonTheme</item>
     </style>
 
     <!-- Quiz Theme. -->
@@ -80,7 +77,6 @@
         <item name="colorPrimaryDark">@color/quizPrimaryDark</item>
         <item name="android:colorBackground">@color/quizBackground</item>
         <item name="colorAccent">@color/quizAccent</item>
-        <item name="android:buttonStyle">@style/ButtonTheme</item>
     </style>
 
     <!-- Recess Theme. -->
@@ -88,7 +84,6 @@
         <item name="colorPrimary">@color/recessPrimary</item>
         <item name="colorPrimaryDark">@color/recessPrimaryDark</item>
         <item name="android:colorBackground">@color/recessBackground</item>
-        <item name="android:buttonStyle">@style/ButtonTheme</item>
     </style>
 
 </resources>
