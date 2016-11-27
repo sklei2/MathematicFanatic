@@ -60,7 +60,8 @@
         <activity
             android:name=".QuizActivity"
             android:theme="@style/QuizTheme"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:parentActivityName=".StudentLocker"/>
 
         <activity
             android:name=".QuizStartActivity"
@@ -71,14 +72,16 @@
         <activity
             android:name=".QuizSubmissionActivity"
             android:theme="@style/QuizTheme"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:parentActivityName=".StudentLocker"/>
 
         <activity android:name=".RecessActivity"
             android:theme="@style/RecessTheme"
             android:parentActivityName=".StudentLocker"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".VideoTheaterActivity"
+        <activity
+            android:name=".VideoTheaterActivity"
             android:theme="@style/RecessTheme"
             android:parentActivityName=".RecessActivity"
             android:screenOrientation="portrait"/>

@@ -43,6 +43,7 @@
         android:id="@+id/startQuizButton"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:onClick="startQuizButtonClicked"/>
+        android:onClick="startQuizButtonClicked"
+        android:theme="@style/NormalButton"/>
 
 </RelativeLayout>

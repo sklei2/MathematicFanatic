@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_classroom"
     android:layout_width="match_parent"
@@ -57,7 +57,8 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/editClassroomAnswer"
         android:onClick="checkAnswer"
-        />
+        android:layout_marginStart="@dimen/big_button_margin"
+        android:theme="@style/NormalButton" />
 
     <Button
         android:layout_width="wrap_content"
@@ -71,7 +72,8 @@
         android:paddingEnd="@dimen/big_button_horizontal_padding"
         android:paddingStart="@dimen/big_button_horizontal_padding"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="@dimen/big_button_margin"/>
+        android:layout_marginStart="@dimen/big_button_margin"
+        android:theme="@style/NormalButton"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -84,8 +86,8 @@
         android:layout_below="@+id/checkButton"
         android:paddingEnd="@dimen/big_button_horizontal_padding"
         android:paddingStart="@dimen/big_button_horizontal_padding"
-        android:layout_marginEnd="@dimen/big_button_margin"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        android:theme="@style/NormalButton"/>
 
     <Button
         android:id="@+id/goToHelpButton"
@@ -94,7 +96,7 @@
         android:layout_height="70dp"
         android:cropToPadding="true"
         android:scaleType="fitXY"
-        android:layout_below="@+id/my_toolbar"
+        android:layout_below="@id/my_toolbar"
         android:layout_marginStart="@dimen/activity_vertical_margin"
         android:onClick="goToHelp"/>
 
@@ -103,12 +105,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/returnToLocker"
-        android:layout_marginTop="51dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_below="@+id/checkButton"
         android:layout_alignParentStart="true"
         android:enabled="false"
         android:visibility="invisible"
-        android:onClick="goToLocker" />
+        android:onClick="goToLocker"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:textAlignment="center"
+        android:theme="@style/NormalButton"/>
 
     <EditText
         android:layout_width="wrap_content"
