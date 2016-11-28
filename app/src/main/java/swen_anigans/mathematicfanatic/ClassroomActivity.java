@@ -49,7 +49,7 @@ public class ClassroomActivity extends AppCompatActivity {
         String questionString = question.firstNumber + " x " + question.secondNumber;
         questionDisplay.setText(questionString);
 
-        if (question.submittedAnswer != 0){
+        if (question.submittedAnswer != -1){
             EditText editQuizAnswer = (EditText) findViewById(R.id.editClassroomAnswer);
             editQuizAnswer.setText(Integer.toString(question.submittedAnswer));
         }

@@ -128,7 +128,7 @@ public class QuizActivity extends AppCompatActivity {
         quizPagesComplete.setText(pagesCompleteText);
 
         int currentAnswer = quizContent.questions.get(pageNumber-1).submittedAnswer;
-        if (currentAnswer != 0) {
+        if (currentAnswer != -1) {
             EditText editQuizAnswer = (EditText) findViewById(R.id.editQuizAnswer);
             editQuizAnswer.setText(Integer.toString(currentAnswer));
         }
