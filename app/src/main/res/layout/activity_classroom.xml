@@ -45,7 +45,7 @@
         android:textSize="65sp"
         android:text="Large Text"
         android:id="@+id/classroomQuestion"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:layout_below="@+id/goToHelpButton"
         android:layout_centerHorizontal="true" />
 
@@ -95,7 +95,7 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:imeOptions="actionNext"
-        android:textSize="25sp"
+        android:textSize="30sp"
         android:ems="10"
         android:id="@+id/editClassroomAnswer"
         android:textAlignment="center"
