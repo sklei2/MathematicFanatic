@@ -75,16 +75,7 @@ public class ClassroomActivity extends AppCompatActivity {
     }
 
     public void nextPage(View view) {
-
-        saveAnswer();
-        TextView answerInput = (TextView) findViewById(R.id.editClassroomAnswer);
-        answerInput.setText("");
-        pageNumber += 1;
-        if (pageNumber > totalPages) {
-            finishedQuestions();
-        } else {
-            renderPage();
-        }
+        checkAnswer(view);
     }
 
     public void saveAnswer(){
@@ -144,6 +135,7 @@ public class ClassroomActivity extends AppCompatActivity {
         }else if(questionContent.questions.get(pageNumber - 1).checkAnswer()){
             text = "Correct!";
             ToastLib.success(this, text, Typeface.create("Helvetica", 0));
+            this.goToNextPage();
         }else{
             // Custom incorrect toast message
             text = "Try Again, You can do it!";
@@ -159,6 +151,18 @@ public class ClassroomActivity extends AppCompatActivity {
 
             message.show();
         }
+    }
 
+    private void goToNextPage()
+    {
+        saveAnswer();
+        TextView answerInput = (TextView) findViewById(R.id.editClassroomAnswer);
+        answerInput.setText("");
+        pageNumber += 1;
+        if (pageNumber > totalPages) {
+            finishedQuestions();
+        } else {
+            renderPage();
+        }
     }
 }
