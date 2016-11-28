@@ -103,7 +103,7 @@ public class QuizActivity extends AppCompatActivity {
             quizContent.questions.get(pageNumber-1).submittedAnswer = quizAnswer;
         }
         else {
-            quizContent.questions.get(pageNumber-1).submittedAnswer = 0;
+            quizContent.questions.get(pageNumber-1).submittedAnswer = -1;
         }
         quizAnswerInput.setText("");
     }

@@ -94,7 +94,7 @@ public class ClassroomActivity extends AppCompatActivity {
             int answer = Integer.parseInt(answerText);
             questionContent.questions.get(pageNumber - 1).submittedAnswer = answer;
         }else{
-            questionContent.questions.get(pageNumber - 1).submittedAnswer = 0;
+            questionContent.questions.get(pageNumber - 1).submittedAnswer = -1;
         }
 
     }
@@ -138,7 +138,7 @@ public class ClassroomActivity extends AppCompatActivity {
     public void checkAnswer(View view){
         String text;
         saveAnswer();
-        if(questionContent.questions.get(pageNumber - 1).submittedAnswer == 0){
+        if(questionContent.questions.get(pageNumber - 1).submittedAnswer == -1){
             text = "Please enter an answer first";
             ToastLib.error(this, text, Typeface.create("Helvetica", 0));
         }else if(questionContent.questions.get(pageNumber - 1).checkAnswer()){
