@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,7 +32,7 @@ public class ClassroomActivity extends AppCompatActivity {
         setContentView(R.layout.activity_classroom);
 
         //back button and header
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         toolbar.setBackgroundResource(R.color.classroomPrimary);
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
@@ -46,7 +47,7 @@ public class ClassroomActivity extends AppCompatActivity {
         TextView questionDisplay = (TextView) findViewById(R.id.classroomQuestion);
         Question question = questionContent.questions.get(pageNumber-1);
 
-        String questionString = question.firstNumber + " X " + question.secondNumber;
+        String questionString = question.firstNumber + " x " + question.secondNumber;
         questionDisplay.setText(questionString);
 
         if (question.submittedAnswer != 0){
@@ -122,11 +123,11 @@ public class ClassroomActivity extends AppCompatActivity {
         }
         screenItem = (TextView) findViewById(R.id.classroomQuestion);
         screenItem.setText("Nice Job you finished 20 questions!");
+        screenItem.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
         screenItem.setPadding(10,400,10,10);
         screenItem = (TextView) findViewById(R.id.returnToLocker);
         screenItem.setVisibility(View.VISIBLE);
         screenItem.setEnabled(true);
-        screenItem.setPadding(20,75,20,10);
         screenItem.setHeight(400);
     }
 
