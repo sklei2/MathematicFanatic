@@ -44,14 +44,12 @@
         <Button
             android:text="Recess"
             android:layout_width="match_parent"
-            android:theme="@style/Widget.AppCompat.Button.Colored"
+            android:theme="@style/RecessReportButton"
             android:layout_height="wrap_content"
             android:layout_below="@id/quizButton"
             android:layout_alignStart="@id/quizButton"
             android:layout_marginTop="95dp"
             android:id="@+id/recessButton"
-            android:textColor="#000000"
-            android:onClick="toRecess"
-            android:background="@color/lockerRecessColor"/>
+            android:onClick="toRecess" />
 
 </RelativeLayout>
