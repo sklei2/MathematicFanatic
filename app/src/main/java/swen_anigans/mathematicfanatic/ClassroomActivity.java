@@ -2,6 +2,7 @@ package swen_anigans.mathematicfanatic;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.provider.ContactsContract;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -143,6 +144,10 @@ public class ClassroomActivity extends AppCompatActivity {
         }else if(questionContent.questions.get(pageNumber - 1).checkAnswer()){
             text = "Correct!";
             ToastLib.success(this, text, Typeface.create("Helvetica", 0));
+
+            // I don't know where to activate the student's ability to recess,
+            // so this place seems as good as any
+            DataManager.getInstance().curStudent.canRecess = true;
         }else{
             // Custom incorrect toast message
             text = "Try Again, You can do it!";
