@@ -139,6 +139,7 @@ public class ClassroomActivity extends AppCompatActivity {
     public void checkAnswer(View view){
         String text;
         saveAnswer();
+        // Let's make a toast message!
         if(questionContent.questions.get(pageNumber - 1).submittedAnswer == 0){
             text = "Please enter an answer first";
             ToastLib.error(this, text, Typeface.create("Helvetica", 0));
