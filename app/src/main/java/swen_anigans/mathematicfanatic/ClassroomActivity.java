@@ -54,7 +54,7 @@ public class ClassroomActivity extends AppCompatActivity implements View.OnClick
         String questionString = question.firstNumber + " x " + question.secondNumber;
         questionDisplay.setText(questionString);
 
-        if (question.submittedAnswer != 0){
+        if (question.submittedAnswer != -1){
             EditText editQuizAnswer = (EditText) findViewById(R.id.editClassroomAnswer);
             editQuizAnswer.setText(Integer.toString(question.submittedAnswer));
         }
@@ -82,7 +82,7 @@ public class ClassroomActivity extends AppCompatActivity implements View.OnClick
             int answer = Integer.parseInt(answerText);
             questionContent.questions.get(pageNumber - 1).submittedAnswer = answer;
         }else{
-            questionContent.questions.get(pageNumber - 1).submittedAnswer = 0;
+            questionContent.questions.get(pageNumber - 1).submittedAnswer = -1;
         }
 
     }
@@ -124,7 +124,7 @@ public class ClassroomActivity extends AppCompatActivity implements View.OnClick
     public void checkAnswer(View view){
         String text;
         saveAnswer();
-        if(questionContent.questions.get(pageNumber - 1).submittedAnswer == 0){
+        if(questionContent.questions.get(pageNumber - 1).submittedAnswer == -1){
             text = "Please enter an answer first";
             ToastLib.error(this, text, Typeface.create("Helvetica", 0));
         }else if(questionContent.questions.get(pageNumber - 1).checkAnswer()){
