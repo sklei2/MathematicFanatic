@@ -94,7 +94,7 @@
         android:layout_width="@dimen/long_button_width"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:imeOptions="actionNone"
+        android:imeOptions="actionNext"
         android:textSize="35sp"
         android:ems="10"
         android:id="@+id/editClassroomAnswer"
