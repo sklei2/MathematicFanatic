@@ -28,29 +28,27 @@
         android:layout_height="wrap_content"
         android:text="&lt;"
         android:id="@+id/quizPreviousButton"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:onClick="previousPage"
         android:paddingStart="@dimen/big_button_horizontal_padding"
         android:paddingEnd="@dimen/big_button_horizontal_padding"
         android:layout_marginEnd="@dimen/big_button_margin"
         android:layout_alignStart="@+id/quizTimer"
         android:layout_below="@+id/editQuizAnswer"
-        android:theme="@style/NormalButton"
-        android:layout_alignParentBottom="true"/>
+        android:theme="@style/NormalButton" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="&gt;"
         android:id="@+id/quizNextButton"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:onClick="nextPage"
         android:paddingStart="@dimen/big_button_horizontal_padding"
         android:paddingEnd="@dimen/big_button_horizontal_padding"
         android:layout_marginStart="@dimen/big_button_margin"
         android:layout_alignEnd="@+id/quizPagesComplete"
         android:theme="@style/NormalButton"
-        android:layout_alignParentBottom="true"
         android:layout_below="@+id/editQuizAnswer"/>
 
     <TextView
@@ -86,15 +84,16 @@
         android:text="Large Text"
         android:id="@+id/quizQuestion"
         android:textSize="60sp"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_below="@+id/quizPagesComplete"
         android:layout_centerHorizontal="true" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/short_button_width"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
+        android:textSize="30sp"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:imeOptions="actionNext"
         android:textAlignment="center"
