@@ -42,10 +42,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="60sp"
+        android:textSize="65sp"
         android:text="Large Text"
         android:id="@+id/classroomQuestion"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginTop="4dp"
         android:layout_below="@+id/goToHelpButton"
         android:layout_centerHorizontal="true" />
 
@@ -58,36 +58,10 @@
         android:layout_below="@+id/editClassroomAnswer"
         android:onClick="checkAnswer"
         android:layout_marginStart="@dimen/big_button_margin"
-        android:theme="@style/NormalButton" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="&gt;"
-        android:id="@+id/nextButton"
-        android:textSize="40sp"
-        android:onClick="nextPage"
-        android:layout_alignEnd="@+id/quizPagesComplete"
-        android:layout_below="@+id/checkButton"
-        android:paddingEnd="@dimen/big_button_horizontal_padding"
+        android:theme="@style/NormalButton"
+        android:layout_marginTop="8dp"
         android:paddingStart="@dimen/big_button_horizontal_padding"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="@dimen/big_button_margin"
-        android:theme="@style/NormalButton"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="&lt;"
-        android:id="@+id/prevButton"
-        android:textSize="40sp"
-        android:onClick="previousPage"
-        android:layout_alignStart="@+id/goToHelpButton"
-        android:layout_below="@+id/checkButton"
-        android:paddingEnd="@dimen/big_button_horizontal_padding"
-        android:paddingStart="@dimen/big_button_horizontal_padding"
-        android:layout_alignParentBottom="true"
-        android:theme="@style/NormalButton"/>
+        android:paddingEnd="@dimen/big_button_horizontal_padding"/>
 
     <Button
         android:id="@+id/goToHelpButton"
@@ -117,13 +91,17 @@
         android:theme="@style/NormalButton"/>
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/long_button_width"
         android:layout_height="wrap_content"
         android:inputType="number"
+        android:imeOptions="actionNext"
+        android:textSize="30sp"
         android:ems="10"
         android:id="@+id/editClassroomAnswer"
         android:textAlignment="center"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="8dp"
         android:layout_below="@+id/classroomQuestion"
         android:layout_centerHorizontal="true" />
 

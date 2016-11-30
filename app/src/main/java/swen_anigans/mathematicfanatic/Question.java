@@ -15,17 +15,14 @@ public class Question implements Serializable {
     public int answer;
 
     public Question(){
-        firstNumber = 0;
-        secondNumber = 0;
-        answer = 0;
-        submittedAnswer = 0;
+        this(0,0);
     }
 
     public Question(int first, int second){
         firstNumber = first;
         secondNumber = second;
         answer = firstNumber * secondNumber;
-        submittedAnswer = 0;
+        submittedAnswer = -1;
     }
 
     //returns 1 if the answer is correct
