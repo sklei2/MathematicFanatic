@@ -8,8 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
+import android.view.KeyEvent;
 import android.view.View;
-import android.widget.Button;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -17,7 +18,7 @@ import com.droidbyme.toastlib.ToastEnum;
 import com.droidbyme.toastlib.ToastLib;
 
 
-public class ClassroomActivity extends AppCompatActivity {
+public class ClassroomActivity extends AppCompatActivity implements View.OnClickListener {
 
     private int pageNumber = 1;
     private int totalPages = 20;
@@ -39,6 +40,10 @@ public class ClassroomActivity extends AppCompatActivity {
 
         questionContent = DataManager.getInstance().questionsContent;
 
+        // add the action listener onto the edit text
+        EditText answer = (EditText) findViewById(R.id.editClassroomAnswer);
+        answer.setOnClickListener(this);
+
         renderPage();
     }
 
@@ -54,14 +59,6 @@ public class ClassroomActivity extends AppCompatActivity {
             editQuizAnswer.setText(Integer.toString(question.submittedAnswer));
         }
 
-        Button PreviousButton = (Button) findViewById(R.id.prevButton);
-        if (pageNumber == 1) {
-            //Hides the back button on the first page
-            PreviousButton.setVisibility(View.INVISIBLE);
-        }else {
-            PreviousButton.setVisibility(View.VISIBLE);
-        }
-
         TextView quizPagesComplete = (TextView) findViewById(R.id.quizPagesComplete);
         quizPagesComplete.setText(pageNumber+"/20");
     }
@@ -75,16 +72,7 @@ public class ClassroomActivity extends AppCompatActivity {
     }
 
     public void nextPage(View view) {
-
-        saveAnswer();
-        TextView answerInput = (TextView) findViewById(R.id.editClassroomAnswer);
-        answerInput.setText("");
-        pageNumber += 1;
-        if (pageNumber > totalPages) {
-            finishedQuestions();
-        } else {
-            renderPage();
-        }
+        checkAnswer(view);
     }
 
     public void saveAnswer(){
@@ -108,9 +96,7 @@ public class ClassroomActivity extends AppCompatActivity {
     }
 
     public void finishedQuestions(){
-        int[] items = { R.id.prevButton,
-                        R.id.nextButton,
-                        R.id.checkButton,
+        int[] items = { R.id.checkButton,
                         R.id.editClassroomAnswer,
                         R.id.quizPagesComplete,
                         R.id.goToHelpButton
@@ -144,6 +130,7 @@ public class ClassroomActivity extends AppCompatActivity {
         }else if(questionContent.questions.get(pageNumber - 1).checkAnswer()){
             text = "Correct!";
             ToastLib.success(this, text, Typeface.create("Helvetica", 0));
+            this.goToNextPage();
         }else{
             // Custom incorrect toast message
             text = "Try Again, You can do it!";
@@ -159,6 +146,49 @@ public class ClassroomActivity extends AppCompatActivity {
 
             message.show();
         }
-
     }
+
+    //region private functions
+
+    private void goToNextPage()
+    {
+        saveAnswer();
+        TextView answerInput = (TextView) findViewById(R.id.editClassroomAnswer);
+        answerInput.setText("");
+        pageNumber += 1;
+        if (pageNumber > totalPages) {
+            finishedQuestions();
+        } else {
+            renderPage();
+        }
+    }
+
+    //endregion
+
+    //region OnClick Interface
+
+    @Override
+    public void onClick(View view)
+    {
+        EditText editText = (EditText) findViewById(R.id.editClassroomAnswer);
+        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+
+            @Override
+            public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
+                int result = actionId & EditorInfo.IME_MASK_ACTION;
+                switch(result)
+                {
+                    case EditorInfo.IME_ACTION_NEXT:
+                        if(1 == 1)
+                        {
+                            checkAnswer(view);
+                        }
+                        return true;
+                }
+                return false;
+            }
+        });
+    }
+
+    //endregion
 }
