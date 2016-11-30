@@ -167,7 +167,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view)
     {
-        EditText editText = (EditText) findViewById(R.id.editClassroomAnswer);
+        EditText editText = (EditText) findViewById(R.id.editQuizAnswer);
         editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 
             @Override
