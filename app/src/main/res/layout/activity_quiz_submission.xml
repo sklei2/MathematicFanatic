@@ -95,7 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Your answers are below. If you want to fix any, just select one."
+        android:text="Your answers are below. If you want to fix any, select one."
         android:id="@+id/textView"
         android:layout_marginTop="18dp"
         android:textAlignment="center"
