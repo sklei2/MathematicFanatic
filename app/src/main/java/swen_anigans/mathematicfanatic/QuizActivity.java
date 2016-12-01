@@ -54,11 +54,6 @@ public class QuizActivity extends AppCompatActivity {
             // questions list, which is 0 index. We use 1 index for pages.
             pageNumber = desiredPage + 1;
         }
-        else
-        {
-            // it came from the submission
-            pageNumber = totalPages;
-        }
 
         //Timer functionality, will continute to ttempt to get working.
         /*
