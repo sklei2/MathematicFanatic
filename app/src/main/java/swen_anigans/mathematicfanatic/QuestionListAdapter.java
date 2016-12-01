@@ -63,7 +63,7 @@ public class QuestionListAdapter extends BaseAdapter implements ListAdapter
         }
         else
         {
-            questionAnswer.setText("No Answer");
+            questionAnswer.setText("Nothing");
         }
 
         return view;
