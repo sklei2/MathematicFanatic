@@ -50,7 +50,7 @@
             android:textSize="15sp"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
             android:textAlignment="center"
-            android:text="Question Number"/>
+            android:text="#"/>
 
         <Space
             android:layout_width="0dp"
