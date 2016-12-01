@@ -38,12 +38,24 @@ public class QuizActivity extends AppCompatActivity {
         Intent quizIntent = getIntent();
         this.quizContent = DataManager.getInstance().questionsContent;
 
+        // this will be a temp variable that holds the desired page, if a user selected
+        // a specific question from the submission
+        int desiredPage = quizIntent.getIntExtra("questionNumber",-1);
+
         // is it coming from the beginning?
         if(quizIntent.getBooleanExtra("atBeginning", false))
         {
             pageNumber = 1;
         }
-        else{
+        // is it asking for a specific page?
+        else if(desiredPage > -1)
+        {
+            // The quiz submission submits the index the question is in the
+            // questions list, which is 0 index. We use 1 index for pages.
+            pageNumber = desiredPage + 1;
+        }
+        else
+        {
             // it came from the submission
             pageNumber = totalPages;
         }
