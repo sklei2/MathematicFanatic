@@ -18,13 +18,19 @@ public class QuizStartActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ArrayList<Integer> quizNumbersIn = new ArrayList<Integer>(Arrays.asList(3, 8)); //Hardcoded.
-        quizzableNumbers = quizNumbersIn;
         setContentView(R.layout.activity_quiz_start);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         myToolbar.setBackgroundResource(R.color.quizPrimary);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        quizzableNumbers = new ArrayList<Integer>();
+        int min = DataManager.getInstance().curStudent.rangeMin;
+        int max = DataManager.getInstance().curStudent.rangeMax;
+        for(int i = min; i <= max; i++)
+        {
+            quizzableNumbers.add(i);
+        }
 
         TextView quizDescription = (TextView) findViewById(R.id.quizDescription);
         String quizDescriptionText = "Quiz on ";

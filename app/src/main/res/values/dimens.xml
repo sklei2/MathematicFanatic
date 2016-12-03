@@ -2,8 +2,11 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
 
     <!-- Our custom/dynamic button dimensions -->
+
     <dimen name="long_button_width">250dp</dimen>
     <dimen name="short_button_width">120dp</dimen>
     <dimen name="button_height">20dp</dimen>
@@ -16,7 +19,7 @@
         - margin is used on the end for the left button and start
         for the right button to get the spacing.
     -->
-    <dimen name="big_button_horizontal_padding">65dp</dimen>
+    <dimen name="big_button_horizontal_padding">55dp</dimen>
     <dimen name="big_button_margin">55dp</dimen>
 
 </resources>

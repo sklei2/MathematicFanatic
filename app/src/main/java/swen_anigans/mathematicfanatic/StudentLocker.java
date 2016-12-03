@@ -3,11 +3,10 @@ package swen_anigans.mathematicfanatic;
 import android.content.Intent;
 import android.os.Bundle;
 
-import android.support.v7.app.ActionBar;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 public class StudentLocker extends AppCompatActivity
@@ -35,6 +34,17 @@ public class StudentLocker extends AppCompatActivity
 
         title.setText(titleText);
 
+        if(DataManager.getInstance().questionsContent == null)
+        {
+            DataManager.getInstance().questionsContent = new QuestionContent(20);
+        }
+
+        // Clear the submitted answers
+        DataManager.getInstance().questionsContent.ClearAnswers();
+
+        // Shuffle them up!
+        DataManager.getInstance().questionsContent.ShuffleQuestions();
+
         //set the up button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -46,7 +56,7 @@ public class StudentLocker extends AppCompatActivity
     }
 
     public void toClassroom(View view){
-        Intent intent = new Intent(this, QuizStartActivity.class);
+        Intent intent = new Intent(this, ClassroomActivity.class);
         startActivity(intent);
     }
 

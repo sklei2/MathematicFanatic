@@ -2,9 +2,11 @@ package swen_anigans.mathematicfanatic;
 
 /**
  * Created by Mitchell on 11/10/2016.
+ *
+ * KEEP THIS FILE ALPHABETIC PLEASE - SK
  */
 
 public enum LearningType
 {
-    IMAGERY, FACT_FAMILIES, LIST_MEMORIZATION
+    FACT_FAMILIES, IMAGERY, LIST_MEMORIZATION
 }

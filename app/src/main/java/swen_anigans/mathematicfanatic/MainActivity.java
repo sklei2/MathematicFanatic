@@ -1,16 +1,12 @@
 package swen_anigans.mathematicfanatic;
 
 import android.content.Intent;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,6 +48,17 @@ public class MainActivity extends AppCompatActivity {
         // This student text would then be used to set the current
         // student from our "database"
         DataManager.getInstance().setCurStudent(studentText);
+
+        // Create the Helper based on the learning concepts of the user
+        switch(DataManager.getInstance().curStudent.learningType)
+        {
+            case IMAGERY:
+                DataManager.getInstance().supplier = new HelpImageSupplier();
+            case FACT_FAMILIES:
+                break;
+            case LIST_MEMORIZATION:
+                break;
+        }
 
         // Then jump on over to the locker page!
         Intent intent = new Intent(this, StudentLocker.class);

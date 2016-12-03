@@ -1,10 +1,7 @@
 package swen_anigans.mathematicfanatic;
 
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Hashtable;
 
 /**
  * Created by Mitchell on 11/9/2016.
@@ -17,6 +14,9 @@ public class DataManager
     protected ArrayList<student> students;
     protected student curStudent;
     protected HashMap<Interest,String> Interests;
+    protected QuestionContent questionsContent;
+
+    public IHelpSupplier supplier;
 
     private DataManager(){
         students = new ArrayList<student>();
@@ -62,7 +62,6 @@ public class DataManager
         return -1;
     }
 
-
     public student getStudent(String name){
         for(int i = 0; i < students.size(); i++){
             if(students.get(i).name.equals(name)) {
@@ -72,4 +71,5 @@ public class DataManager
 
         return null;
     }
+
 }

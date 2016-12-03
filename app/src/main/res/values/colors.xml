@@ -9,7 +9,6 @@
     <color name="homePrimary">#FFEB3B</color>
     <color name="homePrimaryDark">#F57F17</color>
     <color name="homeBackground">#FFF9C4</color>
-    <color name="homeColorAccent">#FF4081</color>
 
     <!-- Guardian Settings/PIN -->
     <color name="guardianPrimary">#607D8B</color>
@@ -19,8 +18,8 @@
     <color name="guardianListBackground">#eceff1</color>
 
     <!-- Button Colors -->
-    <color name="buttonBackground">#FFFFFF</color>
-    <color name="buttonClickedBackground">#717171</color>
+    <color name="buttonBackground">#ffffff</color>
+    <color name="buttonClickedBackground">#ccc904</color>
     <color name="buttonShadow">#989898</color>
 
     <!-- Locker Colors -->
@@ -31,16 +30,23 @@
     <color name="lockerRecessColor">#FF9800</color>
     <color name="lockerBackground">#F7FAFC</color>
 
+    <!-- Classroom Colors -->
+    <color name="classroomPrimary">#4CAF50</color>
+    <color name="classroomPrimaryDark">#1B5E20</color>
+    <color name="classroomBackground">#C8E6C9</color>
+    <color name="classroomAccent">#00C853</color>
+
     <!-- Help Colors -->
     <color name="helpPrimary">#E60073</color>
     <color name="helpPrimaryDark">#993366</color>
     <color name="helpBackground">#FFB3DA</color>
-    <color name="helpAccent">#00B3B3</color>
+    <color name="helpAccent">#00ebeb</color>
 
     <!-- Quiz Colors -->
     <color name="quizPrimary">#2196F3</color>
     <color name="quizPrimaryDark">#0D47A1</color>
     <color name="quizBackground">#BBDEFB</color>
+    <color name="quizAccent">#2962FF</color>
 
     <!-- Recess Colors -->
     <color name="recessPrimary">#FF9800</color>
@@ -49,4 +55,5 @@
 
     <!-- Other Colors -->
     <color name="starTint">#fff020</color>
+>
 </resources>
