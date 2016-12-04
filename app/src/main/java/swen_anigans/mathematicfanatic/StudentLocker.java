@@ -7,6 +7,7 @@ import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class StudentLocker extends AppCompatActivity
@@ -47,6 +48,10 @@ public class StudentLocker extends AppCompatActivity
 
         //set the up button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // set recess to be enabled or disabled, depending on if they did anything yet.
+        Button recess = (Button) findViewById(R.id.recessButton);
+        recess.setEnabled(DataManager.getInstance().curStudent.canRecess);
 
     }
 

@@ -1,6 +1,7 @@
 package swen_anigans.mathematicfanatic;
 
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -48,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
         // This student text would then be used to set the current
         // student from our "database"
         DataManager.getInstance().setCurStudent(studentText);
+
+        // make it so the current student is not allowed to go to recess
+        DataManager.getInstance().curStudent.canRecess = false;
 
         // Create the Helper based on the learning concepts of the user
         switch(DataManager.getInstance().curStudent.learningType)

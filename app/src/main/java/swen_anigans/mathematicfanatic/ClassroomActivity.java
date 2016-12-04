@@ -130,6 +130,10 @@ public class ClassroomActivity extends AppCompatActivity implements View.OnClick
         }else if(questionContent.questions.get(pageNumber - 1).checkAnswer()){
             text = "Correct!";
             ToastLib.success(this, text, Typeface.create("Helvetica", 0));
+
+            // I don't know where to activate the student's ability to recess,
+            // so this place seems as good as any
+            DataManager.getInstance().curStudent.canRecess = true;
             this.goToNextPage();
         }else{
             // Custom incorrect toast message
