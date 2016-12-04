@@ -24,20 +24,23 @@ public class QuizStartActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        quizzableNumbers = new ArrayList<Integer>();
         int min = DataManager.getInstance().curStudent.rangeMin;
         int max = DataManager.getInstance().curStudent.rangeMax;
-        for(int i = min; i <= max; i++)
-        {
-            quizzableNumbers.add(i);
-        }
 
         TextView quizDescription = (TextView) findViewById(R.id.quizDescription);
         String quizDescriptionText = "Quiz on ";
-        for (int i : quizzableNumbers) {
-            quizDescriptionText += (Integer.toString(i) + "'s, ");
+
+        if((max - min) < 2)
+        {
+            quizDescriptionText += (Integer.toString(min) + "'s and ");
+            quizDescriptionText += (Integer.toString(max) + "'s");
         }
-        quizDescriptionText = quizDescriptionText.substring(0, quizDescriptionText.length() - 2);
+        else
+        {
+            quizDescriptionText += (Integer.toString(min) + "'s - ");
+            quizDescriptionText += (Integer.toString(max) + "'s");
+        }
+
         quizDescription.setText(quizDescriptionText);
     }
 
