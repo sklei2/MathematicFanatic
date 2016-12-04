@@ -65,7 +65,7 @@ public class QuestionContent
     {
         for (Question q: questions)
         {
-            q.submittedAnswer = 0;
+            q.submittedAnswer = -1;
         }
     }
 
