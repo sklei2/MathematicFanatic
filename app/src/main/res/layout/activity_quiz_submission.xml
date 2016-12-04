@@ -28,38 +28,74 @@
         android:layout_height="wrap_content"
         android:text="Submit my Quiz"
         android:id="@+id/quizSubmitConfirmationButton"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:onClick="quizSubmission"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:theme="@style/NormalButton"/>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/listHeader"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@id/quizSubmitConfirmationButton"
-        android:layout_marginTop="@dimen/activity_vertical_margin">
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_below="@id/quizSubmitConfirmationButton">
 
-        <Button
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="&lt;"
-            android:id="@+id/button2"
-            android:textSize="40sp"
-            android:onClick="previousPage"
-            android:paddingStart="@dimen/big_button_horizontal_padding"
-            android:paddingEnd="@dimen/big_button_horizontal_padding"
-            android:layout_marginEnd="@dimen/big_button_margin"
-            android:theme="@style/NormalButton"/>
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:textAlignment="center"
+            android:text="#"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/quizProblem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:text="Question"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/quizQuestionSubmitted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:textAlignment="center"
+            android:text="Your answer"/>
 
     </LinearLayout>
+
+    <ListView
+        android:id="@+id/quizQuestionsList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/listHeader"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="You can press the back button to check your answers before submitting"
+        android:text="Your answers are below. If you want to fix any, select one."
         android:id="@+id/textView"
         android:layout_marginTop="18dp"
         android:textAlignment="center"
