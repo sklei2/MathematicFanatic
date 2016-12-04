@@ -27,6 +27,8 @@ public class QuizSubmissionActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         questions = DataManager.getInstance().questionsContent.questions;
+        // Student finished a quiz!!! They can go to recess now!!
+        DataManager.getInstance().curStudent.canRecess = true;
 
         // set the list view and its adapter
         ListView questionsList = (ListView) findViewById(R.id.quizQuestionsList);

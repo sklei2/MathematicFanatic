@@ -65,7 +65,7 @@
 
     <Button
         android:id="@+id/goToHelpButton"
-        android:background="@drawable/help_icon"
+        android:background="@drawable/help_icon_style"
         android:layout_width="75dp"
         android:layout_height="70dp"
         android:cropToPadding="true"

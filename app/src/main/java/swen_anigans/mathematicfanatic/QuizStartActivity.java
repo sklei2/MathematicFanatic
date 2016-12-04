@@ -13,8 +13,7 @@ import java.util.Arrays;
 public class QuizStartActivity extends AppCompatActivity {
 
     private ArrayList<Integer> quizzableNumbers;
-
-    //TODO: Figure out where data on which numbers to quiz on will come from.
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
