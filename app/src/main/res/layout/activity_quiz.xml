@@ -57,7 +57,7 @@
         android:layout_width="60dp"
         android:layout_height="30dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Time"
+        android:text="00:00"
         android:id="@+id/quizTimer"
         android:background="@drawable/border"
         android:layout_marginStart="@dimen/activity_horizontal_margin"

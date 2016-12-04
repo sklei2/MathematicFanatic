@@ -16,11 +16,15 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class QuizActivity extends AppCompatActivity {
     private int pageNumber; //The current page number
     private int totalPages; //The total # of pages
+    private static AtomicInteger seconds = new AtomicInteger(0);
 
     private QuestionContent quizContent;
 
@@ -48,30 +52,75 @@ public class QuizActivity extends AppCompatActivity {
             pageNumber = totalPages;
         }
 
-        //Timer functionality, will continute to ttempt to get working.
-        /*
-        final TextView quizTimer = (TextView) findViewById(R.id.quizTimer);
-        long startingTime = 120000; //Initializes the timer to 2 minutes.
-        new CountDownTimer(startingTime, 0) {
-            public void onTick(long milisecondsLeft) {
-                System.out.println(Long.toString(milisecondsLeft));
-                long minutes = 0;
-                long seconds = milisecondsLeft / 1000;
-                if (seconds > 60) {
-                    minutes += 1;
-                    seconds -= 60;
+        class QuizTimer extends TimerTask {
+            int seconds = 0; //TODO: See if this is preserved.
+            public void run() {
+                int displayMinutes = 0;
+                int displaySeconds = seconds;
+                while (displaySeconds >= 60) {
+                    displayMinutes++;
+                    displaySeconds -= 60;
                 }
 
-                String quizTimerString = (Long.toString(minutes) + ":" + Long.toString(seconds));
-                quizTimer.setText(quizTimerString);
-            }
+                String minutesDisplay = Integer.toString(displayMinutes);
+                if (displayMinutes < 10) {
+                    minutesDisplay = ("0" + Integer.toString(displayMinutes));
+                }
 
-            public void onFinish() {
-                //TODO: Change activity to results screen.
-                System.out.println("one yo");
+                String secondsDisplay = Integer.toString(displaySeconds);
+                if (displaySeconds < 10) {
+                    secondsDisplay = ("0" + Integer.toString(displaySeconds));
+                }
+
+                String timeDisplay = (minutesDisplay + ":" + secondsDisplay);
+                seconds++;
             }
-        }.start();
-        */
+        }
+
+        Timer timer = new Timer();
+        timer.schedule(new QuizTimer(), 0, 1000);
+
+        final AtomicInteger seconds = new AtomicInteger(0);
+
+        Thread t = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    while (!isInterrupted()) {
+                        Thread.sleep(1000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                QuizActivity.seconds.incrementAndGet();
+                                int displayMinutes = 0;
+                                int displaySeconds = QuizActivity.seconds.get();
+                                while (displaySeconds >= 60) {
+                                    displayMinutes++;
+                                    displaySeconds -= 60;
+                                }
+
+                                String minutesDisplay = Integer.toString(displayMinutes);
+                                if (displayMinutes < 10) {
+                                    minutesDisplay = ("0" + Integer.toString(displayMinutes));
+                                }
+
+                                String secondsDisplay = Integer.toString(displaySeconds);
+                                if (displaySeconds < 10) {
+                                    secondsDisplay = ("0" + Integer.toString(displaySeconds));
+                                }
+
+                                String timeDisplay = (minutesDisplay + ":" + secondsDisplay);
+                                TextView quizTimer = (TextView) findViewById(R.id.quizTimer);
+                                quizTimer.setText(timeDisplay);
+                            }
+                        });
+                    }
+                } catch (InterruptedException e) {
+                }
+            }
+        };
+
+        t.start();
 
         renderPage();
     }
