@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.provider.ContactsContract;
+import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,7 +25,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class QuizActivity extends AppCompatActivity {
     private int pageNumber; //The current page number
     private int totalPages; //The total # of pages
-    private static AtomicInteger seconds = new AtomicInteger(0);
+    public Thread t;
+
 
     private QuestionContent quizContent;
 
@@ -52,37 +54,7 @@ public class QuizActivity extends AppCompatActivity {
             pageNumber = totalPages;
         }
 
-        class QuizTimer extends TimerTask {
-            int seconds = 0; //TODO: See if this is preserved.
-            public void run() {
-                int displayMinutes = 0;
-                int displaySeconds = seconds;
-                while (displaySeconds >= 60) {
-                    displayMinutes++;
-                    displaySeconds -= 60;
-                }
-
-                String minutesDisplay = Integer.toString(displayMinutes);
-                if (displayMinutes < 10) {
-                    minutesDisplay = ("0" + Integer.toString(displayMinutes));
-                }
-
-                String secondsDisplay = Integer.toString(displaySeconds);
-                if (displaySeconds < 10) {
-                    secondsDisplay = ("0" + Integer.toString(displaySeconds));
-                }
-
-                String timeDisplay = (minutesDisplay + ":" + secondsDisplay);
-                seconds++;
-            }
-        }
-
-        Timer timer = new Timer();
-        timer.schedule(new QuizTimer(), 0, 1000);
-
-        final AtomicInteger seconds = new AtomicInteger(0);
-
-        Thread t = new Thread() {
+        t = new Thread() {
             @Override
             public void run() {
                 try {
@@ -91,9 +63,9 @@ public class QuizActivity extends AppCompatActivity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                QuizActivity.seconds.incrementAndGet();
+                                QuizStartActivity.seconds.incrementAndGet(); //remove?
                                 int displayMinutes = 0;
-                                int displaySeconds = QuizActivity.seconds.get();
+                                int displaySeconds = QuizStartActivity.seconds.get();
                                 while (displaySeconds >= 60) {
                                     displayMinutes++;
                                     displaySeconds -= 60;
@@ -110,8 +82,7 @@ public class QuizActivity extends AppCompatActivity {
                                 }
 
                                 String timeDisplay = (minutesDisplay + ":" + secondsDisplay);
-                                TextView quizTimer = (TextView) findViewById(R.id.quizTimer);
-                                quizTimer.setText(timeDisplay);
+                                updateTime(timeDisplay);
                             }
                         });
                     }
@@ -119,10 +90,14 @@ public class QuizActivity extends AppCompatActivity {
                 }
             }
         };
-
         t.start();
 
         renderPage();
+    }
+
+    public void updateTime(String timeDisplay) {
+        TextView quizTimer = (TextView) findViewById(R.id.quizTimer);
+        quizTimer.setText(timeDisplay);
     }
 
     public void previousPage(View view) {
@@ -136,6 +111,7 @@ public class QuizActivity extends AppCompatActivity {
         pageNumber += 1;
         if (pageNumber > totalPages) {
             Intent quizSubmissionIntent = new Intent(QuizActivity.this, QuizSubmissionActivity.class);
+            t.interrupt();
 
             // luckily the submissions will make use of the new QuizContent object!
             startActivity(quizSubmissionIntent);

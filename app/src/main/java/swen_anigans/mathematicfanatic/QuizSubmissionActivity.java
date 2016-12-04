@@ -8,12 +8,14 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class QuizSubmissionActivity extends AppCompatActivity {
 
     ArrayList<Question> questions;
+    int seconds;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,27 @@ public class QuizSubmissionActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         questions = DataManager.getInstance().questionsContent.questions;
+
+        TextView timer = (TextView) findViewById(R.id.quizTimer);
+        int displayMinutes = 0;
+        int displaySeconds = QuizStartActivity.seconds.get();
+        while (displaySeconds >= 60) {
+            displayMinutes++;
+            displaySeconds -= 60;
+        }
+
+        String minutesDisplay = Integer.toString(displayMinutes);
+        if (displayMinutes < 10) {
+            minutesDisplay = ("0" + Integer.toString(displayMinutes));
+        }
+
+        String secondsDisplay = Integer.toString(displaySeconds);
+        if (displaySeconds < 10) {
+            secondsDisplay = ("0" + Integer.toString(displaySeconds));
+        }
+
+        String timeDisplay = (minutesDisplay + ":" + secondsDisplay);
+        timer.setText(timeDisplay);
     }
 
     public void quizSubmission(View v) {
@@ -47,6 +70,7 @@ public class QuizSubmissionActivity extends AppCompatActivity {
     public void previousPage(View view) {
         Intent quizIntent = new Intent(QuizSubmissionActivity.this, QuizActivity.class);
         quizIntent.putExtra("atBeginning", false);
+        quizIntent.putExtra("timerStart", true);
 
         startActivity(quizIntent);
     }

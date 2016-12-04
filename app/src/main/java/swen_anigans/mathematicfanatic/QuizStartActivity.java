@@ -9,10 +9,12 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class QuizStartActivity extends AppCompatActivity {
 
     private ArrayList<Integer> quizzableNumbers;
+    public static AtomicInteger seconds = new AtomicInteger(0);
 
     //TODO: Figure out where data on which numbers to quiz on will come from.
     @Override
