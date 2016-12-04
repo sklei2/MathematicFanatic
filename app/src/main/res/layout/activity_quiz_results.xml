@@ -116,7 +116,8 @@
                 android:tint="@color/starTint"/>
         </LinearLayout>
     </LinearLayout>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/slideuppanel"
         android:layout_width="match_parent"
@@ -134,35 +135,5 @@
             android:paddingBottom="10dp"
             android:gravity="center_horizontal"
             android:textSize="30sp"/>
-        <Button
-            android:id="@+id/reward1"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@string/reward1" />
-        <Button
-            android:id="@+id/reward2"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@string/reward2" />
-        <Button
-            android:id="@+id/reward3"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@string/reward3" />
-        <Button
-            android:id="@+id/reward4"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@string/reward4" />
-        <Button
-            android:id="@+id/reward5"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@string/reward5" />
-        <Button
-            android:id="@+id/reward6"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@string/reward6" />
         </LinearLayout>
 </com.sothree.slidinguppanel.SlidingUpPanelLayout>
