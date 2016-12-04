@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class activity_help extends AppCompatActivity {
 
-    private String equationString = "2 x 2 = 4";
+    private String equationString = "Think about this picture!";
     private Integer a = 1;
     private Integer b = 1;
     private Integer c = 1;
@@ -42,17 +42,10 @@ public class activity_help extends AppCompatActivity {
         ImageView visualHelp = (ImageView)findViewById(R.id.visualization);
         visualHelp.setImageResource(resID);
 
-        // Calculate a*b and set string to display equation in Thought Cloud image
-        c = a*b;
-        equationString = a.toString() + " x " + b.toString() + " = " + c.toString();
+        // show "think about it" text in thought cloud.
         TextView equationView = (TextView) findViewById(R.id.equationView);
+        equationString = DataManager.getInstance().supplier.getItemText(b).replaceAll("_", a.toString());
         equationView.setText(equationString);
-
-        // Create explanation string
-        String item = DataManager.getInstance().supplier.getItemText(b);
-        String explanation = a.toString() + " bunches of " + b.toString() + " " + item + " gives you\n" + c.toString() + " " + item;
-        TextView explanationView = (TextView) findViewById(R.id.visualDescription);
-        explanationView.setText(explanation);
     }
 
     @Override
