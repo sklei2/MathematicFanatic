@@ -21,7 +21,7 @@
             app:popupTheme="@style/AppTheme">
             <TextView
                 style="@style/ActionBarText"
-                android:text="Help"
+                android:text="Hint"
                 android:textColor="#FFFFFF"/>
         </android.support.v7.widget.Toolbar>
 

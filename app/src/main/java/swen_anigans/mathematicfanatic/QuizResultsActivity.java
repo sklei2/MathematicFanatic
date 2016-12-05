@@ -1,5 +1,6 @@
 package swen_anigans.mathematicfanatic;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -7,6 +8,7 @@ import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -15,6 +17,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class QuizResultsActivity extends AppCompatActivity {
 
@@ -36,10 +40,10 @@ public class QuizResultsActivity extends AppCompatActivity {
             "Minecraft"};
     private static String[] videoIds = {
             "9HGfJhPqdBk",
-            "DR8SJqdknO8",
+            "T7HGSvczDA4",
             "sCywdHNummE",
-            "BMbDhwB1RjI",
-            "SXZ3qWAvbVs",
+            "87I82q3OpaU",
+            "lFtYgj5Lt6Q",
             "apDWFOpLZiU",};
 
     private enum Star {
@@ -79,6 +83,7 @@ public class QuizResultsActivity extends AppCompatActivity {
         toolbar.setBackgroundResource(R.color.quizPrimary);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        QuizStartActivity.seconds.getAndSet(0);
     }
 
     private LinearLayout formRewardSelectedLayout(LinearLayout ll, String r) {
@@ -129,14 +134,18 @@ public class QuizResultsActivity extends AppCompatActivity {
 
     private void setRewardListeners() {
         ViewGroup rewardGroup = (ViewGroup) findViewById(R.id.slideuppanel);
-        int rewardCount = rewardGroup.getChildCount();
-        pickedTV = ((TextView) rewardGroup.getChildAt(0));
-        rewardNames = new String[rewardCount];
-        Button temp;
-        String name;
-        for (int i=1 ; i<rewardCount ; i++) {
-            temp = ((Button) rewardGroup.getChildAt(i));
-            rewardNames[i] = temp.getText().toString();
+
+        // grab all the interests of the student.
+        Set<Interest> interests = new HashSet<>(Arrays.asList(DataManager.getInstance().curStudent.interests));
+
+        // create a button for each unique interest
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+
+        for(Interest i: interests) {
+            View view = inflater.inflate(R.layout.reward_button, null);
+            Button temp = (Button)view.findViewById(R.id.reward_button);
+            temp.setText(i.toString());
             temp.setOnClickListener(new Button.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -146,6 +155,7 @@ public class QuizResultsActivity extends AppCompatActivity {
                     formRewardSelectedLayout(slideUp,picked);
                 }
             });
+            rewardGroup.addView(view);
         }
     }
 

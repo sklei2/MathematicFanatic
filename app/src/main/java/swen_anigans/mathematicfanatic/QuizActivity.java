@@ -2,6 +2,8 @@ package swen_anigans.mathematicfanatic;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.provider.ContactsContract;
+import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,10 +15,18 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
     private int pageNumber; //The current page number
     private int totalPages; //The total # of pages
+    public Thread t;
+
 
     private QuestionContent quizContent;
 
@@ -51,36 +61,54 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             pageNumber = desiredPage + 1;
         }
 
+        t = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    while (!isInterrupted()) {
+                        Thread.sleep(1000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                QuizStartActivity.seconds.incrementAndGet(); //remove?
+                                int displayMinutes = 0;
+                                int displaySeconds = QuizStartActivity.seconds.get();
+                                while (displaySeconds >= 60) {
+                                    displayMinutes++;
+                                    displaySeconds -= 60;
+                                }
+
+                                String minutesDisplay = Integer.toString(displayMinutes);
+                                if (displayMinutes < 10) {
+                                    minutesDisplay = ("0" + Integer.toString(displayMinutes));
+                                }
+
+                                String secondsDisplay = Integer.toString(displaySeconds);
+                                if (displaySeconds < 10) {
+                                    secondsDisplay = ("0" + Integer.toString(displaySeconds));
+                                }
+
+                                String timeDisplay = (minutesDisplay + ":" + secondsDisplay);
+                                updateTime(timeDisplay);
+                            }
+                        });
+                    }
+                } catch (InterruptedException e) {
+                }
+            }
+        };
+        t.start();
+
         // add this class to be the listener of the answer edittext
         EditText answer = (EditText)findViewById(R.id.editQuizAnswer);
         answer.setOnClickListener(this);
 
-        //Timer functionality, will continute to ttempt to get working.
-        /*
-        final TextView quizTimer = (TextView) findViewById(R.id.quizTimer);
-        long startingTime = 120000; //Initializes the timer to 2 minutes.
-        new CountDownTimer(startingTime, 0) {
-            public void onTick(long milisecondsLeft) {
-                System.out.println(Long.toString(milisecondsLeft));
-                long minutes = 0;
-                long seconds = milisecondsLeft / 1000;
-                if (seconds > 60) {
-                    minutes += 1;
-                    seconds -= 60;
-                }
-
-                String quizTimerString = (Long.toString(minutes) + ":" + Long.toString(seconds));
-                quizTimer.setText(quizTimerString);
-            }
-
-            public void onFinish() {
-                //TODO: Change activity to results screen.
-                System.out.println("one yo");
-            }
-        }.start();
-        */
-
         renderPage();
+    }
+
+    public void updateTime(String timeDisplay) {
+        TextView quizTimer = (TextView) findViewById(R.id.quizTimer);
+        quizTimer.setText(timeDisplay);
     }
 
     public void previousPage(View view) {
@@ -94,6 +122,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         pageNumber += 1;
         if (pageNumber > totalPages) {
             Intent quizSubmissionIntent = new Intent(QuizActivity.this, QuizSubmissionActivity.class);
+            t.interrupt();
 
             // luckily the submissions will make use of the new QuizContent object!
             startActivity(quizSubmissionIntent);
