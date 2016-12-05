@@ -16,15 +16,9 @@ and install the application. Once application is downloaded, tap "Open".
 
 ## Known Issues
 - The formatting and alignment doesn't always appear properly when running on older versions of Android.
-- Timer for the Quiz function is not fully functional.
 - Working with the emulator, clicks are responded to slowly, and functionality appears broken.
-- Some of our designs for interaction weren't possible to implement in Android within a reasonable amount of time, for the beta prototype:
-  (range picker, button sizes/margins)
-- Settings aren't yet reflected in the functionality:
-  ("range" is limited to 3's and 8's, Videos not yet based off of interests, Concept Learning is limited to Visualization)
-- Videos aren't related to the reward. They are only sample video content.
-- Back button from Help activity returns user to start of Classroom functionality instead of back to the place where the user left off.
-- Classroom's "Check" button doesn't yet display correct/incorrect.
+- The range picker from our design wasn't able to be implemented within the allotted time.
+- Concept Learning is limited to Visualization.
 
 ## Development Setup
 1. Since this repository only contains the app folder of the android application, the first thing we need to do is create the android project correctly
