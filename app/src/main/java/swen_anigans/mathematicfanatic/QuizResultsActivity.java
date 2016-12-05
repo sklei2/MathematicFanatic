@@ -152,7 +152,7 @@ public class QuizResultsActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     LinearLayout slideUp = (LinearLayout) findViewById(R.id.slideuppanel);
                     slideUp.removeAllViews();
-                    picked = ((Button)v).getText().toString();
+                    picked = ((Button)v).getText().toString().toUpperCase();
                     formRewardSelectedLayout(slideUp,picked);
                 }
             });
