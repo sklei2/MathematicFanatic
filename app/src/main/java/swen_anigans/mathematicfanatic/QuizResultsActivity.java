@@ -32,12 +32,12 @@ public class QuizResultsActivity extends AppCompatActivity {
     private static TextView pickedTV;
 
     private static String[] videoCategories = {
-            "Magic",
-            "Animals",
-            "Medieval Times",
-            "Construction",
-            "Superheroes",
-            "Minecraft"};
+            "MAGIC",
+            "ANIMALS",
+            "MEDIEVAL TIMES",
+            "CCONSTRUCTION",
+            "SUPERHEROES",
+            "MINECRAFT"};
     private static String[] videoIds = {
             "9HGfJhPqdBk",
             "T7HGSvczDA4",
@@ -135,12 +135,13 @@ public class QuizResultsActivity extends AppCompatActivity {
     private void setRewardListeners() {
         ViewGroup rewardGroup = (ViewGroup) findViewById(R.id.slideuppanel);
 
+        pickedTV = (TextView) rewardGroup.getChildAt(0);
+
         // grab all the interests of the student.
         Set<Interest> interests = new HashSet<>(Arrays.asList(DataManager.getInstance().curStudent.interests));
 
         // create a button for each unique interest
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
 
         for(Interest i: interests) {
             View view = inflater.inflate(R.layout.reward_button, null);
@@ -149,7 +150,7 @@ public class QuizResultsActivity extends AppCompatActivity {
             temp.setOnClickListener(new Button.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    LinearLayout slideUp = (LinearLayout) ((Button) v).getParent();
+                    LinearLayout slideUp = (LinearLayout) findViewById(R.id.slideuppanel);
                     slideUp.removeAllViews();
                     picked = ((Button)v).getText().toString();
                     formRewardSelectedLayout(slideUp,picked);
