@@ -150,10 +150,10 @@ public class QuizResultsActivity extends AppCompatActivity {
             temp.setOnClickListener(new Button.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    LinearLayout slideUp = (LinearLayout) ((Button) v).getParent();
+                    LinearLayout slideUp = (LinearLayout) findViewById(R.id.slideuppanel);
                     slideUp.removeAllViews();
                     picked = ((Button)v).getText().toString();
-                    formRewardSelectedLayout(slideUp,picked.toString());
+                    formRewardSelectedLayout(slideUp,picked);
                 }
             });
             rewardGroup.addView(view);
