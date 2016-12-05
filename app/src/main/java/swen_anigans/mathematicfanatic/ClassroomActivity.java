@@ -62,15 +62,7 @@ public class ClassroomActivity extends AppCompatActivity implements View.OnClick
         TextView quizPagesComplete = (TextView) findViewById(R.id.quizPagesComplete);
         quizPagesComplete.setText(pageNumber+"/20");
     }
-
-    public void previousPage(View view) {
-        saveAnswer();
-        TextView answerInput = (TextView) findViewById(R.id.editClassroomAnswer);
-        answerInput.setText("");
-        pageNumber -= 1;
-        renderPage();
-    }
-
+    
     public void nextPage(View view) {
         checkAnswer(view);
     }
