@@ -83,6 +83,7 @@ public class QuizResultsActivity extends AppCompatActivity {
         toolbar.setBackgroundResource(R.color.quizPrimary);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        QuizStartActivity.seconds.getAndSet(0);
     }
 
     private LinearLayout formRewardSelectedLayout(LinearLayout ll, String r) {
