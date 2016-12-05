@@ -152,7 +152,7 @@ public class QuizResultsActivity extends AppCompatActivity {
                     LinearLayout slideUp = (LinearLayout) ((Button) v).getParent();
                     slideUp.removeAllViews();
                     picked = ((Button)v).getText().toString();
-                    formRewardSelectedLayout(slideUp,picked);
+                    formRewardSelectedLayout(slideUp,picked.toString());
                 }
             });
             rewardGroup.addView(view);
