@@ -17,13 +17,17 @@ import android.widget.TextView;
 import com.droidbyme.toastlib.ToastEnum;
 import com.droidbyme.toastlib.ToastLib;
 
+import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
+
 
 public class ClassroomActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private int pageNumber = 1;
-    private int totalPages = 20;
+    int min = DataManager.getInstance().curStudent.rangeMin;
+    int max = DataManager.getInstance().curStudent.rangeMax;
+    ArrayList<Integer> numbers = new ArrayList<Integer>();
 
-    private QuestionContent questionContent;
+    Question question;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,18 +42,26 @@ public class ClassroomActivity extends AppCompatActivity implements View.OnClick
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
 
-        questionContent = DataManager.getInstance().questionsContent;
-
         // add the action listener onto the edit text
         EditText answer = (EditText) findViewById(R.id.editClassroomAnswer);
         answer.setOnClickListener(this);
+
+        for(int i = min; i <= max; i++)
+        {
+            numbers.add(i);
+        }
 
         renderPage();
     }
 
     public void renderPage(){
         TextView questionDisplay = (TextView) findViewById(R.id.classroomQuestion);
-        Question question = questionContent.questions.get(pageNumber-1);
+
+        // generate the question
+        int firstNumber = numbers.get(ThreadLocalRandom.current().nextInt(0, numbers.size())); //Gets a random number from user's range.
+        int secondNumber = ThreadLocalRandom.current().nextInt(1, 13); //Gets a random number from 1-12.
+
+        question = new Question(firstNumber, secondNumber);
 
         String questionString = question.firstNumber + " x " + question.secondNumber;
         questionDisplay.setText(questionString);
@@ -58,17 +70,6 @@ public class ClassroomActivity extends AppCompatActivity implements View.OnClick
             EditText editQuizAnswer = (EditText) findViewById(R.id.editClassroomAnswer);
             editQuizAnswer.setText(Integer.toString(question.submittedAnswer));
         }
-
-        TextView quizPagesComplete = (TextView) findViewById(R.id.quizPagesComplete);
-        quizPagesComplete.setText(pageNumber+"/20");
-    }
-
-    public void previousPage(View view) {
-        saveAnswer();
-        TextView answerInput = (TextView) findViewById(R.id.editClassroomAnswer);
-        answerInput.setText("");
-        pageNumber -= 1;
-        renderPage();
     }
 
     public void nextPage(View view) {
@@ -80,40 +81,18 @@ public class ClassroomActivity extends AppCompatActivity implements View.OnClick
         String answerText = answerInput.getText().toString();
         if(!answerText.isEmpty()){
             int answer = Integer.parseInt(answerText);
-            questionContent.questions.get(pageNumber - 1).submittedAnswer = answer;
+            question.submittedAnswer = answer;
         }else{
-            questionContent.questions.get(pageNumber - 1).submittedAnswer = -1;
+            question.submittedAnswer = -1;
         }
 
     }
 
     public void goToHelp(View view){
-        Question question = questionContent.questions.get(pageNumber - 1);
         Intent intent = new Intent(this, activity_help.class);
         int[] temp = {question.firstNumber, question.secondNumber};
         intent.putExtra("abValues", temp);
         startActivity(intent);
-    }
-
-    public void finishedQuestions(){
-        int[] items = { R.id.checkButton,
-                        R.id.editClassroomAnswer,
-                        R.id.quizPagesComplete,
-                        R.id.goToHelpButton
-                        };
-        TextView screenItem;
-        for(int i = 0; i < items.length; i++) {
-            screenItem= (TextView) findViewById(items[i]);
-            screenItem.setVisibility(View.GONE);
-        }
-        screenItem = (TextView) findViewById(R.id.classroomQuestion);
-        screenItem.setText("Nice Job you finished 20 questions!");
-        screenItem.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
-        screenItem.setPadding(10,400,10,10);
-        screenItem = (TextView) findViewById(R.id.returnToLocker);
-        screenItem.setVisibility(View.VISIBLE);
-        screenItem.setEnabled(true);
-        screenItem.setHeight(400);
     }
 
     public void goToLocker(View view){
@@ -124,10 +103,10 @@ public class ClassroomActivity extends AppCompatActivity implements View.OnClick
     public void checkAnswer(View view){
         String text;
         saveAnswer();
-        if(questionContent.questions.get(pageNumber - 1).submittedAnswer == -1){
+        if(question.submittedAnswer == -1){
             text = "Please enter an answer first";
             ToastLib.error(this, text, Typeface.create("Helvetica", 0));
-        }else if(questionContent.questions.get(pageNumber - 1).checkAnswer()){
+        }else if(question.checkAnswer()){
             text = "Correct!";
             ToastLib.success(this, text, Typeface.create("Helvetica", 0));
 
@@ -159,12 +138,7 @@ public class ClassroomActivity extends AppCompatActivity implements View.OnClick
         saveAnswer();
         TextView answerInput = (TextView) findViewById(R.id.editClassroomAnswer);
         answerInput.setText("");
-        pageNumber += 1;
-        if (pageNumber > totalPages) {
-            finishedQuestions();
-        } else {
-            renderPage();
-        }
+        renderPage();
     }
 
     //endregion

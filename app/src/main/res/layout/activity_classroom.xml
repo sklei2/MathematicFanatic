@@ -24,21 +24,7 @@
                 android:textColor="#FFFFFF"/>
 
     </android.support.v7.widget.Toolbar>
-
-    <TextView
-        android:text="1/20"
-        android:layout_width="60dp"
-        android:layout_height="30dp"
-        android:id="@+id/quizPagesComplete"
-        android:textColor="@color/guardianPrimaryDark"
-        android:textSize="20sp"
-        android:background="@drawable/border"
-        android:layout_below="@+id/my_toolbar"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:layout_marginEnd="@dimen/activity_vertical_margin"
-        android:layout_alignParentEnd="true" />
-
+    
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -73,22 +59,6 @@
         android:layout_below="@id/my_toolbar"
         android:layout_marginStart="@dimen/activity_vertical_margin"
         android:onClick="goToHelp"/>
-
-    <Button
-        android:text="Return To Locker"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/returnToLocker"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_below="@+id/checkButton"
-        android:layout_alignParentStart="true"
-        android:enabled="false"
-        android:visibility="invisible"
-        android:onClick="goToLocker"
-        android:layout_marginEnd="@dimen/activity_horizontal_margin"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:textAlignment="center"
-        android:theme="@style/NormalButton"/>
 
     <EditText
         android:layout_width="@dimen/long_button_width"
