@@ -135,12 +135,13 @@ public class QuizResultsActivity extends AppCompatActivity {
     private void setRewardListeners() {
         ViewGroup rewardGroup = (ViewGroup) findViewById(R.id.slideuppanel);
 
+        pickedTV = (TextView) rewardGroup.getChildAt(0);
+
         // grab all the interests of the student.
         Set<Interest> interests = new HashSet<>(Arrays.asList(DataManager.getInstance().curStudent.interests));
 
         // create a button for each unique interest
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
 
         for(Interest i: interests) {
             View view = inflater.inflate(R.layout.reward_button, null);
