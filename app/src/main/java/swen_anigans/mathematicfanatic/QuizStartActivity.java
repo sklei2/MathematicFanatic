@@ -9,11 +9,13 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class QuizStartActivity extends AppCompatActivity {
 
     private ArrayList<Integer> quizzableNumbers;
-    
+    public static AtomicInteger seconds = new AtomicInteger(0);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
