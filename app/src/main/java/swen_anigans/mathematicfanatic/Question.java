@@ -36,7 +36,7 @@ public class Question implements Serializable {
     }
 
     public String toString(){
-        String s = "(" + firstNumber + ", " + secondNumber + ", " + answer + ", " + submittedAnswer + ")\n";
+        String s = "(" + firstNumber + " x " + secondNumber + ")";
         return s;
     }
 

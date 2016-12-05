@@ -9,6 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 
@@ -48,6 +50,24 @@ public class QuizSubmissionActivity extends AppCompatActivity {
 
         String timeDisplay = (minutesDisplay + ":" + secondsDisplay);
         timer.setText(timeDisplay);
+
+        // Student finished a quiz!!! They can go to recess now!!
+        DataManager.getInstance().curStudent.canRecess = true;
+
+        // set the list view and its adapter
+        ListView questionsList = (ListView) findViewById(R.id.quizQuestionsList);
+        QuestionListAdapter adapter = new QuestionListAdapter(questions, this);
+        questionsList.setAdapter(adapter);
+
+        // Add a click listener to the adapter so that it will go to the specifc quesiton
+        questionsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(QuizSubmissionActivity.this, QuizActivity.class);
+                intent.putExtra("questionNumber", i);
+                startActivity(intent);
+            }
+        });
     }
 
     public void quizSubmission(View v) {

@@ -10,6 +10,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".StudentLocker"
     tools:showIn="@layout/activity_student_locker">
 
@@ -20,7 +21,7 @@
             android:id="@+id/classroomButton"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:theme="@style/Widget.AppCompat.Button.Colored"
+            android:theme="@style/NormalButton"
             android:text="Classroom"
             android:onClick="toClassroom"
             android:textAppearance="@style/TextAppearance.AppCompat.Button"
@@ -29,7 +30,7 @@
         <Button
             android:text="Quiz"
             android:layout_width="match_parent"
-            android:theme="@style/Widget.AppCompat.Button.Colored"
+            android:theme="@style/NormalButton"
             android:layout_height="wrap_content"
             android:layout_below="@id/classroomButton"
             android:layout_centerHorizontal="true"
@@ -43,14 +44,12 @@
         <Button
             android:text="Recess"
             android:layout_width="match_parent"
-            android:theme="@style/Widget.AppCompat.Button.Colored"
+            android:theme="@style/RecessReportButton"
             android:layout_height="wrap_content"
             android:layout_below="@id/quizButton"
             android:layout_alignStart="@id/quizButton"
             android:layout_marginTop="95dp"
             android:id="@+id/recessButton"
-            android:textColor="#000000"
-            android:onClick="toRecess"
-            android:background="@color/lockerRecessColor"/>
+            android:onClick="toRecess" />
 
 </RelativeLayout>

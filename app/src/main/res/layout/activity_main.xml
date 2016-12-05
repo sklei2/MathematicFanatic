@@ -46,6 +46,18 @@
         android:background="@drawable/ic_settings_black_64dp"
         android:onClick="ToSettings"/>
 
+    <TextView
+        android:id="@+id/main_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Who's Practicing?"
+        android:layout_below="@+id/my_toolbar"
+        android:textSize="40sp"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:textAlignment="center"/>
+
     <ListView
         android:id="@+id/student_buttons"
         android:layout_width="wrap_content"
@@ -53,7 +65,7 @@
         android:layout_alignStart="@+id/add_student_button"
         android:layout_toStartOf="@+id/settings_button"
         android:layout_alignEnd="@+id/settings_button"
-        android:layout_below="@+id/my_toolbar"
+        android:layout_below="@+id/main_label"
         android:layout_above="@+id/add_student_button" />
 
 </RelativeLayout>
