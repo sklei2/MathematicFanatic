@@ -36,10 +36,10 @@ public class QuizResultsActivity extends AppCompatActivity {
             "Minecraft"};
     private static String[] videoIds = {
             "9HGfJhPqdBk",
-            "DR8SJqdknO8",
+            "T7HGSvczDA4",
             "sCywdHNummE",
-            "BMbDhwB1RjI",
-            "SXZ3qWAvbVs",
+            "87I82q3OpaU",
+            "lFtYgj5Lt6Q",
             "apDWFOpLZiU",};
 
     private enum Star {
