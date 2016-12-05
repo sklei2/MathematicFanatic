@@ -32,12 +32,12 @@ public class QuizResultsActivity extends AppCompatActivity {
     private static TextView pickedTV;
 
     private static String[] videoCategories = {
-            "Magic",
-            "Animals",
-            "Medieval Times",
-            "Construction",
-            "Superheroes",
-            "Minecraft"};
+            "MAGIC",
+            "ANIMALS",
+            "MEDIEVAL TIMES",
+            "CCONSTRUCTION",
+            "SUPERHEROES",
+            "MINECRAFT"};
     private static String[] videoIds = {
             "9HGfJhPqdBk",
             "T7HGSvczDA4",
@@ -152,7 +152,7 @@ public class QuizResultsActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     LinearLayout slideUp = (LinearLayout) findViewById(R.id.slideuppanel);
                     slideUp.removeAllViews();
-                    picked = ((Button)v).getText().toString().toUpperCase();
+                    picked = ((Button)v).getText().toString();
                     formRewardSelectedLayout(slideUp,picked);
                 }
             });
